@@ -14,6 +14,16 @@
   <link rel="stylesheet" href="variables.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="motion.css">
+  <!-- Smart Image Fallback -->
+  <script>
+    document.addEventListener('error', function(e) {
+      if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.fallback) {
+        e.target.dataset.fallback = 'true';
+        var filename = e.target.src.split('/').pop();
+        e.target.src = filename;
+      }
+    }, true);
+  </script>
 </head>
 <body>
   
@@ -395,7 +405,7 @@
     </div>
     <div class="concern-grid">
       <div class="concern-card hover-lift reveal-card stagger-1">
-        <div class="concern-bg" style="background-image: url('assets/people/concern_acne.png')"></div>
+        <div class="concern-bg" style="background-image: url('concern_acne.png'), url('assets/people/concern_acne.png')"></div>
         <div class="concern-overlay"></div>
         <div class="concern-content">
           <h3>Acne</h3>
@@ -403,7 +413,7 @@
         </div>
       </div>
       <div class="concern-card hover-lift reveal-card stagger-2">
-        <div class="concern-bg" style="background-image: url('assets/people/concern_pigmentation.png')"></div>
+        <div class="concern-bg" style="background-image: url('concern_pigmentation.png'), url('assets/people/concern_pigmentation.png')"></div>
         <div class="concern-overlay"></div>
         <div class="concern-content">
           <h3>Pigmentation</h3>
@@ -411,7 +421,7 @@
         </div>
       </div>
       <div class="concern-card hover-lift reveal-card stagger-3">
-        <div class="concern-bg" style="background-image: url('assets/people/concern_aging.png')"></div>
+        <div class="concern-bg" style="background-image: url('concern_aging.png'), url('assets/people/concern_aging.png')"></div>
         <div class="concern-overlay"></div>
         <div class="concern-content">
           <h3>Aging</h3>
@@ -419,7 +429,7 @@
         </div>
       </div>
       <div class="concern-card hover-lift reveal-card stagger-4">
-        <div class="concern-bg" style="background-image: url('assets/people/concern_sensitive.png')"></div>
+        <div class="concern-bg" style="background-image: url('concern_sensitive.png'), url('assets/people/concern_sensitive.png')"></div>
         <div class="concern-overlay"></div>
         <div class="concern-content">
           <h3>Sensitive</h3>
@@ -427,7 +437,7 @@
         </div>
       </div>
       <div class="concern-card hover-lift reveal-card stagger-5">
-        <div class="concern-bg" style="background-image: url('assets/people/concern_hydration.png')"></div>
+        <div class="concern-bg" style="background-image: url('concern_hydration.png'), url('assets/people/concern_hydration.png')"></div>
         <div class="concern-overlay"></div>
         <div class="concern-content">
           <h3>Hydration</h3>
@@ -435,7 +445,7 @@
         </div>
       </div>
       <div class="concern-card hover-lift reveal-card stagger-6">
-        <div class="concern-bg" style="background-image: url('assets/people/concern_procedure.png')"></div>
+        <div class="concern-bg" style="background-image: url('concern_procedure.png'), url('assets/people/concern_procedure.png')"></div>
         <div class="concern-overlay"></div>
         <div class="concern-content">
           <h3>Post Procedure</h3>

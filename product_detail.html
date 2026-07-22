@@ -15,6 +15,16 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="motion.css">
   <link rel="stylesheet" href="shop.css">
+  <!-- Smart Image Fallback -->
+  <script>
+    document.addEventListener('error', function(e) {
+      if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.fallback) {
+        e.target.dataset.fallback = 'true';
+        var filename = e.target.src.split('/').pop();
+        e.target.src = filename;
+      }
+    }, true);
+  </script>
 </head>
 <body>
 

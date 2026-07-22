@@ -367,6 +367,16 @@
       }
     }
   </style>
+  <!-- Smart Image Fallback -->
+  <script>
+    document.addEventListener('error', function(e) {
+      if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.fallback) {
+        e.target.dataset.fallback = 'true';
+        var filename = e.target.src.split('/').pop();
+        e.target.src = filename;
+      }
+    }, true);
+  </script>
 </head>
 <body>
 
