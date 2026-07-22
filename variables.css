@@ -1,0 +1,67 @@
+:root {
+  --color-clinical-white: #F8F7F4;
+  --color-pure-white: #FFFFFF;
+  --color-graphite: #2F3437;
+  --color-forest: #254438;
+  --color-bronze: #A27B5C;
+
+  --color-stone-50: #F5F5F4;
+  --color-stone-100: #E7E5E4;
+  --color-stone-200: #E6E4E2;
+  --color-stone-300: #D6D3D1;
+  --color-stone-400: #A8A29E;
+  --color-stone-500: #78716C;
+  --color-stone-600: #57534E;
+  --color-stone-700: #44403C;
+  --color-stone-800: #292524;
+  --color-stone-900: #1C1917;
+
+  --bg-primary: var(--color-clinical-white);
+  --bg-surface: var(--color-pure-white);
+  --text-primary: var(--color-graphite);
+  --text-accent: var(--color-forest);
+  --text-muted: var(--color-stone-500);
+  --border-primary: var(--color-stone-200);
+
+  --font-heading: 'Cormorant Garamond', 'Noto Sans Thai', serif;
+  --font-body: 'Prompt', 'Noto Sans Thai', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --font-size-hero: 72px;
+  --font-size-display: 56px;
+  --font-size-h1: 48px;
+  --font-size-h2: 40px;
+  --font-size-h3: 32px;
+  --font-size-h4: 24px;
+  --font-size-body-l: 20px;
+  --font-size-body: 18px;
+  --font-size-small: 16px;
+  --font-size-caption: 14px;
+  --font-size-micro: 12px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 120px;
+  --space-13: 160px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 2px 12px rgba(43, 45, 47, 0.02);
+  --shadow-medium: 0 4px 20px rgba(43, 45, 47, 0.04);
+  --shadow-floating: 0 12px 36px rgba(43, 45, 47, 0.06);
+}

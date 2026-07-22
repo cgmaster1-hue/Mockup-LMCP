@@ -1,0 +1,863 @@
+/* LMCP Shop & Editorial Layout Stylesheet */
+
+/* 1. Page Hero: Huge Image -> Huge Typography -> Whitespace -> Editorial Story */
+.page-hero {
+  position: relative;
+  width: 100%;
+  margin-top: 72px;
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--border-primary);
+  background-color: var(--color-clinical-white);
+}
+
+.hero-large-visual {
+  width: 100%;
+  height: 640px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-large-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.95);
+}
+
+.hero-editorial-meta {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-10) var(--space-8) 0 var(--space-8);
+}
+
+.hero-mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  color: var(--color-bronze);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.hero-huge-title {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-graphite);
+  margin-bottom: var(--space-8);
+  letter-spacing: -0.02em;
+}
+
+.hero-editorial-story {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: var(--space-12);
+  margin-top: var(--space-6);
+}
+
+.hero-story-lead {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  line-height: 1.4;
+  color: var(--color-forest);
+  font-style: italic;
+}
+
+.hero-story-body {
+  font-size: var(--font-size-body-l);
+  line-height: 1.6;
+  color: var(--color-stone-600);
+  font-weight: 300;
+}
+
+/* 2. Gallery-style Collections */
+.collection-series-section {
+  padding: var(--space-12) 0;
+  background-color: var(--color-pure-white);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.collection-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+}
+
+.collection-block {
+  margin-bottom: var(--space-12);
+}
+
+.collection-block:last-child {
+  margin-bottom: 0;
+}
+
+.collection-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-primary);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.collection-header-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.collection-num {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-small);
+  color: var(--color-bronze);
+}
+
+.collection-header-title h2 {
+  font-size: var(--font-size-h2);
+  color: var(--color-graphite);
+  font-weight: 400;
+}
+
+.collection-accent-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.accent-restoration {
+  background-color: rgba(37, 68, 56, 0.08);
+  color: var(--color-forest);
+}
+
+.accent-brightening {
+  background-color: rgba(162, 123, 92, 0.08);
+  color: var(--color-bronze);
+}
+
+.accent-hydration {
+  background-color: rgba(100, 100, 100, 0.08);
+  color: #666;
+}
+
+.accent-sensitive {
+  background-color: rgba(70, 100, 120, 0.08);
+  color: #466478;
+}
+
+/* 3. Asymmetric Product Showcase */
+.showcase-row {
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.showcase-row.reversed {
+  grid-template-columns: 1.2fr 1.8fr;
+}
+
+.showcase-visual {
+  width: 100%;
+  height: 520px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background-color: var(--color-stone-50);
+  box-shadow: var(--shadow-medium);
+}
+
+.showcase-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-luxury) var(--ease-out-expo);
+}
+
+.showcase-visual:hover img {
+  transform: scale(1.03);
+}
+
+.showcase-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+.showcase-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  color: var(--color-bronze);
+  letter-spacing: 0.1em;
+}
+
+.showcase-title {
+  font-size: var(--font-size-h3);
+  color: var(--color-graphite);
+}
+
+.showcase-text {
+  font-size: var(--font-size-body-l);
+  color: var(--color-stone-500);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.showcase-ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+}
+
+.ing-badge {
+  font-size: var(--font-size-caption);
+  color: var(--color-forest);
+  background-color: var(--color-clinical-white);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+}
+
+.showcase-link {
+  font-size: var(--font-size-caption);
+  color: var(--color-bronze);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--duration-interaction), color var(--duration-interaction);
+  margin-top: var(--space-2);
+}
+
+.showcase-link:hover {
+  color: var(--color-forest);
+  border-color: var(--color-forest);
+}
+
+@media (max-width: 960px) {
+  .hero-editorial-story {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .hero-huge-title {
+    font-size: 3rem;
+  }
+  .hero-large-visual {
+    height: 400px;
+  }
+  .showcase-row, .showcase-row.reversed {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .showcase-visual {
+    height: 340px;
+  }
+}
+
+/* 4. Product Detail Split Showcase */
+.detail-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-10);
+  max-width: 1200px;
+  margin: var(--space-10) auto;
+  padding: 0 var(--space-8);
+}
+
+.detail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.gallery-main {
+  width: 100%;
+  height: 580px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background-color: var(--color-stone-50);
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-specs-card {
+  padding: var(--space-8);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-clinical-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.specs-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-graphite);
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  border-top: 1px solid var(--border-primary);
+  border-bottom: 1px solid var(--border-primary);
+  padding: var(--space-4) 0;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  color: var(--color-stone-400);
+}
+
+.spec-val {
+  font-size: var(--font-size-body-l);
+  color: var(--color-graphite);
+  font-weight: 500;
+}
+
+/* 5. Texture Selector */
+.texture-section {
+  padding: var(--space-10) 0;
+  background-color: var(--color-pure-white);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.texture-tabs {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.texture-btn {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  padding: var(--space-2) var(--space-6);
+  border: 1px solid var(--border-primary);
+  background-color: transparent;
+  color: var(--color-stone-500);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-interaction);
+}
+
+.texture-btn.active {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+  color: var(--color-pure-white);
+}
+
+.texture-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.texture-visual {
+  height: 380px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.texture-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.texture-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* 6. Accordions */
+.accordion-item {
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) 0;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  color: var(--color-graphite);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-interaction) var(--ease-in-out-cubic);
+}
+
+.accordion-body.open {
+  max-height: 500px;
+  padding-bottom: var(--space-4);
+}
+
+/* 7. Clinical Data Graphs */
+.clinical-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: var(--space-10);
+  padding: var(--space-10) 0;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background-color: var(--color-clinical-white);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-primary);
+}
+
+.chart-bar-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.chart-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  color: var(--color-stone-500);
+}
+
+.chart-track {
+  height: 12px;
+  background-color: var(--color-stone-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.chart-fill {
+  height: 100%;
+  background-color: var(--color-forest);
+  border-radius: var(--radius-full);
+  width: 0;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chart-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  font-weight: 600;
+  color: var(--color-graphite);
+}
+
+/* 8. Compare Matrix */
+.compare-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+}
+
+.compare-matrix th, .compare-matrix td {
+  padding: var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.compare-matrix th {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  color: var(--color-stone-400);
+}
+
+/* 9. Commerce Action Bar */
+.commerce-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-6) var(--space-8);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-clinical-white);
+  box-shadow: var(--shadow-medium);
+  margin-top: var(--space-10);
+}
+
+.commerce-price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.price-num {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--color-graphite);
+}
+
+@media (max-width: 768px) {
+  .detail-hero-grid, .texture-showcase, .clinical-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* 10. Ingredient Encyclopedia Styles */
+.letter-ribbon {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--border-primary);
+  border-bottom: 1px solid var(--border-primary);
+  margin-bottom: var(--space-8);
+}
+
+.letter-btn {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-body-l);
+  color: var(--color-stone-400);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  transition: color var(--duration-interaction);
+}
+
+.letter-btn:hover, .letter-btn.active {
+  color: var(--color-forest);
+  font-weight: 600;
+}
+
+.ency-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ency-card {
+  padding: var(--space-8);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-pure-white);
+  box-shadow: var(--shadow-small);
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: var(--space-8);
+}
+
+.ency-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-right: 1px solid var(--border-primary);
+  padding-right: var(--space-6);
+}
+
+.ency-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ency-field {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-4);
+  border-bottom: 1px dashed var(--border-primary);
+  padding-bottom: var(--space-3);
+}
+
+.ency-field:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ency-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  color: var(--color-stone-400);
+  text-transform: uppercase;
+}
+
+.ency-val {
+  font-size: var(--font-size-body-l);
+  color: var(--color-graphite);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* 11. Journal Article Styles */
+.journal-article-header {
+  text-align: center;
+  max-width: 900px;
+  margin: var(--space-10) auto;
+  padding: 0 var(--space-6);
+}
+
+.article-title-large {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-graphite);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.article-author-info {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  color: var(--color-bronze);
+  border-top: 1px solid var(--border-primary);
+  border-bottom: 1px solid var(--border-primary);
+  padding: var(--space-3) 0;
+}
+
+.article-columns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  max-width: 900px;
+  margin: var(--space-10) auto;
+  padding: 0 var(--space-6);
+}
+
+.article-paragraph {
+  font-size: var(--font-size-body-l);
+  line-height: 1.7;
+  color: var(--color-stone-600);
+  font-weight: 300;
+  margin-bottom: var(--space-6);
+}
+
+.article-paragraph::first-letter {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  float: left;
+  line-height: 1;
+  padding-right: var(--space-2);
+  color: var(--color-forest);
+}
+
+.article-quote-box {
+  grid-column: 1 / -1;
+  border-left: 3px solid var(--color-forest);
+  padding-left: var(--space-6);
+  margin: var(--space-6) 0;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-graphite);
+}
+
+@media (max-width: 768px) {
+  .ency-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .ency-card-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border-primary);
+    padding-right: 0;
+    padding-bottom: var(--space-4);
+  }
+  .ency-field {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+  .article-columns-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .article-title-large {
+    font-size: 2.2rem;
+  }
+}
+
+/* 12. Clinic Detail Styles */
+.clinic-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.tech-card {
+  padding: var(--space-6);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-pure-white);
+  box-shadow: var(--shadow-small);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: transform var(--duration-interaction);
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+}
+
+.tech-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-micro);
+  color: var(--color-bronze);
+  letter-spacing: 0.1em;
+}
+
+.tech-title {
+  font-size: var(--font-size-h4);
+  color: var(--color-graphite);
+}
+
+.tech-desc {
+  font-size: var(--font-size-caption);
+  color: var(--color-stone-500);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border-primary);
+  align-items: center;
+}
+
+.service-row:last-child {
+  border-bottom: none;
+}
+
+.service-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  color: var(--color-graphite);
+}
+
+.service-meta {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  color: var(--color-stone-400);
+}
+
+@media (max-width: 960px) {
+  .clinic-tech-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* 13. Thumbnail Gallery Styles */
+.gallery-thumbnails {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.thumb-item {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: var(--color-stone-100);
+  transition: all var(--duration-interaction) var(--ease-out-expo);
+  opacity: 0.65;
+}
+
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-interaction);
+}
+
+.thumb-item:hover {
+  opacity: 1;
+}
+
+.thumb-item.active {
+  border-color: var(--color-forest);
+  opacity: 1;
+  box-shadow: var(--shadow-soft);
+}
+
+/* 8. Bottom Sticky Booking Bar */
+.bottom-booking-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(248, 247, 244, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-primary);
+  padding: var(--space-4) 0;
+  z-index: 999;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.booking-bar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-prod-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bar-prod-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-body-l);
+  color: var(--color-graphite);
+  font-weight: 500;
+}
+
+.bar-prod-desc {
+  font-size: var(--font-size-caption);
+  color: var(--color-stone-500);
+  font-weight: 300;
+}
+
+.bar-price {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-body-l);
+  color: var(--color-graphite);
+  font-weight: 500;
+}

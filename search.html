@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Discovery Workspace - LMCP</title>
+  
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="shop.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Prompt:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Spotlight Workspace Custom Accents */
+    .search-workspace-hero {
+      padding: var(--space-12) 0 var(--space-8);
+      background-color: var(--color-clinical-white);
+      border-bottom: 1px solid var(--border-primary);
+      margin-top: 72px;
+    }
+    
+    .search-bar-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: var(--space-6) auto var(--space-4);
+      z-index: 10;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: var(--space-5) var(--space-12) var(--space-5) var(--space-6);
+      font-family: var(--font-body);
+      font-size: var(--font-size-body);
+      font-weight: 300;
+      color: var(--color-graphite);
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-stone-300);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      outline: none;
+      transition: all var(--duration-interaction) var(--ease-out-expo);
+    }
+    
+    .search-input:focus {
+      border-color: var(--color-forest);
+      box-shadow: var(--shadow-medium), 0 0 0 4px rgba(37, 68, 56, 0.05);
+    }
+    
+    .search-input-icon {
+      position: absolute;
+      left: var(--space-4);
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-stone-400);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-shortcut-badge {
+      position: absolute;
+      right: var(--space-4);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-400);
+      background-color: var(--color-stone-100);
+      border: 1px solid var(--border-primary);
+      padding: 2px var(--space-2);
+      border-radius: var(--radius-sm);
+      pointer-events: none;
+    }
+
+    .scope-pills-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .scope-pill {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-500);
+      background: transparent;
+      border: 1px solid var(--color-stone-300);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 0.05em;
+    }
+
+    .scope-pill:hover, .scope-pill.active {
+      color: var(--color-clinical-white);
+      background-color: var(--color-graphite);
+      border-color: var(--color-graphite);
+    }
+
+    .popular-tags-ribbon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+      font-size: var(--font-size-caption);
+      color: var(--color-stone-500);
+      flex-wrap: wrap;
+    }
+
+    .popular-tag {
+      color: var(--color-stone-600);
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    .popular-tag:hover {
+      color: var(--color-forest);
+    }
+
+    /* Grid layout */
+    .discovery-workspace-body {
+      padding: var(--space-10) 0 var(--space-12);
+      min-height: 500px;
+    }
+
+    /* Pre-search Recommended layout */
+    .presearch-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.5fr;
+      gap: var(--space-10);
+    }
+
+    .presearch-sidebar {
+      border-right: 1px solid var(--border-primary);
+      padding-right: var(--space-8);
+    }
+
+    .trending-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+
+    .trending-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      color: var(--color-graphite);
+      text-decoration: none;
+      font-weight: 300;
+      font-size: var(--font-size-caption);
+      transition: color 0.2s;
+    }
+
+    .trending-item:hover {
+      color: var(--color-forest);
+    }
+
+    .trending-num {
+      font-family: var(--font-mono);
+      color: var(--color-bronze);
+      font-size: var(--font-size-micro);
+      width: 24px;
+    }
+
+    /* Live Search Results structure */
+    .results-workspace {
+      display: none; /* Dynamic toggled */
+    }
+
+    .category-results-block {
+      margin-bottom: var(--space-10);
+      padding-bottom: var(--space-8);
+      border-bottom: 1px solid var(--border-primary);
+    }
+
+    .category-results-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: var(--space-6);
+    }
+
+    .category-title {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-h4);
+      color: var(--color-graphite);
+    }
+
+    .category-count {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-caption);
+      color: var(--color-stone-400);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-6);
+    }
+
+    /* Cards */
+    .result-card {
+      background: var(--color-pure-white);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s var(--ease-out-expo);
+      box-shadow: var(--shadow-soft);
+      min-height: 220px;
+    }
+
+    .result-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+      border-color: var(--color-stone-300);
+    }
+
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-400);
+      margin-bottom: var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-body);
+      color: var(--color-graphite);
+      margin-bottom: var(--space-3);
+      font-weight: 500;
+    }
+
+    .card-description {
+      font-size: var(--font-size-caption);
+      color: var(--color-stone-500);
+      line-height: 1.5;
+      font-weight: 300;
+      margin-bottom: var(--space-4);
+    }
+
+    .card-link {
+      color: var(--color-forest);
+      text-decoration: none;
+      font-size: var(--font-size-caption);
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      transition: gap 0.2s;
+    }
+
+    .card-link:hover {
+      gap: 6px;
+    }
+
+    /* Highlight mark */
+    mark {
+      background-color: rgba(37, 68, 56, 0.1);
+      color: var(--color-forest);
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+
+    /* Empty state */
+    .search-empty-state {
+      display: none;
+      text-align: center;
+      padding: var(--space-12) 0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 960px) {
+      .presearch-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+      .presearch-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-primary);
+        padding-right: 0;
+        padding-bottom: var(--space-6);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Transparent Navigation Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="homepage.html">LMCP</a>
+      </div>
+      <nav class="nav-menu">
+        <a href="clinical_collections.html">คอลเลกชัน</a>
+        <a href="homepage.html#concerns">ปัญหาผิว</a>
+        <a href="ingredient_encyclopedia.html">วิทยาศาสตร์ของส่วนผสม</a>
+        <a href="homepage.html#stories">ผลลัพธ์ทางคลินิก</a>
+        <a href="clinic_finder.html">คลินิก</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-icon active" aria-label="ค้นหา">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="#" class="btn-studio">Studio Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Search Workspace -->
+  <header class="search-workspace-hero">
+    <div class="container" style="text-align: center;">
+      <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">CLINICAL SEARCH PORTAL</span>
+      <h1 class="hero-huge-title" style="font-family: var(--font-heading); margin-top: var(--space-2); font-size: var(--font-size-h2); line-height: 1.2;">ค้นพบองค์ความรู้ด้านเวชศาสตร์ความงาม</h1>
+      
+      <!-- Spotlight Search Box -->
+      <div class="search-bar-wrapper">
+        <div class="search-input-icon" style="position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); color: var(--color-stone-400); display: flex; align-items: center; z-index: 5;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <input type="text" id="search-input" class="search-input" style="padding-left: 54px;" placeholder="ค้นหาผลิตภัณฑ์, ส่วนผสม, บทความวิจัย หรือคลินิก..." autocomplete="off">
+        <div class="search-shortcut-badge">[ / ] to focus</div>
+      </div>
+      
+      <!-- Filter scope pills -->
+      <div class="scope-pills-row">
+        <button class="scope-pill active" onclick="setScope('all', event)">ทั้งหมด</button>
+        <button class="scope-pill" onclick="setScope('products', event)">Products</button>
+        <button class="scope-pill" onclick="setScope('ingredients', event)">Ingredients</button>
+        <button class="scope-pill" onclick="setScope('research', event)">Research</button>
+        <button class="scope-pill" onclick="setScope('clinics', event)">Clinics</button>
+      </div>
+
+      <!-- Popular Searches Ribbon -->
+      <div class="popular-tags-ribbon">
+        <span>คำค้นหายอดนิยม:</span>
+        <span class="popular-tag" onclick="quickSearch('Recovery Balm')">Recovery Balm</span> &bull;
+        <span class="popular-tag" onclick="quickSearch('Niacinamide')">Niacinamide</span> &bull;
+        <span class="popular-tag" onclick="quickSearch('Skin Barrier')">Skin Barrier</span> &bull;
+        <span class="popular-tag" onclick="quickSearch('Laser')">Laser Recovery</span> &bull;
+        <span class="popular-tag" onclick="quickSearch('Pico')">Pico</span> &bull;
+        <span class="popular-tag" onclick="quickSearch('Retinol')">Retinol</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Discovery Workspace Body -->
+  <main class="discovery-workspace-body travertine-bg">
+    <div class="container">
+      
+      <!-- STATE 1: PRE-SEARCH (Recommended Discoveries) -->
+      <div id="presearch-workspace" class="presearch-grid">
+        <div class="presearch-sidebar">
+          <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.1em; margin-bottom: var(--space-4);">RECENT SEARCHES</h4>
+          <div class="trending-list" style="margin-bottom: var(--space-8);">
+            <a href="#" class="trending-item" onclick="quickSearch('Recovery Balm'); return false;">
+              <span class="trending-num">01</span> The Recovery Balm
+            </a>
+            <a href="#" class="trending-item" onclick="quickSearch('Retinol'); return false;">
+              <span class="trending-num">02</span> Retinol 0.5%
+            </a>
+            <a href="#" class="trending-item" onclick="quickSearch('Pico'); return false;">
+              <span class="trending-num">03</span> Picosecond Laser
+            </a>
+          </div>
+          
+          <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.1em; margin-bottom: var(--space-4);">TRENDING TOPICS</h4>
+          <div class="trending-list">
+            <a href="#" class="trending-item" onclick="quickSearch('Barrier'); return false;">
+              <span class="trending-num">01</span> Skin Barrier Repair
+            </a>
+            <a href="#" class="trending-item" onclick="quickSearch('Acne'); return false;">
+              <span class="trending-num">02</span> Acne & Inflammatory
+            </a>
+            <a href="#" class="trending-item" onclick="quickSearch('Vitamin C'); return false;">
+              <span class="trending-num">03</span> Vitamin C Stabilisation
+            </a>
+          </div>
+        </div>
+        
+        <div class="presearch-content">
+          <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.1em; margin-bottom: var(--space-6);">FEATURED DISCOVERIES</h4>
+          
+          <div class="results-grid">
+            <!-- Curated Product -->
+            <div class="result-card">
+              <div>
+                <span class="card-meta">FEATURED PRODUCT &bull; ★★★★★ Clinical Formula</span>
+                <h3 class="card-title">The Recovery Balm</h3>
+                <p class="card-description">บาล์มบำรุงกู้ชีพหลังหัตถการ เสริมสร้างการสมานเกราะป้องกันผิวและกระตุ้นการสังเคราะห์คอลลาเจนด้วย Copper Peptide</p>
+              </div>
+              <a href="product_detail.html" class="card-link">ดูรายละเอียดผลิตภัณฑ์ &rarr;</a>
+            </div>
+            
+            <!-- Curated Ingredient -->
+            <div class="result-card">
+              <div>
+                <span class="card-meta">FEATURED ACTIVE</span>
+                <h3 class="card-title">Vitamin C (L-Ascorbic Acid)</h3>
+                <p class="card-description">สารต้านอนุมูลอิสระระดับบริสุทธิ์เพื่อผิวกระจ่างใสสุขภาพดี ป้องกันการสร้างเม็ดสีเมลานินและซ่อมสร้างชั้นผิว</p>
+              </div>
+              <a href="ingredient_encyclopedia.html" class="card-link">ทำความเข้าใจส่วนผสม &rarr;</a>
+            </div>
+
+            <!-- Curated Research Paper -->
+            <div class="result-card">
+              <div>
+                <span class="card-meta">RECOMMENDED READING &bull; 8 MIN READ</span>
+                <h3 class="card-title">โมเลกุลเกราะผิวหนังและการสลายตัวระดับไมโคร</h3>
+                <p class="card-description">วิเคราะห์กลไกเซราไมด์ที่มีบทบาทสำคัญในการซ่อมแซมแบริเออร์ทางผิวหนังของชาวเอเชีย</p>
+              </div>
+              <a href="journal_article.html" class="card-link">อ่านงานวิจัย &rarr;</a>
+            </div>
+
+            <!-- Curated Clinic -->
+            <div class="result-card">
+              <div>
+                <span class="card-meta">CLINICAL PARTNER &bull; Discovery Pico</span>
+                <h3 class="card-title">LMCP Studio - EmQuartier</h3>
+                <p class="card-description">สัมผัสประสบการณ์เลเซอร์ Picosecond และเทคโนโลยีการยกกระชับ Ultherapy ในสเปซที่พรีเมียมหรูหรา</p>
+              </div>
+              <a href="clinic_detail.html" class="card-link">นัดหมายสาขา &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE 2: LIVE SEARCH RESULTS -->
+      <div id="results-workspace" class="results-workspace">
+        
+        <!-- Category: Products -->
+        <div id="cat-products-block" class="category-results-block">
+          <div class="category-header">
+            <h3 class="category-title">คอลเลกชันและสูตรผลิตภัณฑ์ <span class="category-count" id="count-products">(0)</span></h3>
+          </div>
+          <div class="results-grid" id="results-products"></div>
+        </div>
+        
+        <!-- Category: Ingredients -->
+        <div id="cat-ingredients-block" class="category-results-block">
+          <div class="category-header">
+            <h3 class="category-title">วิทยาศาสตร์ของส่วนผสม <span class="category-count" id="count-ingredients">(0)</span></h3>
+          </div>
+          <div class="results-grid" id="results-ingredients"></div>
+        </div>
+        
+        <!-- Category: Research / Journal -->
+        <div id="cat-research-block" class="category-results-block">
+          <div class="category-header">
+            <h3 class="category-title">บทความวิจัยทางการแพทย์ <span class="category-count" id="count-research">(0)</span></h3>
+          </div>
+          <div class="results-grid" id="results-research"></div>
+        </div>
+        
+        <!-- Category: Clinics -->
+        <div id="cat-clinics-block" class="category-results-block">
+          <div class="category-header">
+            <h3 class="category-title">คลินิกและสเปซพันธมิตร <span class="category-count" id="count-clinics">(0)</span></h3>
+          </div>
+          <div class="results-grid" id="results-clinics"></div>
+        </div>
+        
+      </div>
+
+      <!-- STATE 3: EMPTY RESULT STATE -->
+      <div id="empty-state-workspace" class="search-empty-state">
+        <span class="header-mono" style="color: var(--color-bronze); font-size: var(--font-size-micro); display: block; margin-bottom: var(--space-4);">NO RESULTS FOUND</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-graphite); margin-bottom: var(--space-4);">ไม่พบผลลัพธ์ที่ตรงกับคำค้นหาของคุณ</h2>
+        <p style="font-weight: 300; color: var(--color-stone-500); line-height: 1.6; margin-bottom: var(--space-8);">
+          ขออภัย ไม่พบเอกสาร ผลิตภัณฑ์ หรือบทความวิจัยที่ตรงกับคำที่ระบุ ลองสืบค้นโดยใช้คำหลักอื่น ๆ
+        </p>
+        
+        <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); margin-bottom: var(--space-4);">ลองค้นหาคำแนะนำเหล่านี้</h4>
+        <div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
+          <button class="scope-pill" onclick="quickSearch('Recovery')">Recovery</button>
+          <button class="scope-pill" onclick="quickSearch('Barrier')">Barrier</button>
+          <button class="scope-pill" onclick="quickSearch('Vitamin C')">Vitamin C</button>
+          <button class="scope-pill" onclick="quickSearch('Journal')">Journal</button>
+          <button class="scope-pill" onclick="quickSearch('Clinic')">Clinic</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.5fr 2fr; gap: var(--space-10); padding-bottom: var(--space-10); max-width: 1440px; margin: 0 auto; padding: 0 var(--space-8);">
+      <div class="footer-brand">
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); margin-bottom: var(--space-3); letter-spacing: 0.1em;">LMCP</h3>
+        <div class="brand-manifesto" style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.3; font-style: italic; margin-bottom: var(--space-5);">
+          <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+          <p class="manifesto-line-2" style="color: var(--color-bronze);">We curate science, not trends.</p>
+        </div>
+      </div>
+      <div class="footer-links" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">PRODUCT</h6>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Restoration Serum</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Brightening Elixir</a>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Recovery Balm</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">KNOWLEDGE</h6>
+          <a href="ingredient_encyclopedia.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Active Encyclopedia</a>
+          <a href="journal_article.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Research Papers</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">LEGAL & CONTACT</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Privacy Policy</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.05); padding: var(--space-6) 0; max-width: 1440px; margin: 0 auto; padding: var(--space-6) var(--space-8);">
+      <div class="collection-container" style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); color: var(--color-stone-500);">
+        <span>© 2026 LMCP. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search database & logic -->
+  <script>
+    // 1. Mock Database
+    const database = [
+      {
+        id: "prod-restoration",
+        category: "products",
+        meta: "RESTORATION COLLECTION",
+        title: "The Restoration Serum",
+        description: "เซรั่มเข้มข้นกู้ชีพเกราะป้องกันผิวที่แห้งเสียอ่อนแอ ด้วยระบบเซราไมด์ NP และเทคโนโลยี Lipid-Lock ล็อกความชุ่มชื้นใน 3 วัน",
+        linkText: "ดูรายละเอียดผลิตภัณฑ์ &rarr;",
+        url: "product_detail.html"
+      },
+      {
+        id: "prod-recovery",
+        category: "products",
+        meta: "RECOVERY COLLECTION &bull; ★★★★★ Clinical Formula",
+        title: "The Recovery Balm",
+        description: "บาล์มฟื้นฟูผิวอักเสบหลังหัตถการเลเซอร์ Picosecond เสริม Copper Tripeptide-1 2.0% เร่งการสมานรอยแผลและโครงสร้างผิว",
+        linkText: "ดูรายละเอียดผลิตภัณฑ์ &rarr;",
+        url: "product_detail.html"
+      },
+      {
+        id: "prod-brightening",
+        category: "products",
+        meta: "BRIGHTENING COLLECTION",
+        title: "The Brightening Elixir",
+        description: "เอสเซนส์สูตรเมลานินเรกูเลเตอร์ สลายจุดด่างดำ รอยฝ้า กระ และปรับสมดุลผิวให้กระจ่างใสอย่างนุ่มนวลสูงสุด",
+        linkText: "ดูรายละเอียดผลิตภัณฑ์ &rarr;",
+        url: "product_detail.html"
+      },
+      {
+        id: "ing-vitc",
+        category: "ingredients",
+        meta: "CLINICAL ACTIVE &bull; PH 3.0 - 3.5",
+        title: "Vitamin C (L-Ascorbic Acid 15%)",
+        description: "วิตามินซีสดความเข้มข้นสูง ปกป้องผิวจากปัจจัยภายนอก กระตุ้นคอลลาเจน และบล็อกกระบวนการสร้างเม็ดสีที่ Epidermis",
+        linkText: "ทำความเข้าใจส่วนผสม &rarr;",
+        url: "ingredient_encyclopedia.html"
+      },
+      {
+        id: "ing-niac",
+        category: "ingredients",
+        meta: "REFINEMENT ACTIVE &bull; PH 6.0 - 6.5 &bull; Compatible",
+        title: "Niacinamide (Vitamin B3 10%)",
+        description: "วิตามินบี 3 เข้มข้น ลดรอยแดง กระชับรูขุมขน ปรับผิวเรียบเนียน และยับยั้งการขนส่งเมลานินขึ้นสู่ผิวชั้นบน",
+        linkText: "ทำความเข้าใจส่วนผสม &rarr;",
+        url: "ingredient_encyclopedia.html"
+      },
+      {
+        id: "ing-retinol",
+        category: "ingredients",
+        meta: "RENEWAL ACTIVE &bull; PH 5.0 - 6.0 &bull; Avoid: Vit C",
+        title: "Pure Retinol (วิตามินเอ 0.5%)",
+        description: "อนุพันธ์เรตินอลบริสุทธิ์เร่งการผลัดเซลล์ผิวชั้นนอก กระตุ้นการสังเคราะห์คอลลาเจนใต้ชั้น Dermis เพื่อลดเลือนริ้วรอยร่องลึก",
+        linkText: "ทำความเข้าใจส่วนผสม &rarr;",
+        url: "ingredient_encyclopedia.html"
+      },
+      {
+        id: "journal-barrier",
+        category: "research",
+        meta: "CLINICAL JOURNAL &bull; 8 MIN READ &bull; Advisory Endorsed",
+        title: "โมเลกุลเกราะผิวหนังบอบบางแพ้ง่ายและการสลายตัวระดับไมโคร",
+        description: "เจาะลึกบทบาทหน้าที่ของเซราไมด์ NPs อิ่มตัวและโครงสร้าง Lipid Matrix ในการทำหน้าที่เป็นหน้าด่านป้องกันผิวอักเสบในสภาวะเลเซอร์ Picosend",
+        linkText: "อ่านงานวิจัย &rarr;",
+        url: "journal_article.html"
+      },
+      {
+        id: "journal-vitc",
+        category: "research",
+        meta: "CLINICAL JOURNAL &bull; 6 MIN READ",
+        title: "การเปรียบเทียบเชิงวิเคราะห์ความเสถียรระหว่าง L-Ascorbic Acid และอนุพันธ์เสถียรอื่น ๆ",
+        description: "บทความเปรียบเทียบเชิงลึกด้านประสิทธิผลการนำพาสารต้านอนุมูลอิสระเข้าสู่ระดับโครงสร้างชั้น Dermis และอัตราการเกิดอ็อกซิเดชัน",
+        linkText: "อ่านงานวิจัย &rarr;",
+        url: "journal_article.html"
+      },
+      {
+        id: "clinic-emq",
+        category: "clinics",
+        meta: "PARTNER STUDIO &bull; EMQUARTIER 3F &bull; Discovery Pico",
+        title: "LMCP Studio - EmQuartier",
+        description: "ศูนย์นวัตกรรมผิวพรรณพรีเมียมที่รวบรวมเลเซอร์เทคโนโลยีขั้นสูง Discovery Pico, Ultherapy และดูแลโดยแพทย์คณะที่ปรึกษาแพทย์เฉพาะทาง",
+        linkText: "นัดหมายสาขา &rarr;",
+        url: "clinic_detail.html"
+      },
+      {
+        id: "clinic-rjd",
+        category: "clinics",
+        meta: "PARTNER STUDIO &bull; RAJADAMRI 1F &bull; Barrier Repair Program",
+        title: "LMCP Studio - Rajadamri",
+        description: "สเปซส่วนตัวเพื่อการวิเคราะห์และบำบัดผิวด้วยโปรแกรมฟื้นฟูเกราะแบริเออร์ทางผิวหนังหลังการทำหัตถการขั้นสูงในย่านใจกลางราชดำริ",
+        linkText: "นัดหมายสาขา &rarr;",
+        url: "clinic_detail.html"
+      }
+    ];
+
+    let currentScope = 'all';
+
+    // 2. Search Logic
+    const searchInput = document.getElementById('search-input');
+    const presearchWorkspace = document.getElementById('presearch-workspace');
+    const resultsWorkspace = document.getElementById('results-workspace');
+    const emptyStateWorkspace = document.getElementById('empty-state-workspace');
+
+    searchInput.addEventListener('input', () => {
+      executeSearch();
+    });
+
+    function setScope(scope, event) {
+      currentScope = scope;
+      
+      // Update active pill
+      const pills = document.querySelectorAll('.scope-pill');
+      pills.forEach(pill => pill.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      
+      executeSearch();
+    }
+
+    function quickSearch(keyword) {
+      searchInput.value = keyword;
+      searchInput.focus();
+      executeSearch();
+    }
+
+    function highlightText(text, query) {
+      if (!query) return text;
+      const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+      return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    function executeSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      
+      if (!query) {
+        // Show pre-search, hide results and empty state
+        presearchWorkspace.style.display = 'grid';
+        resultsWorkspace.style.display = 'none';
+        emptyStateWorkspace.style.display = 'none';
+        return;
+      }
+
+      // Filter results
+      const filtered = database.filter(item => {
+        // Filter by scope
+        if (currentScope !== 'all' && item.category !== currentScope) return false;
+        
+        // Filter by query match
+        return item.title.toLowerCase().includes(query) || 
+               item.description.toLowerCase().includes(query) ||
+               item.meta.toLowerCase().includes(query);
+      });
+
+      if (filtered.length === 0) {
+        // Show empty state, hide others
+        presearchWorkspace.style.display = 'none';
+        resultsWorkspace.style.display = 'none';
+        emptyStateWorkspace.style.display = 'block';
+        return;
+      }
+
+      // Show results workspace, hide others
+      presearchWorkspace.style.display = 'none';
+      resultsWorkspace.style.display = 'block';
+      emptyStateWorkspace.style.display = 'none';
+
+      // Group results
+      const groups = {
+        products: [],
+        ingredients: [],
+        research: [],
+        clinics: []
+      };
+
+      filtered.forEach(item => {
+        groups[item.category].push(item);
+      });
+
+      // Render categories
+      renderCategoryBlock('products', groups.products, query);
+      renderCategoryBlock('ingredients', groups.ingredients, query);
+      renderCategoryBlock('research', groups.research, query);
+      renderCategoryBlock('clinics', groups.clinics, query);
+    }
+
+    function renderCategoryBlock(category, items, query) {
+      const block = document.getElementById(`cat-${category}-block`);
+      const container = document.getElementById(`results-${category}`);
+      const countLabel = document.getElementById(`count-${category}`);
+      
+      // Hide category block if no items and scope is 'all'
+      if (items.length === 0 && currentScope === 'all') {
+        block.style.display = 'none';
+        return;
+      }
+
+      block.style.display = 'block';
+      countLabel.innerText = `(${items.length})`;
+      container.innerHTML = '';
+
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'result-card animate-fade-in';
+        
+        const highlightedMeta = highlightText(item.meta, query);
+        const highlightedTitle = highlightText(item.title, query);
+        const highlightedDesc = highlightText(item.description, query);
+        
+        card.innerHTML = `
+          <div>
+            <span class="card-meta">${highlightedMeta}</span>
+            <h3 class="card-title">${highlightedTitle}</h3>
+            <p class="card-description">${highlightedDesc}</p>
+          </div>
+          <a href="${item.url}" class="card-link">${item.linkText}</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // 3. Keyboard Shortcuts Listener
+    document.addEventListener('keydown', (e) => {
+      // Don't override default typing focus in inputs
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        return;
+      }
+
+      // '/' to focus
+      if (e.key === '/') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+
+      // 'Ctrl + K' shortcut
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    // Sticky Nav Scroll Logic
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.main-header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(248, 247, 244, 0.95)';
+        header.style.boxShadow = 'var(--shadow-soft)';
+      } else {
+        header.style.background = 'rgba(248, 247, 244, 0.7)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

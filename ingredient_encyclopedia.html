@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingredient Encyclopedia | LMCP</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+  <!-- Sticky Transparent Navigation Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="homepage.html">LMCP</a>
+      </div>
+      <nav class="nav-menu">
+        <a href="clinical_collections.html">คอลเลกชัน</a>
+        <a href="homepage.html#concerns">ปัญหาผิว</a>
+        <a href="ingredient_encyclopedia.html" class="active">วิทยาศาสตร์ของส่วนผสม</a>
+        <a href="homepage.html#stories">ผลลัพธ์ทางคลินิก</a>
+        <a href="clinic_finder.html">คลินิก</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-icon" aria-label="ค้นหา">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="#" class="btn-studio">Studio Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero (Strictly Editorial, no grids at opening) -->
+  <header class="page-hero">
+    <div class="hero-large-visual">
+      <img src="assets/editorial/exhibit_skinceuticals.png" alt="Ingredient Science Lab Detail">
+    </div>
+    <div class="hero-editorial-meta animate-fade-in">
+      <span class="hero-mono-label">SCIENCE COMPENDIUM</span>
+      <h1 class="hero-huge-title">สารานุกรมโมเลกุลเวชสำอาง</h1>
+      <div class="hero-editorial-story">
+        <p class="hero-story-lead">"ความรู้คือเกราะป้องกันผิวที่ดีที่สุด ค้นหาและทำความเข้าใจกลไกเคมีของแต่ละโมเลกุลที่สอดประสานอยู่ในระบบดูแลผิวของคุณ"</p>
+        <p class="hero-story-body">สารานุกรมโมเลกุลเวชสำอางของ LMCP รวบรวมข้อมูลสารออกฤทธิ์ทางชีวภาพ (Active Ingredients) ที่คัดเลือกโดยคณะกรรมการแพทย์ที่ปรึกษาของเรา พร้อมนำเสนอแหล่งที่มา กลไกการออกฤทธิ์ ผลลัพธ์ทางคลินิก และความเข้ากันได้ทางสูตรเคมีเพื่อความปลอดภัยสูงสุดในการทาเลเยอร์</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Alphabet Ribbon Navigation -->
+  <div class="collection-container" style="margin-top: var(--space-8);">
+    <div class="letter-ribbon">
+      <button class="letter-btn active">ALL</button>
+      <button class="letter-btn">A</button>
+      <button class="letter-btn">C</button>
+      <button class="letter-btn">H</button>
+      <button class="letter-btn">N</button>
+      <button class="letter-btn">P</button>
+      <button class="letter-btn">R</button>
+    </div>
+  </div>
+
+  <!-- Ingredient Profile Compendium -->
+  <main style="padding-bottom: var(--space-12); background-color: var(--color-clinical-white);">
+    <div class="collection-container">
+      <div class="ency-grid">
+        
+        <!-- Vitamin C (L-Ascorbic Acid) -->
+        <article class="ency-card">
+          <div class="ency-card-left">
+            <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">VITAMIN C GROUP</span>
+            <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-graphite);">L-Ascorbic Acid</h2>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">วิตามินซีบริสุทธิ์ที่มีฤทธิ์ต้านอนุมูลอิสระสูงสุดในธรรมชาติ</p>
+          </div>
+          <div class="ency-card-right">
+            <div class="ency-field">
+              <span class="ency-label">Origin / แหล่งที่มา</span>
+              <span class="ency-val">สังเคราะห์ความบริสุทธิ์สูงผ่านกระบวนการ Bio-fermentation เพื่อให้ได้โครงสร้างไอโซเมอร์แบบ L-Form ที่ผิวพรรณมนุษย์ดูดซึมใช้งานได้จริง</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Mechanism / กลไก</span>
+              <span class="ency-val">ยับยั้งเอนไซม์ Tyrosinase ในกระบวนการผลิตเม็ดสีเมลานิน ป้องกันการก่อตัวของจุดด่างดำ พร้อมทำหน้าที่กระตุ้นตัวรับฟลูออไรด์คอลลาเจนใต้ชั้นผิว Dermis</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Compatible Actives</span>
+              <span class="ency-val" style="color: var(--color-forest); font-weight: 500;">Ferulic Acid, Vitamin E, Hyaluronic Acid (เสริมความเสถียรและกักความชื้น)</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Contraindications</span>
+              <span class="ency-val" style="color: #c94a4a; font-weight: 500;">Copper Tripeptide-1, Benzoyl Peroxide, AHA/BHA ความเข้มข้นสูง (ห้ามทาพร้อมกันในรูทีนเดียว)</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Clinical Evidence</span>
+              <span class="ency-val">การใช้ความเข้มข้น 15% ร่วมกับ Ferulic Acid ช่วยลดอัตราการเกิดออกซิเดชันของไขมันบนผิวลงได้ถึง 42% ใน 4 สัปดาห์</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Niacinamide (Vitamin B3) -->
+        <article class="ency-card">
+          <div class="ency-card-left">
+            <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">VITAMIN B GROUP</span>
+            <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-graphite);">Niacinamide</h2>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">วิตามินบี 3 อเนกประสงค์เพื่อฟื้นบำรุงเซลล์ผิวพรรณ</p>
+          </div>
+          <div class="ency-card-right">
+            <div class="ency-field">
+              <span class="ency-label">Origin / แหล่งที่มา</span>
+              <span class="ency-val">สารสกัดบริสุทธิ์ละลายน้ำเกรดการแพทย์ ปราศจากสารปนเปื้อนกรดนิโคตินิก (Nicotinic Acid) ที่ทำให้เกิดอาการผิวแดงร้อน</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Mechanism / กลไก</span>
+              <span class="ency-val">ยับยั้งการส่งผ่านถุงเมลานิน (Melanosomes) จากเซลล์สร้างเม็ดสี Melanocyte ขึ้นมาสู่เซลล์ผิวชั้นบนสุด พร้อมกระตุ้นการผลิตกรดไขมันและเซราไมด์ธรรมชาติ</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Compatible Actives</span>
+              <span class="ency-val" style="color: var(--color-forest); font-weight: 500;">Retinol, Ceramides, Zinc PCA, Hyaluronic Acid (เสริมสมดุลเกราะและการลดการอักเสบ)</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Contraindications</span>
+              <span class="ency-val" style="color: #666;">ไม่มีข้อห้ามเด่นชัด สามารถผสานใช้กับสารบำรุงอื่นได้อย่างปลอดภัยสูงมาก</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Clinical Evidence</span>
+              <span class="ency-val">การใช้ความเข้มข้น 5% ช่วยบรรเทาผื่นแดง (Erythema) และกระชับความกว้างรูขุมขนลงได้ถึง 30% ในผู้ทดลองใน 6 สัปดาห์</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pure Retinol (Vitamin A) -->
+        <article class="ency-card">
+          <div class="ency-card-left">
+            <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">VITAMIN A GROUP</span>
+            <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-graphite);">Pure Retinol</h2>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">มาตรฐานสูงสุดในการฟื้นฟูริ้วรอยและการผลัดเซลล์ผิว</p>
+          </div>
+          <div class="ency-card-right">
+            <div class="ency-field">
+              <span class="ency-label">Origin / แหล่งที่มา</span>
+              <span class="ency-val">เรตินอลบริสุทธิ์ที่ผ่านกระบวนการห่อหุ้มในโมเลกุลไขมัน (Micro-encapsulated Retinol) เพื่อเพิ่มความเสถียรและควบคุมการปล่อยประจุเข้าสู่เซลล์ทีละน้อย</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Mechanism / กลไก</span>
+              <span class="ency-val">จับกับตัวรับ Retinoic Acid Receptors ในนิวเคลียสของเซลล์ผิวเพื่อส่งสัญญาณเร่งการผลัดเซลล์ผิวชั้นบน และคืนสภาพความยืดหยุ่นของโครงสร้างอีลาสติน</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Compatible Actives</span>
+              <span class="ency-val" style="color: var(--color-forest); font-weight: 500;">Niacinamide, Ceramides, Hyaluronic Acid (ช่วยปลอบประโลมลดผลข้างเคียงของเรตินอล)</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Contraindications</span>
+              <span class="ency-val" style="color: #c94a4a; font-weight: 500;">AHA/BHA (ห้ามทาซ้อนกันในเวลาเดียวกันเพื่อเลี่ยงผิวหนังอักเสบลอกรุนแรง)</span>
+            </div>
+            <div class="ency-field">
+              <span class="ency-label">Clinical Evidence</span>
+              <span class="ency-val">การใช้ความเข้มข้น 0.5% ช่วยเพิ่มความกระชับตึงแน่นและลดความลึกของริ้วรอยร่องแก้มได้ถึง 35% ภายหลังการใช้งาน 8 สัปดาห์</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.5fr 2fr; gap: var(--space-10); padding-bottom: var(--space-10);">
+      <div class="footer-brand">
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); margin-bottom: var(--space-3); letter-spacing: 0.1em;">LMCP</h3>
+        <div class="brand-manifesto" style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.3; font-style: italic; margin-bottom: var(--space-5);">
+          <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+          <p class="manifesto-line-2" style="color: var(--color-bronze);">We curate science, not trends.</p>
+        </div>
+      </div>
+      <div class="footer-links" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">PRODUCT</h6>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Restoration Serum</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Recovery Balm</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">SCIENCE</h6>
+          <a href="ingredient_encyclopedia.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Clinical Trials</a>
+          <a href="journal_article.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Research Papers</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">LEGAL & CONTACT</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Privacy Policy</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.05); padding: var(--space-6) 0;">
+      <div class="collection-container" style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); color: var(--color-stone-500);">
+        <span>© 2026 LMCP. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky Nav Scroll Logic
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.main-header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(248, 247, 244, 0.95)';
+        header.style.boxShadow = 'var(--shadow-soft)';
+      } else {
+        header.style.background = 'rgba(248, 247, 244, 0.7)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

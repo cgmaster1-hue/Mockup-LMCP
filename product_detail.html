@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Recovery Balm | LMCP</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+  <!-- Sticky Transparent Navigation Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="homepage.html">LMCP</a>
+      </div>
+      <nav class="nav-menu">
+        <a href="clinical_collections.html">คอลเลกชัน</a>
+        <a href="homepage.html#concerns">ปัญหาผิว</a>
+        <a href="ingredient_encyclopedia.html">วิทยาศาสตร์ของส่วนผสม</a>
+        <a href="homepage.html#stories">ผลลัพธ์ทางคลินิก</a>
+        <a href="clinic_finder.html">คลินิก</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-icon" aria-label="ค้นหา">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="#" class="btn-studio">Studio Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero (Strictly Editorial, no commerce visible at top) -->
+  <header class="page-hero">
+    <div class="hero-large-visual">
+      <img src="assets/editorial/exhibit_merz.png" alt="The Recovery Balm Editorial Header">
+    </div>
+    <div class="hero-editorial-meta animate-fade-in">
+      <span class="hero-mono-label">FORMULATION SPECIFICATION</span>
+      <h1 class="hero-huge-title">The Recovery Balm</h1>
+      <div class="hero-editorial-story">
+        <p class="hero-story-lead">"การฟื้นฟูเกราะปกป้องผิวภายหลังการทำหัตถการทางการแพทย์ จำเป็นต้องได้รับการเยียวยาในสภาพแวดล้อมที่ควบคุมความชื้นและความดันเซลล์อย่างสมบูรณ์แบบ"</p>
+        <p class="hero-story-body">บาล์มเนื้อละเอียดพิเศษชนิดเข้มข้น ออกแบบและผ่านการทดสอบทางคลินิกสำหรับผิวที่เสียหายหลังทำเลเซอร์ Picosecond และทรีตเมนต์แรงสูง ด้วยการส่งสัญญาณโปรตีนรื้อสร้างเกราะผิว (Copper Peptides) ร่วมกับเซราไมด์บริสุทธิ์เพื่อเร่งกระบวนการรักษาตัวเองของผิวหนังตามธรรมชาติ</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Split Visual Details (Science Experience) -->
+  <section class="detail-hero-grid">
+    <div class="detail-gallery">
+      <div class="gallery-main-wrapper" style="position: relative;">
+        <div class="gallery-main" onclick="openLightbox()" style="cursor: zoom-in;">
+          <img src="assets/editorial/exhibit_merz.png" id="main-product-img" alt="The Recovery Balm Bottle Shot" style="transition: opacity 0.3s ease, transform 0.3s ease;">
+        </div>
+        <!-- Share Product Button -->
+        <button onclick="shareProduct()" style="position: absolute; top: var(--space-4); right: var(--space-4); background: rgba(255,255,255,0.85); border: 1px solid var(--border-primary); border-radius: var(--radius-full); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 10;" title="Share Product">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+        </button>
+      </div>
+      <!-- Thumbnails Strip -->
+      <div class="gallery-thumbnails">
+        <div class="thumb-item active" onclick="switchGalleryImage('assets/editorial/exhibit_merz.png', 0)">
+          <img src="assets/editorial/exhibit_merz.png" alt="Bottle Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/texture/texture_cream.png', 1)">
+          <img src="assets/texture/texture_cream.png" alt="Texture Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/product/prod_brightening.png', 2)">
+          <img src="assets/product/prod_brightening.png" alt="Ingredient Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/people/concern_procedure.png', 3)">
+          <img src="assets/people/concern_procedure.png" alt="Lifestyle Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/people/doc_kanya.png', 4)">
+          <img src="assets/people/doc_kanya.png" alt="Routine Shot">
+        </div>
+      </div>
+    </div>
+    <div class="detail-specs-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <span class="specs-mono-tag" style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">FORMULATION SPECIFICATION</span>
+        <h2 class="specs-title" style="margin-bottom: var(--space-1); margin-top: var(--space-1);">The Recovery Balm</h2>
+        <span style="font-size: var(--font-size-small); color: var(--color-stone-500); font-weight: 300; display: block; margin-bottom: var(--space-2);">Post-Procedure Barrier Recovery &bull; 50 ml</span>
+        <div style="color: var(--color-bronze); font-size: var(--font-size-caption); margin-bottom: var(--space-3); display: flex; align-items: center; gap: 4px;">
+          ★★★★★ <span style="color: var(--color-stone-600); font-weight: 300; font-family: var(--font-mono); font-size: var(--font-size-micro);">Dermatologist Recommended</span>
+        </div>
+        <div style="font-size: var(--font-size-h3); font-weight: 400; color: var(--color-graphite); margin-bottom: var(--space-4);">
+          ฿2,450
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid var(--border-primary); margin-bottom: var(--space-5);">
+        
+        <!-- Primary & Secondary CTA -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-5);">
+          <a href="consultation.html" class="btn-primary" style="background-color: var(--color-forest); border-color: var(--color-forest); color: #fff; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%;">
+            นัดหมายปรึกษาคลินิก &rarr;
+          </a>
+          <a href="https://line.me/R/ti/p/@lmcp_clinic?text=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%96%20%E0%B8%AA%E0%B8%A3%E0%B8%B8%E0%B8%9B%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%9B%E0%B8%A3%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2%20The%20Recovery%20Balm" target="_blank" class="btn-secondary" style="border-color: #06C755; color: #06C755; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; width: 100%; background: rgba(6, 199, 85, 0.03);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: #06C755;"><path d="M24 10.3c0-4.8-4.9-8.8-11-8.8S2 5.5 2 10.3c0 4.3 3.9 8 9.2 8.7.4.1.8.3.9.7l.3 1.9c.1.4.3.5.6.3.3-.2 1.8-1.1 2.5-1.9 4.3-.4 8.5-3.8 8.5-9.7zm-14.7 2.1c0 .2-.2.4-.4.4h-1.8c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v3.4h1c.2 0 .4.2.4.4v.4zm2.6 0c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm4.5 0c0 .2-.2.4-.4.4h-.4c-.2 0-.3-.1-.4-.3l-1.6-2.2v2.1c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.1 0 .3.1.4.2l1.6 2.2V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm3.2-1.2c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-2.2c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h2.2c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4z"/></svg>
+            ปรึกษาผ่าน LINE
+          </a>
+        </div>
+        
+        <!-- Utility Actions -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-primary); padding-top: var(--space-4);">
+          <button onclick="toggleSave()" id="save-btn" style="background: none; border: none; color: var(--color-graphite); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: var(--font-size-caption); transition: all 0.3s;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" id="heart-icon"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span id="save-text">Save</span>
+          </button>
+          
+          <button onclick="shareProduct()" style="background: none; border: none; color: var(--color-graphite); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: var(--font-size-caption);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+            Share
+          </button>
+          
+          <a href="#" onclick="alert('ดาวน์โหลด Clinical Brochure (PDF) สำเร็จเรียบร้อยแล้ว'); return false;" style="color: var(--color-graphite); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: var(--font-size-caption);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Clinical PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Texture Section (Cream, Gel, Serum, Oil Animation) -->
+  <section class="texture-section">
+    <div class="collection-container">
+      <div class="section-header" style="margin-bottom: var(--space-6);">
+        <span class="header-mono">THE SENSORY LAB</span>
+        <h2 class="section-title">เนื้อสัมผัสและพฤติกรรมของเหลว</h2>
+      </div>
+      <div class="texture-tabs">
+        <button class="texture-btn active" onclick="selectTexture('balm', event)">Balm (สัมผัสกู้ชีพ)</button>
+        <button class="texture-btn" onclick="selectTexture('gel', event)">Gel-Cream (สัมผัสบางเบา)</button>
+        <button class="texture-btn" onclick="selectTexture('cream', event)">Cream (สัมผัสเนียนนุ่ม)</button>
+      </div>
+      
+      <div class="texture-showcase">
+        <div class="texture-visual">
+          <img src="assets/texture/texture_gel.png" id="texture-img" alt="Liquid Texture Visual">
+        </div>
+        <div class="texture-meta">
+          <h3 style="font-size: var(--font-size-h3); color: var(--color-graphite);" id="texture-title">Balm (สัมผัสกู้ชีพ)</h3>
+          <p style="font-weight: 300; line-height: 1.6; color: var(--color-stone-500);" id="texture-desc">บาล์มเนื้อข้นกึ่งเหลวที่เมื่อสัมผัสผิวจะคลายตัวเป็นฟิล์มป้องกันบางใส ปกป้องการสูญเสียน้ำออกจากผิวได้ถึง 98% โดยไม่ก่อให้เกิดการอุดตันของรูขุมขน ออกแบบเพื่อสภาวะฟื้นฟูหลังเลเซอร์โดยเฉพาะ</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4);">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); display: block;">VISCOSITY (ความหนืด)</span>
+              <strong style="color: var(--color-graphite);" id="texture-viscosity">High (กึ่งข้นพิเศษ)</strong>
+            </div>
+            <div>
+              <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); display: block;">ABSORPTION (การดูดซึม)</span>
+              <strong style="color: var(--color-graphite);" id="texture-absorption">Gradual Barrier Coat</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ingredient Database Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--space-10);">
+      <div>
+        <span class="header-mono">ACTIVE REGISTRY</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2);">ฐานข้อมูลของส่วนผสม</h2>
+        <p style="font-weight: 300; line-height: 1.6; color: var(--color-stone-500); margin-top: var(--space-4);">เรายึดมั่นในความโปร่งใสทางวิทยาศาสตร์ ผู้ใช้สามารถคลิกเปิดอ่านรายละเอียดพฤติกรรมเคมี ปริมาณความเข้มข้น และสารที่ควรหลีกเลี่ยงร่วมกันได้โดยละเอียด</p>
+      </div>
+      <div class="ingredient-accordion">
+        <!-- Copper Peptide -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>Copper Tripeptide-1 2.0% (เปปไทด์ประจุทองแดง)</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <div style="padding: var(--space-2) 0; font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); display: grid; gap: var(--space-3);">
+              <p><strong>Clinical Function:</strong> ส่งสัญญาณกระตุ้นการซ่อมแซมเซลล์และแผลแผลทางผิวหนัง พร้อมเร่งกระบวนการสังเคราะห์คอลลาเจนและอีลาสตินใต้ผิวชั้นลึก</p>
+              <p><strong>Interaction & Synergy:</strong> ทำงานร่วมกับ Hyaluronic Acid และ Ceramides ได้ดีเยี่ยมในการสร้างสภาพแวดล้อมที่เอื้อต่อการซ่อมเกราะผิว</p>
+              <p><strong>Contraindications (ข้อห้ามใช้):</strong> ไม่ควรใช้ร่วมกับ L-Ascorbic Acid (วิตามินซีบริสุทธิ์) และกรด AHA/BHA เข้มข้นในลูปเดียวกัน เนื่องจากประจุกรดจะทำลายเสถียรภาพของโครงสร้างคอปเปอร์เปปไทด์</p>
+            </div>
+          </div>
+        </div>
+        <!-- Clinical Ceramides -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>Clinical Ceramides Blend (เซราไมด์สกัดสามประสาน)</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <div style="padding: var(--space-2) 0; font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); display: grid; gap: var(--space-3);">
+              <p><strong>Clinical Function:</strong> จำลองแผ่นไขมันปิดกั้นระหว่างเซลล์ผิวชั้นนอกสุด (Stratum Corneum) เพื่อทดแทนส่วนที่ถูกทำลายโดยกระบวนการหัตถการ</p>
+              <p><strong>Interaction & Synergy:</strong> อัตราส่วนสิทธิบัตร 3:1:1 (Ceramides, Cholesterol, Free Fatty Acids) ช่วยเร่งการฟื้นฟูแบริเออร์ได้เร็วขึ้น 3 เท่า</p>
+            </div>
+          </div>
+        </div>
+        <!-- Centella Extract -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>Centella Asiatica Ultra-Pure (สารสกัดใบบัวบกบริสุทธิ์)</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <div style="padding: var(--space-2) 0; font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); display: grid; gap: var(--space-3);">
+              <p><strong>Clinical Function:</strong> ยับยั้งปฏิกิริยาไซโตไคน์ที่กระตุ้นการอักเสบและผื่นแดงหลังเลเซอร์ ลดอาการคัน แสบผิวอย่างรวดเร็ว</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Medical Advisory Interlude -->
+  <section class="advisory-interlude" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding: var(--space-12) 0;">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-10); align-items: center;">
+      <div style="text-align: center;">
+        <img src="assets/people/doc_kanya.png" alt="พญ. กัญญา พิมพ์ลภัส" style="width: 160px; height: 160px; border-radius: var(--radius-full); object-fit: cover; filter: grayscale(1); border: 2px solid var(--color-bronze);">
+        <h4 style="font-family: var(--font-heading); color: var(--color-clinical-white); margin-top: var(--space-4);">พญ. กัญญา พิมพ์ลภัส, MD</h4>
+        <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">CHIEF MEDICAL ADVISOR</span>
+      </div>
+      <div>
+        <blockquote style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.5; font-style: italic; position: relative;">
+          "หลังการทำหัตถการเช่น Picosecond หรือ Fractional Laser ชั้นปราการผิวภายนอกจะเกิดช่องว่างและแห้งกร้านรุนแรง การใช้ The Recovery Balm ทันทีจะช่วยปิดล็อกความดันน้ำใต้ชั้นผิว และกระตุ้นการสร้างเกราะป้องกันตัวเองใหม่ได้อย่างเร่งด่วนที่สุด"
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinical Study (Bar Graph & Data) -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container">
+      <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+        <span class="header-mono">CLINICAL TRIALS</span>
+        <h2 class="section-title">ผลการทดสอบทางคลินิกและการฟื้นตัว</h2>
+        <p class="section-desc">การศึกษาเชิงเปรียบเทียบในผู้ทดลองจำนวน 200 รายหลังเลเซอร์ Picosecond (n=200, Double-blind Controlled Trial)</p>
+      </div>
+      
+      <div class="clinical-grid">
+        <div class="chart-container">
+          <h4 style="font-size: var(--font-size-h4); color: var(--color-graphite); margin-bottom: var(--space-4);">อัตราความหนาของเกราะผิว (%)</h4>
+          
+          <div class="chart-bar-row">
+            <span class="chart-label">Day 0</span>
+            <div class="chart-track"><div class="chart-fill" data-width="35"></div></div>
+            <span class="chart-val">35%</span>
+          </div>
+          <div class="chart-bar-row">
+            <span class="chart-label">Day 3</span>
+            <div class="chart-track"><div class="chart-fill" data-width="60"></div></div>
+            <span class="chart-val">60%</span>
+          </div>
+          <div class="chart-bar-row">
+            <span class="chart-label">Week 2</span>
+            <div class="chart-track"><div class="chart-fill" data-width="85"></div></div>
+            <span class="chart-val">85%</span>
+          </div>
+          <div class="chart-bar-row">
+            <span class="chart-label">Week 8</span>
+            <div class="chart-track"><div class="chart-fill" data-width="98"></div></div>
+            <span class="chart-val">98%</span>
+          </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: var(--space-4);">
+          <h4 style="font-size: var(--font-size-h4); color: var(--color-graphite);">สรุปผลลัพธ์การฟื้นฟูเกราะป้องกันผิว</h4>
+          <p style="font-weight: 300; line-height: 1.6; color: var(--color-stone-500);">จากการเก็บสถิติ ผิวผู้ทดลองฟื้นตัวจากอาการแดง (Erythema) และแสบร้อนได้เร็วขึ้น 60% ภายใน 3 วันแรก และสามารถคืนสภาพเกราะชั้นนอกสมบูรณ์แบบได้ภายในสัปดาห์ที่ 8 โดยไม่มีผลข้างเคียงด้านสิวอุดตันหรือผดร้อน</p>
+          <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400);">REFERENCE STUDY: Journal of Dermatological Sciences 2026, Vol. 14, Art. 129</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skin Barrier Visual Concept (Before/After Slider) -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.2fr 1.8fr; gap: var(--space-10); align-items: center;">
+      <div>
+        <span class="header-mono">MICRO-PHYSOLOGY</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2);">โครงสร้างเกราะผิวระดับโมเลกุล</h2>
+        <p style="font-weight: 300; line-height: 1.6; color: var(--color-stone-500); margin-top: var(--space-4);">เลื่อนสไลเดอร์เพื่อดูภาพจำลองสภาพผิวพรรณจริงหลังจากการรักษา 8 สัปดาห์ การผสาน Lipid-Lock ช่วยยึดเกาะรอยแยกแห้งสะสมของชั้นขี้ไคลให้แนบกระชับ สารบำรุงกักเก็บความชื้นได้ยาวนาน</p>
+      </div>
+      
+      <div style="position: relative;">
+        <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); display: block; margin-bottom: var(--space-2);">สไลเดอร์เปรียบเทียบเกราะผิวพรรณ</span>
+        <div class="comparison-slider" style="height: 380px; width: 100%; border-radius: var(--radius-2xl); overflow: hidden; position: relative;">
+          <img src="assets/science/skin_before.png" alt="Before treatment" class="slider-image before" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="slider-curtain" style="width: 50%; height: 100%; position: absolute; top: 0; left: 0; overflow: hidden; border-right: 2px solid var(--color-pure-white);">
+            <img src="assets/science/skin_after.png" alt="After treatment" class="slider-image after" style="position: absolute; top: 0; left: 0; height: 100%; object-fit: cover;">
+          </div>
+          <div class="slider-bar" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background-color: var(--color-pure-white); cursor: ew-resize;">
+            <div class="slider-handle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background-color: var(--color-pure-white); border-radius: var(--radius-full); box-shadow: var(--shadow-medium); display: flex; align-items: center; justify-content: center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 8-4 4 4 4M6 8l4 4-4 4"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compare Matrix Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container">
+      <div class="section-header" style="margin-bottom: var(--space-6);">
+        <span class="header-mono">FORMULATION ARCHIVE</span>
+        <h2 class="section-title">การเปรียบเทียบสูตรผลิตภัณฑ์</h2>
+      </div>
+      <table class="compare-matrix">
+        <thead>
+          <tr>
+            <th>คุณสมบัติ</th>
+            <th style="color: var(--color-forest);">The Recovery Balm (สูตรนี้)</th>
+            <th style="color: var(--color-bronze);">The Brightening Elixir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>เป้าหมายหลัก (Target Concern)</strong></td>
+            <td>ฟื้นฟูหลังหัตถการ / ผิวแห้งอักเสบรุนแรง</td>
+            <td>ลดเลือนฝ้า กระ และปรับสีผิวหมองคล้ำ</td>
+          </tr>
+          <tr>
+            <td><strong>ส่วนผสมหลัก (Key Actives)</strong></td>
+            <td>Copper Peptide 2.0%, Ceramides</td>
+            <td>L-Ascorbic Acid 15%, Ferulic Acid</td>
+          </tr>
+          <tr>
+            <td><strong>ค่าความเป็นกรดด่าง (pH Level)</strong></td>
+            <td>5.50 ( Physiological )</td>
+            <td>3.20 ( Active Acidic )</td>
+          </tr>
+          <tr>
+            <td><strong>สัมผัสเนื้อสัมผัส (Texture)</strong></td>
+            <td>ฟิล์มบาล์มเคลือบผิวเข้มข้น</td>
+            <td>ของเหลวซึมไวบางเบา</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Routine Builder Builder -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container">
+      <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+        <span class="header-mono">RECOMMENDED LOUPE</span>
+        <h2 class="section-title">ลำดับการใช้งานเพื่อประสิทธิผลสูงสุด</h2>
+        <p class="section-desc">ขั้นตอนดูแลและปลอบประโลมผิวแบบสอดประสานประจำเช้าและเย็น</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6);">
+        <div style="background-color: var(--color-pure-white); padding: var(--space-6); border: 1px solid var(--border-primary); border-radius: var(--radius-xl);">
+          <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400);">STEP 01</span>
+          <h4 style="font-size: var(--font-size-h4); color: var(--color-graphite); margin: var(--space-2) 0;">Gentle Cleanser</h4>
+          <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">ล้างทำความสะอาดผิวอักเสบแดงโดยไม่รบกวนไขมันตามธรรมชาติ</p>
+        </div>
+        <div style="background-color: var(--color-pure-white); padding: var(--space-6); border: 1px solid var(--border-primary); border-radius: var(--radius-xl);">
+          <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400);">STEP 02</span>
+          <h4 style="font-size: var(--font-size-h4); color: var(--color-graphite); margin: var(--space-2) 0;">Hydrating Mist</h4>
+          <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">เตรียมผิวชุ่มชื้นและปรับระดับความเป็นกรดด่างเบื้องต้น</p>
+        </div>
+        <div style="background-color: var(--color-pure-white); padding: var(--space-6); border: 2px solid var(--color-forest); border-radius: var(--radius-xl); position: relative;">
+          <span style="position: absolute; top: var(--space-3); right: var(--space-3); font-family: var(--font-mono); font-size: var(--font-size-micro); background-color: var(--color-forest); color: var(--color-pure-white); padding: 2px 8px; border-radius: 10px;">THIS FORMULA</span>
+          <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-forest);">STEP 03</span>
+          <h4 style="font-size: var(--font-size-h4); color: var(--color-graphite); margin: var(--space-2) 0;">The Recovery Balm</h4>
+          <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">ทาเคลือบเพื่อบล็อกความชุ่มชื้นและส่งสัญญาณซ่อมแซมเกราะผิวพรรณ</p>
+        </div>
+        <div style="background-color: var(--color-pure-white); padding: var(--space-6); border: 1px solid var(--border-primary); border-radius: var(--radius-xl);">
+          <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400);">STEP 04</span>
+          <h4 style="font-size: var(--font-size-h4); color: var(--color-graphite); margin: var(--space-2) 0;">Physical SPF 50</h4>
+          <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">ปกป้องผิวจากแสงแดดสะท้อนรังสียูวีโดยไม่มีตัวกรองเคมี</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="max-width: 800px; margin: 0 auto;">
+      <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+        <span class="header-mono">FAQ</span>
+        <h2 class="section-title">คำถามที่พบบ่อยเชิงคลินิก</h2>
+      </div>
+      
+      <div class="ingredient-accordion">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>สามารถใช้ร่วมกับกลุ่มวิตามินเอ (Retinol) ได้ไหม?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <p style="padding: var(--space-2) 0; font-size: var(--font-size-caption); color: var(--color-stone-600);">ในช่วง 3-5 วันแรกภายหลังการทำเลเซอร์ เลเซอร์ทรีตเมนต์จะลดความหนาเกราะผิวชั้นนอกลง แนะนำให้งดการใช้สารกลุ่มผลัดเซลล์ผิว เช่น เรตินอล, AHA, BHA ทุกชนิด โดยเน้นทาเฉพาะ The Recovery Balm เพื่อฟื้นคืนชั้นปราการก่อน จึงค่อยกลับมาใช้ผลิตภัณฑ์กลุ่มผลัดเซลล์ตามปกติ</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>เนื้อสัมผัสข้นเกินไปจนจะทำให้สิวขึ้นไหม?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <p style="padding: var(--space-2) 0; font-size: var(--font-size-caption); color: var(--color-stone-600);">โครงสร้างไขมันในบาล์มชิ้นนี้เป็นกลุ่มไขมันเลียนแบบสารหล่อเลี้ยงผิวธรรมชาติ (Bio-mimetic Lipids) และไม่มีสารประกอบที่เป็นไขมันอุดตันรูขุมขน (Non-comedogenic) จึงมั่นใจได้ว่าจะไม่เกิดปัญหาสิวอุดตันหรือผดร้อน แม้ทาเคลือบผิวพรรณหนากว่าปกติ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Commerce Section (Buy Action) -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-top: 1px solid var(--border-primary);">
+    <div class="collection-container" style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">READY TO BEGIN?</span>
+      <h2 class="section-title" style="margin-top: var(--space-3); margin-bottom: var(--space-4);">พร้อมเริ่มต้นดูแลผิวอย่างถูกวิธีแล้วหรือยัง?</h2>
+      <p style="font-weight: 300; line-height: 1.7; color: var(--color-stone-600); margin-bottom: var(--space-8); font-size: var(--font-size-body);">
+        ทีมแพทย์และที่ปรึกษาด้านผิวหนังคลินิกของเราพร้อมช่วยคุณเลือกและวางแผนตารางดูแลผิวที่เหมาะสมกับสภาพผิวและการทำหัตถการของคุณโดยเฉพาะ
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: var(--space-3); max-width: 380px; margin: 0 auto;">
+        <a href="consultation.html" class="btn-primary" style="background-color: var(--color-forest); border-color: var(--color-forest); color: #fff; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%;">
+          นัดหมายปรึกษาคลินิก &rarr;
+        </a>
+        <a href="https://line.me/R/ti/p/@lmcp_clinic?text=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%96%20%E0%B8%AA%E0%B8%A3%E0%B8%B8%E0%B8%9B%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%9B%E0%B8%A3%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2%20The%20Recovery%20Balm" target="_blank" class="btn-secondary" style="border-color: #06C755; color: #06C755; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; width: 100%; background: rgba(6, 199, 85, 0.03);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: #06C755;"><path d="M24 10.3c0-4.8-4.9-8.8-11-8.8S2 5.5 2 10.3c0 4.3 3.9 8 9.2 8.7.4.1.8.3.9.7l.3 1.9c.1.4.3.5.6.3.3-.2 1.8-1.1 2.5-1.9 4.3-.4 8.5-3.8 8.5-9.7zm-14.7 2.1c0 .2-.2.4-.4.4h-1.8c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v3.4h1c.2 0 .4.2.4.4v.4zm2.6 0c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm4.5 0c0 .2-.2.4-.4.4h-.4c-.2 0-.3-.1-.4-.3l-1.6-2.2v2.1c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.1 0 .3.1.4.2l1.6 2.2V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm3.2-1.2c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-2.2c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h2.2c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4z"/></svg>
+          ปรึกษาผ่าน LINE
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.5fr 2fr; gap: var(--space-10); padding-bottom: var(--space-10);">
+      <div class="footer-brand">
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); margin-bottom: var(--space-3); letter-spacing: 0.1em;">LMCP</h3>
+        <div class="brand-manifesto" style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.3; font-style: italic; margin-bottom: var(--space-5);">
+          <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+          <p class="manifesto-line-2" style="color: var(--color-bronze);">We curate science, not trends.</p>
+        </div>
+      </div>
+      <div class="footer-links" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">PRODUCT</h6>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Restoration Serum</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Brightening Elixir</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Recovery Balm</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">SCIENCE</h6>
+          <a href="ingredient_encyclopedia.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Clinical Trials</a>
+          <a href="journal_article.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Research Papers</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">LEGAL & CONTACT</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Privacy Policy</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.05); padding: var(--space-6) 0;">
+      <div class="collection-container" style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); color: var(--color-stone-500);">
+        <span>© 2026 LMCP. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Interactivity -->
+  <script>
+    // 1. Texture Selector Logic
+    function selectTexture(type, event) {
+      // Toggle button states
+      const buttons = document.querySelectorAll('.texture-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const data = {
+        balm: {
+          title: 'Balm (สัมผัสกู้ชีพ)',
+          desc: 'บาล์มเนื้อข้นกึ่งเหลวที่เมื่อสัมผัสผิวจะคลายตัวเป็นฟิล์มป้องกันบางใส ปกป้องการสูญเสียน้ำออกจากผิวได้ถึง 98% โดยไม่ก่อให้เกิดการอุดตันของรูขุมขน ออกแบบเพื่อสภาวะฟื้นฟูหลังเลเซอร์โดยเฉพาะ',
+          viscosity: 'High (กึ่งข้นพิเศษ)',
+          absorption: 'Gradual Barrier Coat',
+          img: 'assets/texture/texture_cream.png'
+        },
+        gel: {
+          title: 'Gel-Cream (สัมผัสบางเบา)',
+          desc: 'เนื้อเจลลี่กึ่งครีมสูตรน้ำผสานคอลลาเจนโมเลกุลเล็ก ซึมเข้าสู่ผิวในทันทีโดยไม่เหนอะหนะ เหมาะสำหรับผิวที่เริ่มหายจากแผลสะเก็ดและต้องการความชุ่มชื้นสูงในเวลากลางวัน',
+          viscosity: 'Medium-Low (ซึมเร็วพิเศษ)',
+          absorption: 'Rapid Epidermal Sink',
+          img: 'assets/texture/texture_gel.png'
+        },
+        cream: {
+          title: 'Cream (สัมผัสเนียนนุ่ม)',
+          desc: 'ครีมบำรุงเข้มข้นช่วยคงความนุ่มยืดหยุ่นของผิวหน้า บรรเทาผิวลอกขุยแห้งกร้าน และปรับโครงสร้างผิวให้เรียบเสมอกันด้วยส่วนผสมขี้ผึ้งธรรมชาติเกรดพรีเมียม',
+          viscosity: 'Medium (ความชุ่มชื้นสูง)',
+          absorption: 'Sustained Cellular Fill',
+          img: 'assets/editorial/exhibit_merz.png'
+        }
+      };
+
+      const info = data[type];
+      document.getElementById('texture-img').src = info.img;
+      document.getElementById('texture-title').innerText = info.title;
+      document.getElementById('texture-desc').innerText = info.desc;
+      document.getElementById('texture-viscosity').innerText = info.viscosity;
+      document.getElementById('texture-absorption').innerText = info.absorption;
+    }
+
+    // 2. Accordions Logic
+    function toggleAccordion(event) {
+      const header = event.currentTarget;
+      const body = header.nextElementSibling;
+      const svg = header.querySelector('svg');
+      
+      body.classList.toggle('open');
+      if (body.classList.contains('open')) {
+        body.style.maxHeight = body.scrollHeight + "px";
+        svg.style.transform = "rotate(180deg)";
+      } else {
+        body.style.maxHeight = "0px";
+        svg.style.transform = "rotate(0deg)";
+      }
+    }
+
+    // 3. Clinical Data Graph Animation Trigger
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(() => {
+        const fills = document.querySelectorAll('.chart-fill');
+        fills.forEach(fill => {
+          const width = fill.getAttribute('data-width');
+          fill.style.width = width + '%';
+        });
+      }, 500);
+    });
+
+    // 4. Before/After Slider Interaction
+    (function() {
+      const slider = document.querySelector('.comparison-slider');
+      const curtain = document.querySelector('.slider-curtain');
+      const bar = document.querySelector('.slider-bar');
+      const afterImg = curtain ? curtain.querySelector('.slider-image.after') : null;
+
+      if (!slider || !curtain || !bar) return;
+
+      let isDragging = false;
+
+      function updateSliderWidth() {
+        const rect = slider.getBoundingClientRect();
+        if (afterImg) {
+          afterImg.style.width = rect.width + 'px';
+        }
+      }
+
+      function moveSlider(clientX) {
+        const rect = slider.getBoundingClientRect();
+        let position = ((clientX - rect.left) / rect.width) * 100;
+        
+        if (position < 0) position = 0;
+        if (position > 100) position = 100;
+        
+        curtain.style.width = position + '%';
+        bar.style.left = position + '%';
+      }
+
+      updateSliderWidth();
+      window.addEventListener('resize', updateSliderWidth);
+
+      slider.addEventListener('mousedown', () => { isDragging = true; });
+      window.addEventListener('mouseup', () => { isDragging = false; });
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        moveSlider(e.clientX);
+      });
+
+      // Mobile Touch support
+      slider.addEventListener('touchstart', () => { isDragging = true; });
+      window.addEventListener('touchend', () => { isDragging = false; });
+      slider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        moveSlider(e.touches[0].clientX);
+      });
+    })();
+
+    // Sticky Nav Scroll Logic
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.main-header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(248, 247, 244, 0.95)';
+        header.style.boxShadow = 'var(--shadow-soft)';
+      } else {
+        header.style.background = 'rgba(248, 247, 244, 0.7)';
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // 5. Product Gallery Switcher
+    function switchGalleryImage(src, index) {
+      const mainImg = document.getElementById('main-product-img');
+      mainImg.style.opacity = '0';
+      
+      // Update active thumbnail
+      const thumbs = document.querySelectorAll('.thumb-item');
+      thumbs.forEach(thumb => thumb.classList.remove('active'));
+      thumbs[index].classList.add('active');
+
+      setTimeout(() => {
+        mainImg.src = src;
+        mainImg.style.opacity = '1';
+      }, 250);
+    }
+
+    // 6. Fullscreen Lightbox
+    function openLightbox() {
+      const mainImgSrc = document.getElementById('main-product-img').src;
+      const lightbox = document.getElementById('gallery-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      
+      lightboxImg.src = mainImgSrc;
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Lock scrolling
+    }
+
+    // Close Lightbox
+    function closeLightbox() {
+      const lightbox = document.getElementById('gallery-lightbox');
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto'; // Unlock scrolling
+    }
+
+    // 7. Share Product
+    function shareProduct() {
+      navigator.clipboard.writeText(window.location.href);
+      
+      // Show subtle feedback
+      const feedback = document.createElement('div');
+      feedback.style.position = 'fixed';
+      feedback.style.bottom = 'var(--space-6)';
+      feedback.style.left = '50%';
+      feedback.style.transform = 'translateX(-50%)';
+      feedback.style.background = 'var(--color-graphite)';
+      feedback.style.color = 'var(--color-clinical-white)';
+      feedback.style.padding = 'var(--space-2) var(--space-6)';
+      feedback.style.borderRadius = 'var(--radius-md)';
+      feedback.style.fontFamily = 'var(--font-mono)';
+      feedback.style.fontSize = 'var(--font-size-caption)';
+      feedback.style.zIndex = '3000';
+      feedback.innerText = 'LINK COPIED TO CLIPBOARD';
+      
+      document.body.appendChild(feedback);
+      
+      setTimeout(() => {
+        feedback.style.opacity = '0';
+        feedback.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => feedback.remove(), 500);
+      }, 2000);
+    }
+
+    // 8. Toggle Save to Routine
+    let isSaved = false;
+    function toggleSave() {
+      isSaved = !isSaved;
+      const btn = document.getElementById('save-btn');
+      const icon = document.getElementById('heart-icon');
+      const text = document.getElementById('save-text');
+      
+      if (isSaved) {
+        icon.setAttribute('fill', 'var(--color-forest)');
+        icon.setAttribute('stroke', 'var(--color-forest)');
+        text.innerText = 'Saved';
+        alert('บันทึกผลิตภัณฑ์ลงในรายการสนใจพิเศษเรียบร้อยแล้ว');
+      } else {
+        icon.setAttribute('fill', 'none');
+        icon.setAttribute('stroke', 'currentColor');
+        text.innerText = 'Save';
+        alert('นำผลิตภัณฑ์ออกจากรายการสนใจเรียบร้อยแล้ว');
+      }
+    }
+  </script>
+
+  <!-- Fullscreen Lightbox Overlay -->
+  <div id="gallery-lightbox" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center;">
+    <button onclick="closeLightbox()" style="position: absolute; top: var(--space-6); right: var(--space-6); background: none; border: none; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Fullscreen Visual" style="max-width: 90%; max-height: 85%; object-fit: contain; border-radius: 8px;">
+  </div>
+</body>
+</html>

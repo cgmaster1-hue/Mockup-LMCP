@@ -1,0 +1,147 @@
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-luxury: 800ms;
+  --duration-interaction: 300ms;
+}
+
+/* Scroll reveal sections */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-luxury) var(--ease-out-expo),
+              transform var(--duration-luxury) var(--ease-out-expo);
+}
+
+.reveal-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Soft Staggered Card Reveal */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1200ms var(--ease-out-expo),
+              transform 1200ms var(--ease-out-expo);
+}
+
+.revealed .reveal-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered load delays */
+.stagger-1 { transition-delay: 80ms !important; }
+.stagger-2 { transition-delay: 160ms !important; }
+.stagger-3 { transition-delay: 240ms !important; }
+.stagger-4 { transition-delay: 320ms !important; }
+.stagger-5 { transition-delay: 400ms !important; }
+.stagger-6 { transition-delay: 480ms !important; }
+
+/* Hero Zoom and text load */
+.hero-image-zoom {
+  transform: scale(1.05);
+  transition: transform 1400ms var(--ease-out-expo) !important;
+}
+
+.hero-image-zoom.loaded {
+  transform: scale(1);
+}
+
+.hero-text-load {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1000ms var(--ease-out-expo),
+              transform 1000ms var(--ease-out-expo);
+}
+
+.hero-text-load.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Standard Interaction animations */
+.hover-lift {
+  transition: transform var(--duration-interaction) var(--ease-out-expo),
+              box-shadow var(--duration-interaction) var(--ease-out-expo);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.hover-scale {
+  overflow: hidden;
+}
+
+.hover-scale img {
+  transition: transform var(--duration-luxury) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.hover-scale:hover img {
+  transform: scale(1.02); /* High luxury quiet 1.02 zoom only */
+}
+
+/* Sticky Header Logo transition */
+.main-header {
+  transition: background-color 300ms var(--ease-out-expo),
+              box-shadow 300ms var(--ease-out-expo),
+              padding 300ms var(--ease-out-expo);
+}
+
+.main-header .logo a {
+  display: inline-block;
+  transition: transform 300ms var(--ease-out-expo);
+  transform-origin: left center;
+}
+
+.main-header.scrolled .logo a {
+  transform: scale(0.93); /* Guided luxury sizing */
+}
+
+/* Active Nav highlighting */
+.main-header .nav-menu a {
+  position: relative;
+  transition: color var(--duration-interaction) var(--ease-out-expo);
+}
+
+.main-header .nav-menu a.active {
+  color: var(--color-forest) !important;
+  font-weight: 500;
+}
+
+.main-header .nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-forest);
+  transition: width var(--duration-interaction) var(--ease-out-expo);
+}
+
+.main-header .nav-menu a.active::after {
+  width: 100%;
+}
+
+/* Clinical Evidence Chart */
+.chart-bar-fill {
+  width: 0% !important;
+  transition: width 1500ms var(--ease-out-expo) !important;
+}
+
+/* Subtle editorial parallax */
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-img {
+  will-change: transform;
+  transform: translateY(0);
+  transition: transform 200ms linear;
+}

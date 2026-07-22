@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Consultation - LMCP</title>
+  
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="shop.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Prompt:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    .booking-wrapper {
+      max-width: 960px;
+      margin: 120px auto var(--space-12);
+      padding: 0 var(--space-6);
+    }
+
+    .booking-header {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+
+    /* Progress Tracker */
+    .progress-bar-container {
+      position: relative;
+      margin: var(--space-8) auto var(--space-10);
+      max-width: 700px;
+    }
+
+    .progress-line {
+      position: absolute;
+      top: 14px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-stone-300);
+      z-index: 1;
+    }
+
+    .progress-line-fill {
+      position: absolute;
+      top: 14px;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: var(--color-bronze);
+      z-index: 2;
+      transition: width var(--duration-luxury) var(--ease-out-expo);
+    }
+
+    .progress-steps-row {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      z-index: 3;
+    }
+
+    .progress-step-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .step-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--color-pure-white);
+      border: 1px solid var(--color-stone-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-400);
+      transition: all 0.3s;
+    }
+
+    .progress-step-node.active .step-dot {
+      border-color: var(--color-bronze);
+      color: var(--color-bronze);
+      box-shadow: 0 0 0 4px rgba(162, 123, 92, 0.15);
+    }
+
+    .progress-step-node.completed .step-dot {
+      background-color: var(--color-bronze);
+      border-color: var(--color-bronze);
+      color: var(--color-clinical-white);
+    }
+
+    .step-node-label {
+      font-size: var(--font-size-micro);
+      font-family: var(--font-mono);
+      color: var(--color-stone-400);
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+
+    .progress-step-node.active .step-node-label {
+      color: var(--color-graphite);
+      font-weight: 500;
+    }
+
+    /* Panel structure */
+    .booking-panel {
+      background: var(--color-pure-white);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-soft);
+      display: none; /* Dynamic active toggled */
+    }
+
+    .booking-panel.active {
+      display: block;
+    }
+
+    .panel-title-block {
+      text-align: center;
+      margin-bottom: var(--space-8);
+      border-bottom: 1px solid var(--border-primary);
+      padding-bottom: var(--space-4);
+    }
+
+    .panel-title-block h2 {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-h3);
+      color: var(--color-graphite);
+      margin-bottom: var(--space-2);
+    }
+
+    .panel-title-block p {
+      font-weight: 300;
+      color: var(--color-stone-500);
+      font-size: var(--font-size-caption);
+    }
+
+    /* Grid selector */
+    .selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .selection-card {
+      background: var(--color-clinical-white);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-expo);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+    }
+
+    .selection-card:hover {
+      border-color: var(--color-stone-400);
+      transform: translateY(-2px);
+    }
+
+    .selection-card.selected {
+      border-color: var(--color-forest);
+      background-color: rgba(37, 68, 56, 0.02);
+      box-shadow: 0 0 0 3px rgba(37, 68, 56, 0.05);
+    }
+
+    .selection-card-title {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-body);
+      color: var(--color-graphite);
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+    }
+
+    .selection-card-desc {
+      font-size: var(--font-size-caption);
+      color: var(--color-stone-500);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* Buttons block */
+    .panel-footer-actions {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-primary);
+      padding-top: var(--space-6);
+      margin-top: var(--space-6);
+    }
+
+    /* Step 2 location assets */
+    .location-image-frame {
+      width: 100%;
+      height: 120px;
+      background-color: var(--color-stone-200);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-4);
+      overflow: hidden;
+    }
+
+    .location-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Step 3 layout (split doctor & treatment) */
+    .step3-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-8);
+    }
+
+    .doctor-avatar-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-3);
+      cursor: pointer;
+      transition: all 0.3s;
+      background-color: var(--color-clinical-white);
+    }
+
+    .doctor-avatar-item:hover {
+      border-color: var(--color-stone-400);
+    }
+
+    .doctor-avatar-item.selected {
+      border-color: var(--color-forest);
+      background-color: rgba(37, 68, 56, 0.02);
+    }
+
+    .doctor-avatar-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--color-stone-300);
+      overflow: hidden;
+      filter: grayscale(100%);
+    }
+
+    .doctor-avatar-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .doctor-info-text h4 {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-body);
+      color: var(--color-graphite);
+      margin-bottom: 2px;
+    }
+
+    .doctor-info-text p {
+      font-size: var(--font-size-micro);
+      font-family: var(--font-mono);
+      color: var(--color-stone-500);
+    }
+
+    /* Summary Card Step 4 */
+    .summary-card {
+      background-color: var(--color-clinical-white);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border-primary);
+      padding: var(--space-3) 0;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-label {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-400);
+    }
+
+    .summary-val {
+      font-weight: 400;
+      color: var(--color-graphite);
+      font-size: var(--font-size-caption);
+      text-align: right;
+    }
+
+    /* Date and Time slots picker styling */
+    .datetime-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .custom-date-input {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--color-stone-300);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: var(--font-size-caption);
+      outline: none;
+      background-color: var(--color-pure-white);
+      transition: border 0.3s;
+    }
+
+    .custom-date-input:focus {
+      border-color: var(--color-forest);
+    }
+
+    .time-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2);
+    }
+
+    .time-slot-btn {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-stone-300);
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-500);
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .time-slot-btn:hover {
+      border-color: var(--color-stone-500);
+    }
+
+    .time-slot-btn.selected {
+      border-color: var(--color-forest);
+      background-color: var(--color-forest);
+      color: var(--color-clinical-white);
+    }
+
+    @media (max-width: 768px) {
+      .step3-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      .datetime-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="homepage.html">LMCP</a>
+      </div>
+      <nav class="nav-menu">
+        <a href="clinical_collections.html">คอลเลกชัน</a>
+        <a href="homepage.html#concerns">ปัญหาผิว</a>
+        <a href="ingredient_encyclopedia.html">วิทยาศาสตร์ของส่วนผสม</a>
+        <a href="homepage.html#stories">ผลลัพธ์ทางคลินิก</a>
+        <a href="clinic_finder.html">คลินิก</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-icon" aria-label="ค้นหา">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="#" class="btn-studio">Studio Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Consultation Booking Wrapper -->
+  <main class="booking-wrapper">
+    <div class="booking-header">
+      <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">ONLINE DISPATCH & SCHEDULE</span>
+      <h1 class="hero-huge-title" style="font-family: var(--font-heading); font-size: var(--font-size-h2); line-height: 1.2; margin-top: var(--space-2);">นัดหมายประเมินสภาพผิวเฉพาะบุคคล</h1>
+    </div>
+
+    <!-- Progress Steps Tracker -->
+    <div class="progress-bar-container">
+      <div class="progress-line"></div>
+      <div class="progress-line-fill" id="progress-fill"></div>
+      <div class="progress-steps-row">
+        <div class="progress-step-node active" id="node-1">
+          <div class="step-dot">1</div>
+          <span class="step-node-label">CONCERN</span>
+        </div>
+        <div class="progress-step-node" id="node-2">
+          <div class="step-dot">2</div>
+          <span class="step-node-label">LOCATION</span>
+        </div>
+        <div class="progress-step-node" id="node-3">
+          <div class="step-dot">3</div>
+          <span class="step-node-label">SPECIALIST</span>
+        </div>
+        <div class="progress-step-node" id="node-4">
+          <div class="step-dot">4</div>
+          <span class="step-node-label">CONNECT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: CONCERN SELECTION PANEL -->
+    <div class="booking-panel active" id="panel-1">
+      <div class="panel-title-block">
+        <h2>01 / ปัญหาผิวและอาการเบื้องต้น</h2>
+        <p>เลือกประเด็นความเชี่ยวชาญที่คุณมีข้อกังวลหรือพึ่งผ่านกระบวนการหัตถการผิวพรรณเพื่อกำหนดแพทย์เฉพาะทาง</p>
+      </div>
+      <div class="selection-grid">
+        <div class="selection-card" onclick="selectConcern('สิวและผิวอักเสบแดง (Acne & Redness)', this)">
+          <h3 class="selection-card-title">Acne & Redness</h3>
+          <p class="selection-card-desc">ผิวเป็นสิวเรื้อรัง รอยสิว รอยแดงสะสม และต่อมไขมันทำงานไวเกินสมดุลธรรมชาติ</p>
+        </div>
+        <div class="selection-card" onclick="selectConcern('ดูแลผิวหลังทำหัตถการ (Post-Procedure Recovery)', this)">
+          <h3 class="selection-card-title">Post-Procedure</h3>
+          <p class="selection-card-desc">ดูแลและฟื้นฟูเกราะแบริเออร์ทางผิวหลังทำเลเซอร์ Picosecond, คลื่นความถี่วิทยุ หรือการฉีดเมโสผิว</p>
+        </div>
+        <div class="selection-card" onclick="selectConcern('ริ้วรอยแห่งวัยและความไม่กระชับ (Aging & Loss of Elasticity)', this)">
+          <h3 class="selection-card-title">Skin Longevity</h3>
+          <p class="selection-card-desc">ริ้วรอยร่องลึก ผิวหย่อนคล้อยสูญเสียอีลาสติน และกระบวนการฟื้นฟูเซลล์ช้าตัว</p>
+        </div>
+        <div class="selection-card" onclick="selectConcern('จุดด่างดำ ฝ้า และเม็ดสีผิดปกติ (Pigmentation)', this)">
+          <h3 class="selection-card-title">Pigmentation</h3>
+          <p class="selection-card-desc">ฝ้าแดด กระลึก จุดด่างดำสะสม และปัญหาโทนสีผิวไม่สม่ำเสมอในระดับชั้น Epidermis</p>
+        </div>
+        <div class="selection-card" onclick="selectConcern('ผิวแห้งกร้าน บอบบาง และแพ้ง่าย (Sensitive & Dehydrated)', this)">
+          <h3 class="selection-card-title">Barrier Defense</h3>
+          <p class="selection-card-desc">ผิวแพ้ง่ายอย่างรุนแรง แห้งลอกกร้าน ขาดน้ำใต้เซลล์ และเกราะแบริเออร์ปราการผิวถูกทำลาย</p>
+        </div>
+      </div>
+      <div class="panel-footer-actions" style="justify-content: flex-end;">
+        <button class="btn-primary" onclick="nextStep()" id="next-1" disabled style="opacity: 0.5; padding: var(--space-3) var(--space-6);">ดำเนินการต่อ &rarr;</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: LOCATION SELECTION PANEL -->
+    <div class="booking-panel" id="panel-2">
+      <div class="panel-title-block">
+        <h2>02 / คลินิกสเปซพาร์ทเนอร์</h2>
+        <p>เลือกศูนย์นวัตกรรมผิวพรรณหรือสเปซการปรึกษาที่คุณสะดวกเข้ารับการนัดหมายประเมินสภาพผิวจริง</p>
+      </div>
+      <div class="selection-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="selection-card" onclick="selectLocation('LMCP Studio - EmQuartier (Luxury Innovation)', this)" style="min-height: 260px;">
+          <div>
+            <div class="location-image-frame">
+              <img src="assets/editorial/exhibit_galderma.png" alt="EmQuartier Studio Lobby">
+            </div>
+            <h3 class="selection-card-title">EmQuartier Studio</h3>
+            <p class="selection-card-desc">เน้นเทคโนโลยีเครื่องเลเซอร์ระดับโลก (Discovery Pico, Ultherapy) ในบรรยากาศโมเดิร์นลักชัวรีชั้น 3</p>
+          </div>
+        </div>
+        
+        <div class="selection-card" onclick="selectLocation('LMCP Studio - Rajadamri (Serene Workspace)', this)" style="min-height: 260px;">
+          <div>
+            <div class="location-image-frame">
+              <img src="assets/editorial/hero_skincare_travertine.png" alt="Rajadamri Studio Lobby">
+            </div>
+            <h3 class="selection-card-title">Rajadamri Studio</h3>
+            <p class="selection-card-desc">สเปซการทำบำบัดฟื้นฟูแบริเออร์เงียบสงบส่วนตัว ให้คำแนะนำการจัดตารางสกินแคร์เฉพาะบุคคลชั้น 1</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer-actions">
+        <button class="btn-secondary" onclick="prevStep()">&larr; ย้อนกลับ</button>
+        <button class="btn-primary" onclick="nextStep()" id="next-2" disabled style="opacity: 0.5; padding: var(--space-3) var(--space-6);">ดำเนินการต่อ &rarr;</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: SPECIALIST & TREATMENT PANEL -->
+    <div class="booking-panel" id="panel-3">
+      <div class="panel-title-block">
+        <h2>03 / บริการฟื้นฟูและคณะกรรมการแพทย์</h2>
+        <p>ระบุโปรแกรมบำบัดรักษาเบื้องต้นและจองคิวกับแพทย์ผู้เชี่ยวชาญเฉพาะทางเวชศาสตร์ผิวพรรณ</p>
+      </div>
+      
+      <div class="step3-layout">
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.1em; margin-bottom: var(--space-4);">PROGRAMS / บริการเป้าหมาย</h4>
+          <div class="selection-grid" style="grid-template-columns: 1fr; gap: var(--space-3); margin-bottom: var(--space-6);">
+            <div class="selection-card" onclick="selectTreatment('Discovery Pico Laser Recovery', this)" style="min-height: 80px; padding: var(--space-4); flex-direction: row; align-items: center; justify-content: space-between;">
+              <div>
+                <h3 class="selection-card-title" style="margin-bottom: 0;">Discovery Pico Laser</h3>
+                <p class="selection-card-desc">ลบรอยเม็ดสี สิว ปรับผิวขาวใสด้วยโหมดรักษาเร่งด่วน</p>
+              </div>
+            </div>
+            <div class="selection-card" onclick="selectTreatment('Ultherapy Deep Lifter', this)" style="min-height: 80px; padding: var(--space-4); flex-direction: row; align-items: center; justify-content: space-between;">
+              <div>
+                <h3 class="selection-card-title" style="margin-bottom: 0;">Ultherapy Lift & Tighten</h3>
+                <p class="selection-card-desc">ยกกระชับโครงสร้างหน้าลึกถึงชั้น SMAS โดยไม่ต้องผ่าตัด</p>
+              </div>
+            </div>
+            <div class="selection-card" onclick="selectTreatment('Clinical Barrier Restoration Therapy', this)" style="min-height: 80px; padding: var(--space-4); flex-direction: row; align-items: center; justify-content: space-between;">
+              <div>
+                <h3 class="selection-card-title" style="margin-bottom: 0;">Clinical Barrier Recovery</h3>
+                <p class="selection-card-desc">บำบัดฟื้นฟูแบริเออร์ชั้นผิว อบโอโซน และผลักสูตรวิตามินกู้ผิว</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.1em; margin-bottom: var(--space-4);">DERMATOLOGISTS / แพทย์เฉพาะทาง</h4>
+          <div class="doctor-avatar-item" onclick="selectDoctor('พญ. กัญญา พิมพ์ลภัส (Dermatologist & Laser Specialist)', this)">
+            <div class="doctor-avatar-img">
+              <img src="assets/people/doc_kanya.png" alt="พญ. กัญญา พิมพ์ลภัส">
+            </div>
+            <div class="doctor-info-text">
+              <h4>พญ. กัญญา พิมพ์ลภัส</h4>
+              <p>Dermatology & Laser Specialist</p>
+            </div>
+          </div>
+          
+          <div class="doctor-avatar-item" onclick="selectDoctor('นพ. ชัยวัฒน์ มณีรัตน์ (Anti-Aging Committee)', this)">
+            <div class="doctor-avatar-img">
+              <img src="assets/people/doc_chaiwat.png" alt="นพ. ชัยวัฒน์ มณีรัตน์">
+            </div>
+            <div class="doctor-info-text">
+              <h4>นพ. ชัยวัฒน์ มณีรัตน์</h4>
+              <p>Anti-Aging & Cellular Longevity</p>
+            </div>
+          </div>
+
+          <div class="doctor-avatar-item" onclick="selectDoctor('พญ. พิมนารา เลิศวิจิตร (Barrier Recovery Researcher)', this)">
+            <div class="doctor-avatar-img">
+              <img src="assets/people/doc_pimnara.png" alt="พญ. พิมนารา เลิศวิจิตร">
+            </div>
+            <div class="doctor-info-text">
+              <h4>พญ. พิมนารา เลิศวิจิตร</h4>
+              <p>Skin Barrier Recovery Researcher</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel-footer-actions">
+        <button class="btn-secondary" onclick="prevStep()">&larr; ย้อนกลับ</button>
+        <button class="btn-primary" onclick="nextStep()" id="next-3" disabled style="opacity: 0.5; padding: var(--space-3) var(--space-6);">ดำเนินการต่อ &rarr;</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: DATE/TIME & CONNECT -->
+    <div class="booking-panel" id="panel-4">
+      <div class="panel-title-block">
+        <h2>04 / เลือกเวลาและส่งนัดหมายผ่าน LINE</h2>
+        <p>กำหนดวันเวลาที่สะดวกเข้าพบแพทย์ ข้อมูลการเลือกทั้งหมดจะถูกจัดโครงสร้างข้อความเพื่อส่งเข้าประสานงานที่ LINE OA</p>
+      </div>
+      
+      <div class="datetime-container">
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.1em; margin-bottom: var(--space-4);">SELECT DATE / ระบุวันที่</h4>
+          <input type="date" class="custom-date-input" id="booking-date" onchange="validateStep4()">
+        </div>
+        <div>
+          <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.1em; margin-bottom: var(--space-4);">SELECT TIME / เลือกรอบเวลา</h4>
+          <div class="time-slots-grid">
+            <button class="time-slot-btn" onclick="selectTime('10:00 - 11:30 (Morning Slot)', this)">10:00 - 11:30</button>
+            <button class="time-slot-btn" onclick="selectTime('11:30 - 13:00 (Lunch Slot)', this)">11:30 - 13:00</button>
+            <button class="time-slot-btn" onclick="selectTime('13:30 - 15:00 (Afternoon Slot 1)', this)">13:30 - 15:00</button>
+            <button class="time-slot-btn" onclick="selectTime('15:30 - 17:00 (Afternoon Slot 2)', this)">15:30 - 17:00</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <h4 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze); letter-spacing: 0.1em; border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-2); margin-bottom: var(--space-3);">PRE-DIAGNOSTIC APPOINTMENT SUMMARY</h4>
+        
+        <div class="summary-row">
+          <span class="summary-label">CONCERN / ปัญหาผิว</span>
+          <span class="summary-val" id="summary-concern">-</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">LOCATION / สาขาคลินิก</span>
+          <span class="summary-val" id="summary-location">-</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">TREATMENT / โปรแกรมการรักษา</span>
+          <span class="summary-val" id="summary-treatment">-</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">SPECIALIST / แพทย์เฉพาะทาง</span>
+          <span class="summary-val" id="summary-doctor">-</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">DATE & TIME / วันเวลานัดหมาย</span>
+          <span class="summary-val" id="summary-datetime">-</span>
+        </div>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; gap: var(--space-3); max-width: 380px; margin: var(--space-6) auto 0;">
+        <button onclick="dispatchToLine()" id="submit-btn" class="btn-primary" disabled style="opacity: 0.5; background-color: #06C755; border-color: #06C755; color: #fff; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 50px; cursor: pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.3c0-4.8-4.9-8.8-11-8.8S2 5.5 2 10.3c0 4.3 3.9 8 9.2 8.7.4.1.8.3.9.7l.3 1.9c.1.4.3.5.6.3.3-.2 1.8-1.1 2.5-1.9 4.3-.4 8.5-3.8 8.5-9.7zm-14.7 2.1c0 .2-.2.4-.4.4h-1.8c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v3.4h1c.2 0 .4.2.4.4v.4zm2.6 0c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm4.5 0c0 .2-.2.4-.4.4h-.4c-.2 0-.3-.1-.4-.3l-1.6-2.2v2.1c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.1 0 .3.1.4.2l1.6 2.2V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm3.2-1.2c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-2.2c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h2.2c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4z"/></svg>
+          จองคิวและส่งข้อมูลผ่าน LINE
+        </button>
+      </div>
+
+      <div class="panel-footer-actions">
+        <button class="btn-secondary" onclick="prevStep()">&larr; ย้อนกลับ</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.5fr 2fr; gap: var(--space-10); padding-bottom: var(--space-10); max-width: 1440px; margin: 0 auto; padding: 0 var(--space-8);">
+      <div class="footer-brand">
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); margin-bottom: var(--space-3); letter-spacing: 0.1em;">LMCP</h3>
+        <div class="brand-manifesto" style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.3; font-style: italic; margin-bottom: var(--space-5);">
+          <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+          <p class="manifesto-line-2" style="color: var(--color-bronze);">We curate science, not trends.</p>
+        </div>
+      </div>
+      <div class="footer-links" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">PRODUCT</h6>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Restoration Serum</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Brightening Elixir</a>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Recovery Balm</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">KNOWLEDGE</h6>
+          <a href="ingredient_encyclopedia.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Active Encyclopedia</a>
+          <a href="journal_article.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Research Papers</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">LEGAL & CONTACT</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Privacy Policy</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.05); padding: var(--space-6) 0; max-width: 1440px; margin: 0 auto; padding: var(--space-6) var(--space-8);">
+      <div class="collection-container" style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); color: var(--color-stone-500);">
+        <span>© 2026 LMCP. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Wizard JavaScript Engine -->
+  <script>
+    let currentStep = 1;
+    
+    // Booking Form State variables
+    let selectedConcern = '';
+    let selectedLocation = '';
+    let selectedTreatment = '';
+    let selectedDoctor = '';
+    let selectedDate = '';
+    let selectedTime = '';
+
+    // Step navigation
+    function showStep(n) {
+      const panels = document.querySelectorAll('.booking-panel');
+      panels.forEach(panel => panel.classList.remove('active'));
+      document.getElementById(`panel-${n}`).classList.add('active');
+      
+      // Update Nodes
+      const nodes = document.querySelectorAll('.progress-step-node');
+      nodes.forEach((node, idx) => {
+        node.classList.remove('active', 'completed');
+        if (idx + 1 < n) {
+          node.classList.add('completed');
+        } else if (idx + 1 === n) {
+          node.classList.add('active');
+        }
+      });
+
+      // Update progress line fill width
+      const fillPercentage = ((n - 1) / 3) * 100;
+      document.getElementById('progress-fill').style.width = fillPercentage + '%';
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextStep() {
+      if (currentStep < 4) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+
+    // Step 1: Concern selection
+    function selectConcern(val, element) {
+      selectedConcern = val;
+      
+      // Toggle card selected styling
+      const cards = element.parentNode.querySelectorAll('.selection-card');
+      cards.forEach(card => card.classList.remove('selected'));
+      element.classList.add('selected');
+      
+      document.getElementById('summary-concern').innerText = val;
+      
+      // Enable next step button
+      const nextBtn = document.getElementById('next-1');
+      nextBtn.removeAttribute('disabled');
+      nextBtn.style.opacity = '1';
+    }
+
+    // Step 2: Location selection
+    function selectLocation(val, element) {
+      selectedLocation = val;
+      
+      // Toggle card selected styling
+      const cards = element.parentNode.querySelectorAll('.selection-card');
+      cards.forEach(card => card.classList.remove('selected'));
+      element.classList.add('selected');
+      
+      document.getElementById('summary-location').innerText = val;
+      
+      // Enable next step button
+      const nextBtn = document.getElementById('next-2');
+      nextBtn.removeAttribute('disabled');
+      nextBtn.style.opacity = '1';
+    }
+
+    // Step 3: Selection logic (Treatment and Specialist)
+    function selectTreatment(val, element) {
+      selectedTreatment = val;
+      
+      const cards = element.parentNode.querySelectorAll('.selection-card');
+      cards.forEach(card => card.classList.remove('selected'));
+      element.classList.add('selected');
+      
+      document.getElementById('summary-treatment').innerText = val;
+      validateStep3();
+    }
+
+    function selectDoctor(val, element) {
+      selectedDoctor = val;
+      
+      const items = element.parentNode.querySelectorAll('.doctor-avatar-item');
+      items.forEach(item => item.classList.remove('selected'));
+      element.classList.add('selected');
+      
+      document.getElementById('summary-doctor').innerText = val;
+      validateStep3();
+    }
+
+    function validateStep3() {
+      const nextBtn = document.getElementById('next-3');
+      if (selectedTreatment && selectedDoctor) {
+        nextBtn.removeAttribute('disabled');
+        nextBtn.style.opacity = '1';
+      } else {
+        nextBtn.setAttribute('disabled', 'true');
+        nextBtn.style.opacity = '0.5';
+      }
+    }
+
+    // Step 4: Schedule validation
+    function selectTime(val, element) {
+      selectedTime = val;
+      
+      const btns = element.parentNode.querySelectorAll('.time-slot-btn');
+      btns.forEach(btn => btn.classList.remove('selected'));
+      element.classList.add('selected');
+      
+      validateStep4();
+    }
+
+    function validateStep4() {
+      const dateVal = document.getElementById('booking-date').value;
+      selectedDate = dateVal;
+      
+      if (dateVal && selectedTime) {
+        document.getElementById('summary-datetime').innerText = `${dateVal} @ ${selectedTime}`;
+        
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.removeAttribute('disabled');
+        submitBtn.style.opacity = '1';
+      } else {
+        document.getElementById('summary-datetime').innerText = '-';
+        
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.style.opacity = '0.5';
+      }
+    }
+
+    // LINE OA Dispatch Deep Link Generator
+    function dispatchToLine() {
+      const lineOALink = "https://line.me/R/ti/p/@lmcp_clinic";
+      const messageText = `สวัสดีครับ/ค่ะ ต้องการปรึกษาและนัดหมายประเมินสภาพผิวเฉพาะบุคคล:
+- ปัญหาผิว: ${selectedConcern}
+- สาขาคลินิก: ${selectedLocation}
+- บริการรักษา: ${selectedTreatment}
+- แพทย์ที่ต้องการพบ: ${selectedDoctor}
+- วันเวลานัดหมาย: ${selectedDate} ช่วงเวลา ${selectedTime}`;
+
+      const finalUrl = `${lineOALink}?text=${encodeURIComponent(messageText)}`;
+      window.open(finalUrl, '_blank');
+    }
+
+    // Sticky Nav Scroll Logic
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.main-header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(248, 247, 244, 0.95)';
+        header.style.boxShadow = 'var(--shadow-soft)';
+      } else {
+        header.style.background = 'rgba(248, 247, 244, 0.7)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

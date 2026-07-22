@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ULTRACOL® Vital HA Booster | LMCP</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+  <!-- Sticky Transparent Navigation Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="homepage.html">LMCP</a>
+      </div>
+      <nav class="nav-menu">
+        <a href="clinical_collections.html">คอลเลกชัน</a>
+        <a href="homepage.html#concerns">ปัญหาผิว</a>
+        <a href="ingredient_encyclopedia.html">วิทยาศาสตร์ของส่วนผสม</a>
+        <a href="homepage.html#evidence">ผลลัพธ์ทางคลินิก</a>
+        <a href="clinic_finder.html">คลินิก</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-icon" aria-label="ค้นหา">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="studio/login.html" class="btn-studio">Studio Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero (Strictly Editorial, no commerce visible at top) -->
+  <header class="page-hero">
+    <div class="hero-large-visual">
+      <img src="assets/editorial/ultracol_hero_editorial_bg.jpg" alt="Infenix ULTRACOL Vital HA Booster Editorial Header">
+    </div>
+    <div class="hero-editorial-meta animate-fade-in">
+      <span class="hero-mono-label">TISSUE REGENERATOR SPECIFICATION</span>
+      <h1 class="hero-huge-title">ULTRACOL® Vital HA Booster</h1>
+      <div class="hero-editorial-story">
+        <p class="hero-story-lead">"การฟื้นคืนโครงสร้างเซลล์ผิวหนังอย่างมีวิถีธรรมชาติ ผ่านกระบวนการกระตุ้นการสร้างเนื้อเยื่อใหม่ด้วยอนุภาค PDO ที่ปลอดภัยที่สุด"</p>
+        <p class="hero-story-body">บูสเตอร์บำรุงและฟื้นฟูโครงสร้างผิวระดับลึกประสิทธิภาพสูง ผสานกรดไฮยาลูรอนิกเข้มข้น (HA 12mg) เข้ากับเทคโนโลยีไมโครพาร์ทิเคิล PDO เพื่อกระตุ้นการสังเคราะห์คอลลาเจนใหม่ในชั้นโครงสร้างผิวหนังอย่างเป็นธรรมชาติ คืนความยืดหยุ่น ความแน่นกระชับ และความกระจ่างใสเปล่งปลั่งระดับคลินิกพรีเมียม</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Split Visual Details (Science Experience) -->
+  <section class="detail-hero-grid">
+    <div class="detail-gallery">
+      <div class="gallery-main-wrapper" style="position: relative;">
+        <div class="gallery-main" onclick="openLightbox()" style="cursor: zoom-in; background-color: var(--color-clinical-white);">
+          <img src="assets/product/ultracol_booster_render.png" id="main-product-img" alt="ULTRACOL Vital HA Booster Bottle Shot" style="object-fit: contain; padding: var(--space-4); transition: opacity 0.3s ease, transform 0.3s ease;">
+        </div>
+        <!-- Share Product Button -->
+        <button onclick="shareProduct()" style="position: absolute; top: var(--space-4); right: var(--space-4); background: rgba(255,255,255,0.85); border: 1px solid var(--border-primary); border-radius: var(--radius-full); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 10;" title="Share Product">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+        </button>
+      </div>
+      <!-- Thumbnails Strip -->
+      <div class="gallery-thumbnails">
+        <div class="thumb-item active" onclick="switchGalleryImage('assets/product/ultracol_booster_render.png', 0)">
+          <img src="assets/product/ultracol_booster_render.png" alt="Bottle Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/texture/texture_gel.png', 1)">
+          <img src="assets/texture/texture_gel.png" alt="Texture Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/product/ultracol_combo_render.png', 2)">
+          <img src="assets/product/ultracol_combo_render.png" alt="Combo Vials Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/people/concern_procedure.png', 3)">
+          <img src="assets/people/concern_procedure.png" alt="Lifestyle Shot">
+        </div>
+        <div class="thumb-item" onclick="switchGalleryImage('assets/people/doc_kanya.png', 4)">
+          <img src="assets/people/doc_kanya.png" alt="Routine Shot">
+        </div>
+      </div>
+    </div>
+    
+    <div class="detail-specs-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <span class="specs-mono-tag" style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">TISSUE REGENERATOR SPECIFICATION</span>
+        <h2 class="specs-title" style="margin-bottom: var(--space-1); margin-top: var(--space-1);">ULTRACOL® Vital HA Booster</h2>
+        <span style="font-size: var(--font-size-small); color: var(--color-stone-500); font-weight: 300; display: block; margin-bottom: var(--space-2);">Tissue Regeneration & Skin Elasticity Booster &bull; 2ml x 2 Syringes</span>
+        <div style="color: var(--color-bronze); font-size: var(--font-size-caption); margin-bottom: var(--space-3); display: flex; align-items: center; gap: 4px;">
+          ★★★★★ <span style="color: var(--color-stone-600); font-weight: 300; font-family: var(--font-mono); font-size: var(--font-size-micro);">Medical Professional Approved</span>
+        </div>
+        <div style="font-size: var(--font-size-h3); font-weight: 400; color: var(--color-graphite); margin-bottom: var(--space-4);">
+          ฿9,500
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid var(--border-primary); margin-bottom: var(--space-5);">
+        
+        <!-- Primary & Secondary CTA -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-5);">
+          <a href="consultation.html" class="btn-primary" style="background-color: var(--color-forest); border-color: var(--color-forest); color: #fff; font-weight: 500; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 100%;">
+            นัดหมายปรึกษาคลินิก &rarr;
+          </a>
+          <a href="https://line.me/R/ti/p/@lmcp_clinic?text=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%96%20%E0%B8%AA%E0%B8%A3%E0%B8%B8%E0%B8%9B%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%9B%E0%B8%A3%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2%20Ultracol%20Vital%20HA%20Booster" target="_blank" class="btn-secondary" style="border-color: #06C755; color: #06C755; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; width: 100%; background: rgba(6, 199, 85, 0.03);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: #06C755;"><path d="M24 10.3c0-4.8-4.9-8.8-11-8.8S2 5.5 2 10.3c0 4.3 3.9 8 9.2 8.7.4.1.8.3.9.7l.3 1.9c.1.4.3.5.6.3.3-.2 1.8-1.1 2.5-1.9 4.3-.4 8.5-3.8 8.5-9.7zm-14.7 2.1c0 .2-.2.4-.4.4h-1.8c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v3.4h1c.2 0 .4.2.4.4v.4zm2.6 0c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm4.5 0c0 .2-.2.4-.4.4h-.4c-.2 0-.3-.1-.4-.3l-1.6-2.2v2.1c0 .2-.2.4-.4.4h-.4c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h.4c.1 0 .3.1.4.2l1.6 2.2V8.1c0-.2.2-.4.4-.4h.4c.2 0 .4.2.4.4v4.3zm3.2-1.2c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-2.2c-.2 0-.4-.2-.4-.4V8.1c0-.2.2-.4.4-.4h2.2c.2 0 .4.2.4.4v.4c0 .2-.2.4-.4.4h-1.4v.9h1.4c.2 0 .4.2.4.4v.4z"/></svg>
+            ปรึกษาผ่าน LINE
+          </a>
+        </div>
+        
+        <!-- Utility Actions -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-primary); padding-top: var(--space-4); margin-bottom: var(--space-6);">
+          <button onclick="toggleSave()" id="save-btn" style="background: none; border: none; color: var(--color-graphite); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: var(--font-size-caption); transition: all 0.3s;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" id="heart-icon"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span id="save-text">Save</span>
+          </button>
+          
+          <button onclick="shareProduct()" style="background: none; border: none; color: var(--color-graphite); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: var(--font-size-caption);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+            Share
+          </button>
+        </div>
+
+        <!-- Technical Data Specs (Using specs-grid) -->
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">ACTIVE MOLECULES</span>
+            <span class="spec-val">HA 12mg / Lidocaine 3mg</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">QUANTITY</span>
+            <span class="spec-val">2ml x 2 Syringes (30G)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Accordions -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--space-10);">
+      <div>
+        <span class="header-mono">ACTIVE REGISTRY</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2);">การวิเคราะห์ทางวิทยาศาสตร์</h2>
+        <p style="font-weight: 300; line-height: 1.6; color: var(--color-stone-500); margin-top: var(--space-4);">ผู้รับบริการสามารถศึกษาประสิทธิภาพทางคลินิก โครงสร้างเคมี และคู่มือปฏิบัติเกี่ยวกับโพรโทคอลหัตถการร่วมของ ULTRACOL® ได้โดยตรงที่นี่</p>
+      </div>
+      
+      <div class="ingredient-accordion">
+        <!-- Active Ingredients -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>ACTIVE INGREDIENTS / โมเลกุลสำคัญ</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <div style="padding: var(--space-4) 0; font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); display: grid; gap: var(--space-4);">
+              <div>
+                <h5 style="font-weight: 500; color: var(--color-graphite); margin-bottom: 4px;">Micro PDO Particles (Polydioxanone)</h5>
+                <p style="font-weight: 300;">ช่วยกระตุ้นกระบวนการสังเคราะห์คอลลาเจน Type I & III ตามธรรมชาติใต้ชั้นผิวอย่างต่อเนื่องและปลอดภัยสูง ย่อยสลายได้เองตามธรรมชาติโดยไม่มีสิ่งตกค้าง</p>
+              </div>
+              <div>
+                <h5 style="font-weight: 500; color: var(--color-graphite); margin-bottom: 4px;">Cross-linked Hyaluronic Acid (12mg)</h5>
+                <p style="font-weight: 300;">กรดไฮยาลูรอนิกบริสุทธิ์มอบความชุ่มชื้นอย่างล้ำลึก คืนปริมาตรความอิ่มน้ำเพื่อพยุงโครงสร้างเซลล์ให้กระชับอิ่มฟูขึ้นทันทีหลังเข้ารับบริการ</p>
+              </div>
+              <div>
+                <h5 style="font-weight: 500; color: var(--color-graphite); margin-bottom: 4px;">Lidocaine (0.3%)</h5>
+                <p style="font-weight: 300;">ส่วนผสมของยาชาช่วยลดระดับความรู้สึกในระหว่างขั้นตอนการทำหัตถการ เพื่อให้ผู้รับบริการเกิดความผ่อนคลายและสบายตัวสูงสุดภายใต้การดูแลของแพทย์เฉพาะทาง</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clinical Evidence -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>CLINICAL EVIDENCE / ผลการทดสอบทางวิทยาศาสตร์</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <div style="padding: var(--space-4) 0; font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); display: grid; gap: var(--space-4);">
+              <p style="font-weight: 300;">ผลลัพธ์การพิสูจน์ทางคลินิกที่ผ่านการทดสอบประสิทธิภาพของ ULTRACOL® Vital HA Booster ในกลุ่มตัวอย่างผู้ใช้จริง:</p>
+              
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); font-family: var(--font-mono); margin-bottom: 6px;">
+                  <span>COLLAGEN SYNTHESIS RATE (AFTER 4 WEEKS)</span>
+                  <span>+98.6%</span>
+                </div>
+                <div style="background-color: var(--color-stone-100); height: 4px; border-radius: var(--radius-pill); overflow: hidden;">
+                  <div style="background-color: var(--color-forest); height: 100%; width: 98.6%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); font-family: var(--font-mono); margin-bottom: 6px;">
+                  <span>PATIENT SKIN ELASTICITY SATISFACTION</span>
+                  <span>94.8%</span>
+                </div>
+                <div style="background-color: var(--color-stone-100); height: 4px; border-radius: var(--radius-pill); overflow: hidden;">
+                  <div style="background-color: var(--color-forest); height: 100%; width: 94.8%;"></div>
+                </div>
+              </div>
+
+              <p style="font-weight: 300; font-size: var(--font-size-small); color: var(--color-stone-500);">*ผลทดสอบอ้างอิงจากบทความวิทยาศาสตร์และงานวิจัยที่ได้รับการรับรองความปลอดภัยทางการแพทย์ระดับสากล อนุภาคไมโครสเฟียร์ย่อยสลายตัวหมดจดโดยไม่ก่อให้เกิดการเกาะกลุ่มเป็นก้อนใต้ผิวพรรณ</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Application Guide -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(event)">
+            <span>APPLICATION GUIDE / วิธีการใช้และคำแนะนำหัตถการ</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-body">
+            <div style="padding: var(--space-4) 0; font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); display: grid; gap: var(--space-3); font-weight: 300;">
+              <p><strong>1. การรักษาด้วยทีมแพทย์ผู้เชี่ยวชาญเฉพาะทาง (Doctor-administered application):</strong> ออกแบบโดยมีวัตถุประสงค์หลักสำหรับประยุกต์ใช้งานหัตถการดูแลผิวพรรณโดยตรงจากแพทย์ผิวหนังภายในศูนย์บริการพรีเมียมพาร์ทเนอร์</p>
+              <p><strong>2. โพรโทคอลผสมผสานหัตถการร่วม (Synergistic Treatment Protocol):</strong> แนะนำให้ประยุกต์ใช้เพื่อเสริมผลลัพธ์ร่วมกับโปรแกรมยกกระชับ Ultra V Lift, เลเซอร์ผิวชั้นลึก หรือหลังการดูแลฟื้นฟูสภาพแผลและผิวหนังอักเสบเพื่อล็อกความชุ่มชื้นและกระตุ้นการเยียวยาขั้นสูงสุด</p>
+              <p><strong>3. แนะนำการรับบริการฟื้นฟูต่อเนื่อง:</strong> เพื่อรักษาเสถียรภาพความตึงแน่นกระชับของผิวพรรณ แนะนำให้เข้ารับบริการซ้ำทุก ๆ 3-6 เดือน ตามการประเมินและการวิเคราะห์ปัญหาผิวเฉพาะบุคคลโดยแพทย์ที่ดูแล</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Clinical Protocol & Synergies Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto var(--space-10) auto;">
+        <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">CLINICAL PROTOCOLS</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2);">โพรโทคอลการรักษาและประสิทธิภาพทางคลินิก</h2>
+      </div>
+
+      <!-- Treatment Protocol Step-by-Step Grid -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-bottom: var(--space-8);">
+        <!-- Step 1 -->
+        <div style="background-color: var(--color-clinical-white); border: 1px solid var(--border-primary); padding: var(--space-6); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-3);">
+          <div style="font-family: var(--font-mono); font-size: var(--font-size-caption); color: var(--color-bronze); font-weight: 500;">01 / PRE-INJECTION MANUAL</div>
+          <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500;">การดึงผิวเตรียมความพร้อม</h4>
+          <p style="font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); font-weight: 300; margin: 0;">ดึงผิวเบา ๆ ไปในทิศทางเดียวกันในระหว่างทำหัตถการ (Pull skin to the same direction) เพื่อกระจายตัวยาให้ราบเรียบและมีความแม่นยำสูงสุด</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="background-color: var(--color-clinical-white); border: 1px solid var(--border-primary); padding: var(--space-6); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-3);">
+          <div style="font-family: var(--font-mono); font-size: var(--font-size-caption); color: var(--color-bronze); font-weight: 500;">02 / INJECTION SITE & ANGLE</div>
+          <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500;">มุมองศาและระยะห่าง</h4>
+          <p style="font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); font-weight: 300; margin: 0;">ทำมุมเข็มต่ำกว่า 45 องศา (Angle below 45°) และทำจุดฉีดเว้นระยะห่างทุก ๆ 0.5 ซม. ถึง 1 ซม. เพื่อผลลัพธ์การเติมเต็มโครงสร้างผิวอย่างสม่ำเสมอทั่วบริเวณ</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="background-color: var(--color-clinical-white); border: 1px solid var(--border-primary); padding: var(--space-6); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-3);">
+          <div style="font-family: var(--font-mono); font-size: var(--font-size-caption); color: var(--color-bronze); font-weight: 500;">03 / INJECTION DEPTH</div>
+          <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500;">ระดับความลึกของชั้นผิวหนัง</h4>
+          <p style="font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); font-weight: 300; margin: 0;">แนะนำให้ทำหัตถการปล่อยตัวยาลงลึกระดับชั้น Dermis ส่วนลึก (Deep Dermis Layer) หรือฉีดในระดับ Subdermal เพื่อกระตุ้นเนื้อเยื่อคอลลาเจนตามธรรมชาติอย่างเต็มที่</p>
+        </div>
+      </div>
+
+      <!-- Injection Details and Intervals Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-12);">
+        <div style="border-top: 1px solid var(--border-primary); padding-top: var(--space-4);">
+          <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); display: block; margin-bottom: 4px;">INJECTION METHOD / วิธีการฉีด</span>
+          <p style="font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); font-weight: 300; margin: 0;">รองรับการรักษาร่วมกับเครื่องฉีดอัตโนมัติ (Auto injection with an injector) เพื่อความแม่นยำสูง หรือการฉีดแบบเข็มปกติโดยแพทย์เฉพาะทาง (Manual injection - แนะนำชั้น Subdermal)</p>
+        </div>
+        <div style="border-top: 1px solid var(--border-primary); padding-top: var(--space-4);">
+          <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-stone-400); display: block; margin-bottom: 4px;">TREATMENT INTERVAL / ความถี่การรับบริการ</span>
+          <p style="font-size: var(--font-size-caption); line-height: 1.6; color: var(--color-stone-600); font-weight: 300; margin: 0;"><strong>ระยะเริ่มต้น:</strong> แนะนำเข้ารับบริการต่อเนื่อง 3 ครั้ง ทุก ๆ 2 ถึง 4 สัปดาห์<br><strong>ระยะคงผลลัพธ์ (Retouch):</strong> เข้ารับบริการซ้ำทุก ๆ 4 ถึง 6 เดือนเพื่อคงความกระชับใส</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinical Synergies & Combination Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-10); align-items: center;">
+      <div>
+        <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">CLINICAL COMBINATION & SYNERGY</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2); margin-bottom: var(--space-6);">การผสานนวัตกรรมเพื่อผลลัพธ์ทวีคูณ</h2>
+        
+        <p style="font-weight: 300; line-height: 1.7; color: var(--color-stone-600); margin-bottom: var(--space-6);">
+          ยกระดับผลลัพธ์สู่ระดับสูงสุดด้วย **Clinical Synergy (การผสานหัตถการร่วม)** ระหว่าง **ULTRACOL® Vital HA Booster** บูสเตอร์ชุ่มชื้นกระตุ้นผิว และ **ULTRACOL® 100mg** ฟิลเลอร์ไมโครสเฟียร์ PDO เพื่อกระตุ้นโครงสร้างคอลลาเจนใต้ผิวหนัง
+        </p>
+
+        <div style="display: grid; gap: var(--space-4);">
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+            <div style="background-color: var(--color-forest); color: #fff; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: var(--font-mono); flex-shrink: 0; margin-top: 4px;">+</div>
+            <div>
+              <h5 style="font-family: var(--font-heading); font-size: var(--font-size-h5); color: var(--color-graphite); font-weight: 500; margin: 0 0 2px 0;">Skin Booster & Collagen Production</h5>
+              <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">เร่งปฏิกิริยาฟื้นฟูผิวแบบเร่งด่วนพร้อมเสริมความยาวนานของคอลลาเจนโครงสร้างผิวชั้นลึก (Increased longevity through collagen production)</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+            <div style="background-color: var(--color-forest); color: #fff; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: var(--font-mono); flex-shrink: 0; margin-top: 4px;">+</div>
+            <div>
+              <h5 style="font-family: var(--font-heading); font-size: var(--font-size-h5); color: var(--color-graphite); font-weight: 500; margin: 0 0 2px 0;">High Satisfaction Combined Therapy</h5>
+              <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">ให้ระดับความพึงพอใจของคนไข้และแพทย์ผิวหนังสูงสุด ด้วยความปลอดภัยระดับสูงจากมาตรฐานความคงตัวของโครงสร้างของเหลวไร้ประจุ</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+            <div style="background-color: var(--color-forest); color: #fff; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: var(--font-mono); flex-shrink: 0; margin-top: 4px;">+</div>
+            <div>
+              <h5 style="font-family: var(--font-heading); font-size: var(--font-size-h5); color: var(--color-graphite); font-weight: 500; margin: 0 0 2px 0;">Minimized Treatments Sessions</h5>
+              <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">ลดจำนวนครั้งการทำหัตถการให้รวดเร็วและใช้จำนวนโดสอย่างคุ้มค่าด้วยการผสานในลูปหัตถการเดียวกัน</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="border-radius: var(--radius-2xl); overflow: hidden; border: 1px solid var(--border-primary); background-color: var(--color-pure-white); padding: var(--space-4); box-shadow: var(--shadow-soft);">
+          <img src="assets/product/ultracol_combo_render.png" alt="ULTRACOL Combo Synergy Visual" style="width: 100%; height: auto; object-fit: cover; border-radius: var(--radius-xl);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Benefits & Application Areas Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10);">
+      <!-- Key Benefits -->
+      <div style="background-color: var(--color-clinical-white); border: 1px solid var(--border-primary); padding: var(--space-8); border-radius: var(--radius-2xl);">
+        <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.1em; display: block; margin-bottom: var(--space-3);">KEY CLINICAL BENEFITS</span>
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-graphite); font-weight: 400; margin-bottom: var(--space-6);">คุณประโยชน์หลักของหัตถการ</h3>
+        
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4);">
+          <li style="border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3);">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Hydration & Radiant Glossy Skin</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">กักเก็บน้ำลึกใต้ผิว เพื่อผิวฉ่ำโกลว์กระจ่างใสเปล่งประกาย</span>
+          </li>
+          <li style="border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3);">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Even Skin Tone & Skin Texture Improvement</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">ปรับแต่งสีผิวเรียบเนียนสม่ำเสมอ และฟื้นฟูแผลเป็นหลุมสิวตื้น</span>
+          </li>
+          <li style="border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3);">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Fine Wrinkle Smoothing</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">เติมเต็มรอยเหี่ยวย่นและริ้วรอยเล็กตื้นในชั้นผิวบางเฉียบ</span>
+          </li>
+          <li style="padding-bottom: 0;">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Reduce Pores & Safety Standards</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">กระชับรูขุมขน พร้อมรับรองมาตรฐานความปลอดภัยด้วยเทคโนโลยี NASHA</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Application Areas -->
+      <div style="background-color: var(--color-clinical-white); border: 1px solid var(--border-primary); padding: var(--space-8); border-radius: var(--radius-2xl);">
+        <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.1em; display: block; margin-bottom: var(--space-3);">RECOMMENDED AREAS</span>
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-graphite); font-weight: 400; margin-bottom: var(--space-6);">บริเวณผิวพรรณที่แนะนำ</h3>
+        
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4);">
+          <li style="border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3);">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Facial Areas / บริเวณใบหน้า</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">ปรับปรุงและลดเลือนริ้วรอยละเอียดบริเวณใต้ดวงตา, โหนกแก้ม, และกรอบหน้าขากรรไกร (Under eyes, Cheekbones, Jawlines)</span>
+          </li>
+          <li style="border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3);">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Neck Lines / ลำคอ</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">ลดเลือนและกระชับรอยพับเส้นรอบลำคอในกลุ่มคนที่มีเนื้อเยื่อผิวบอบบางเป็นพิเศษ</span>
+          </li>
+          <li style="border-bottom: 1px solid var(--border-primary); padding-bottom: var(--space-3);">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Inner Chest / เนินอก</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">ซ่อมแซมและปรับสภาพฟื้นฟูเนื้อสัมผัสผิวคล้ำเสียบริเวณหน้าอกและไหล่</span>
+          </li>
+          <li style="padding-bottom: 0;">
+            <strong style="color: var(--color-graphite); font-size: var(--font-size-body); font-weight: 500; display: block; margin-bottom: 4px;">Thin & Sensitive Skin Layers</strong>
+            <span style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-600);">ออกแบบเฉพาะตัวสำหรับผู้ที่มีชั้นผิวค่อนข้างบางและไวต่อการอักเสบแดงกระตุ้นยาก</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinical Safety & Bio-compatibility -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto var(--space-10) auto;">
+        <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">SAFETY STANDARD</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2);">เกณฑ์มาตรฐานความปลอดภัยสูงระดับคลินิก</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6);">
+        <!-- Safety Metric 1 -->
+        <div style="text-align: center; padding: var(--space-6) var(--space-4); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); background-color: var(--color-clinical-white); display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background-color: rgba(162, 123, 92, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-bronze); font-family: var(--font-mono); font-weight: 500; font-size: var(--font-size-body-l);">
+            &lt;1%
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500; margin-bottom: var(--space-2);">BDDE Residual</h4>
+            <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">ปริมาณสารเชื่อมโยงทางเคมีตกค้าง (MoD%) ต่ำกว่า 1% ซึ่งมอบระดับความปลอดภัยด้านชีวภาพสูงสุดแก่คนไข้</p>
+          </div>
+        </div>
+
+        <!-- Safety Metric 2 -->
+        <div style="text-align: center; padding: var(--space-6) var(--space-4); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); background-color: var(--color-clinical-white); display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background-color: rgba(37, 68, 56, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-forest); font-family: var(--font-mono); font-weight: 500; font-size: var(--font-size-body-l);">
+            0%
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500; margin-bottom: var(--space-2);">Minimal Swelling</h4>
+            <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">ผลลัพธ์มีความนุ่มนวลเป็นธรรมชาติ และแทบไม่มีอัตราการบวมอักเสบแดงภายหลังเสร็จสิ้นขั้นตอนรักษา</p>
+          </div>
+        </div>
+
+        <!-- Safety Metric 3 -->
+        <div style="text-align: center; padding: var(--space-6) var(--space-4); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); background-color: var(--color-clinical-white); display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background-color: rgba(162, 123, 92, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-bronze); font-family: var(--font-mono); font-weight: 500; font-size: var(--font-size-body-l);">
+            H-ase
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500; margin-bottom: var(--space-2);">Fully Reversible</h4>
+            <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">มีความยืดหยุ่นสูง สามารถฉีดเอนไซม์ไฮยาลูโรนิเดสสลายตัวยาออกได้อย่างสมบูรณ์หากต้องการปรับแต่ง</p>
+          </div>
+        </div>
+
+        <!-- Safety Metric 4 -->
+        <div style="text-align: center; padding: var(--space-6) var(--space-4); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); background-color: var(--color-clinical-white); display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background-color: rgba(37, 68, 56, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-forest); font-family: var(--font-mono); font-weight: 500; font-size: var(--font-size-body-l);">
+            U-P
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500; margin-bottom: var(--space-2);">Particle Uniformity</h4>
+            <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">ขนาดอนุภาคไมโครโพลีไดออกซาโนนมีความเรียงตัวสม่ำเสมอ เพิ่มเสถียรภาพและกระจายตัวกระจายตัวเรียบเนียน</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinical Before & After Rejuvenation Showcase -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-10); align-items: center;">
+      <div>
+        <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">CLINICAL RESULTS SHOWCASE</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2); margin-bottom: var(--space-6);">ผลลัพธ์เปรียบเทียบในผู้ใช้จริงหลัง 8 สัปดาห์</h2>
+        
+        <p style="font-weight: 300; line-height: 1.7; color: var(--color-stone-600); margin-bottom: var(--space-6);">
+          จากการทดสอบทางเวชระเบียนคลินิกโดยการบันทึกภาพถ่ายขยายส่วนผิวหน้า (Cheeks) และถุงใต้ตา (Under Eyes) ของผู้รับบริการภายหลังรับการรักษา 8 สัปดาห์ แสดงให้เห็นถึงการจัดเรียงชั้นโครงสร้างและฟื้นฟูสภาพเนื้อสัมผัสที่อิ่มใส เต่งตึงกระชับอย่างชัดเจน
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); border-top: 1px solid var(--border-primary); padding-top: var(--space-6);">
+          <div>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500; margin-bottom: 6px;">Facial & Cheek Area</h4>
+            <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">แก้มยกกระชับขึ้น ผิวอิ่มน้ำมีน้ำมีนวลขึ้นอย่างเป็นธรรมชาติ และริ้วรอยร่องแก้มลึกค่อย ๆ จางและตื้นขึ้น</p>
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); font-weight: 500; margin-bottom: 6px;">Under-Eye & Thin Skin</h4>
+            <p style="font-size: var(--font-size-caption); line-height: 1.5; color: var(--color-stone-600); font-weight: 300; margin: 0;">รอยดำคล้ำและถุงใต้ตาที่หย่อนคล้อยแบนราบและเรียบเนียนขึ้น รอยเหี่ยวย่นรอบดวงตาจางหาย</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="border-radius: var(--radius-2xl); overflow: hidden; border: 1px solid var(--border-primary); background-color: var(--color-pure-white); padding: var(--space-4); box-shadow: var(--shadow-soft);">
+          <img src="assets/product/ultracol_ba_rejuvenation.png" alt="Clinical Before and After 8 weeks Rejuvenation" style="width: 100%; height: auto; object-fit: cover; border-radius: var(--radius-xl);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinical Market Comparison Table -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto var(--space-10) auto;">
+        <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">MARKET COMPARISON</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2); margin-bottom: var(--space-4);">ตารางเปรียบเทียบสเปกคุณสมบัติผลิตภัณฑ์</h2>
+        <p style="font-weight: 300; line-height: 1.6; color: var(--color-stone-500); font-size: var(--font-size-body);">เปรียบเทียบความแตกต่างทางคลินิกระหว่าง ULTRACOL® Vital HA Booster และเวชภัณฑ์อื่นในตลาด</p>
+      </div>
+
+      <div style="overflow-x: auto; border: 1px solid var(--border-primary); border-radius: var(--radius-2xl); background: var(--color-pure-white); box-shadow: var(--shadow-soft);">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: var(--font-size-caption);">
+          <thead>
+            <tr style="background-color: var(--color-graphite); color: var(--color-clinical-white);">
+              <th style="padding: var(--space-4) var(--space-6); font-family: var(--font-heading); font-weight: 500; font-size: var(--font-size-body);">คุณสมบัติ</th>
+              <th style="padding: var(--space-4) var(--space-6); font-family: var(--font-heading); font-weight: 500; font-size: var(--font-size-body); background-color: var(--color-forest); border-left: 1px solid rgba(255,255,255,0.1);">UltraCol Vital</th>
+              <th style="padding: var(--space-4) var(--space-6); font-family: var(--font-heading); font-weight: 500; font-size: var(--font-size-body);">Volite</th>
+              <th style="padding: var(--space-4) var(--space-6); font-family: var(--font-heading); font-weight: 500; font-size: var(--font-size-body);">Restylane Vital Light</th>
+              <th style="padding: var(--space-4) var(--space-6); font-family: var(--font-heading); font-weight: 500; font-size: var(--font-size-body);">Byryzn</th>
+            </tr>
+          </thead>
+          <tbody style="color: var(--color-stone-700); font-weight: 300; line-height: 1.5;">
+            <tr style="border-bottom: 1px solid var(--border-primary);">
+              <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-graphite);">ผู้พัฒนา (Company)</td>
+              <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-forest); background-color: rgba(37, 68, 56, 0.03); border-left: 1px solid var(--border-primary);">Ultra V</td>
+              <td style="padding: var(--space-4) var(--space-6);">Allergan</td>
+              <td style="padding: var(--space-4) var(--space-6);">Galderma</td>
+              <td style="padding: var(--space-4) var(--space-6);">Hugel</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-primary);">
+              <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-graphite);">สารสกัด (Content)</td>
+              <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-forest); background-color: rgba(37, 68, 56, 0.03); border-left: 1px solid var(--border-primary);">HA 12mg / Lidocaine 3mg</td>
+              <td style="padding: var(--space-4) var(--space-6);">HA 12mg / Lidocaine 3mg</td>
+              <td style="padding: var(--space-4) var(--space-6);">HA 12mg / Lidocaine 3mg</td>
+              <td style="padding: var(--space-4) var(--space-6);">HA 20mg (High content)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-primary);">
+              <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-graphite);">ประสิทธิภาพ (Effect)</td>
+              <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-forest); background-color: rgba(37, 68, 56, 0.03); border-left: 1px solid var(--border-primary);">Moisturization, Even Skin Tone, Fine Wrinkles, Scar Improvement, Pores Reduction</td>
+              <td style="padding: var(--space-4) var(--space-6);">Moisture, Elasticity, and Increased volume</td>
+               <td style="padding: var(--space-4) var(--space-6);">Smoother skin texture</td>
+               <td style="padding: var(--space-4) var(--space-6);">Moisturization and radiant effect as Skin Booster</td>
+             </tr>
+             <tr style="border-bottom: 1px solid var(--border-primary);">
+               <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-graphite);">บริเวณรักษา (Areas)</td>
+               <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-forest); background-color: rgba(37, 68, 56, 0.03); border-left: 1px solid var(--border-primary);">Facial Area, Neck, Inner chest, Thin & sensitive skin layers</td>
+               <td style="padding: var(--space-4) var(--space-6);">Whole face</td>
+               <td style="padding: var(--space-4) var(--space-6);">Thin skin areas (Neck, Under eyes, Upper chest, Jawlines)</td>
+               <td style="padding: var(--space-4) var(--space-6);">Whole face</td>
+             </tr>
+             <tr style="border-bottom: 1px solid var(--border-primary);">
+               <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-graphite);">ปริมาตร (Quantity)</td>
+               <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-forest); background-color: rgba(37, 68, 56, 0.03); border-left: 1px solid var(--border-primary);">2ml x 2 Syringes</td>
+               <td style="padding: var(--space-4) var(--space-6);">2 Syringes x 1ml</td>
+               <td style="padding: var(--space-4) var(--space-6);">1 Syringe x 1ml</td>
+               <td style="padding: var(--space-4) var(--space-6);">2 Syringes x 1.1ml</td>
+             </tr>
+             <tr>
+               <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-graphite);">ระยะเวลาคงผล (Duration)</td>
+               <td style="padding: var(--space-4) var(--space-6); font-weight: 500; color: var(--color-forest); background-color: rgba(37, 68, 56, 0.03); border-left: 1px solid var(--border-primary);">3 to 6 months</td>
+               <td style="padding: var(--space-4) var(--space-6);">/</td>
+               <td style="padding: var(--space-4) var(--space-6);">3 to 6 months</td>
+               <td style="padding: var(--space-4) var(--space-6);">/</td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+   </section>
+
+  <footer class="main-footer" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="footer-container" style="max-width: 1440px; margin: 0 auto; padding: 0 var(--space-8) var(--space-10) var(--space-8); display: grid; grid-template-columns: 1.5fr 2fr; gap: var(--space-10);">
+      <div class="footer-brand">
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); margin-bottom: var(--space-3); letter-spacing: 0.1em;">LMCP</h3>
+        <div class="brand-manifesto" style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.3; font-style: italic; margin-bottom: var(--space-5);">
+          <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+          <p class="manifesto-line-2" style="color: var(--color-bronze);">We curate science, not trends.</p>
+        </div>
+        <p class="brand-statement" style="font-size: var(--font-size-small); color: var(--color-stone-400); font-weight: 300; max-width: 400px;">เวชสำอางและคลินิกความงามระดับลักชัวรี ที่ผสานวิทยาศาสตร์การวิจัยเข้ากับรสนิยมและการดูแลขั้นสูงสุด</p>
+      </div>
+      <div class="footer-links" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">PRODUCT</h6>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Restoration Serum</a>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Brightening Elixir</a>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Recovery Balm</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">SCIENCE</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Clinical Trials</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Research Papers</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Ingredients Profile</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">LEGAL & CONTACT</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Privacy Policy</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Terms of Service</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-corporate" style="max-width: 1440px; margin: 0 auto; padding: var(--space-6) var(--space-8) var(--space-8) var(--space-8); display: block; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+      <div class="corporate-column">
+        <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-3);">CORPORATE INFORMATION</h6>
+        <p class="corp-name" style="font-size: var(--font-size-caption); color: var(--color-bronze); margin-bottom: var(--space-1); font-weight: 400; text-transform: none;">บริษัท อินเฟนิกซ์ เอสเธทิค จำกัด (สำนักงานใหญ่)</p>
+        <p class="corp-addr" style="font-size: var(--font-size-caption); color: var(--color-stone-400); font-weight: 300; line-height: 1.6;">เลขที่ 134/126 พระรามที่ 2 ซอย 50 แขวงแสมดำ เขตบางขุนเทียน กรุงเทพมหานคร 10150 &bull; เลขประจำตัวผู้เสียภาษี: 0-1055-66031-32-2</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding: var(--space-6) 0;">
+      <div class="footer-bottom-container" style="max-width: 1440px; margin: 0 auto; padding: 0 var(--space-8); display: flex; justify-content: space-between; font-size: var(--font-size-micro); color: var(--color-stone-500);">
+        <span>© 2026 LMCP. All Rights Reserved.</span>
+        <span>Premium Aesthetics of Beauty & Science</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox for Image Zoom -->
+  <div class="lightbox" id="gallery-lightbox" onclick="closeLightbox()">
+    <img src="" id="lightbox-img" alt="Zoomed Product Shot">
+  </div>
+
+  <script>
+    // Gallery switching logic
+    let activeThumbIndex = 0;
+    
+    function switchGalleryImage(src, index) {
+      const mainImg = document.getElementById('main-product-img');
+      if (!mainImg) return;
+      
+      mainImg.style.opacity = 0;
+      mainImg.style.transform = 'scale(0.98)';
+      
+      setTimeout(() => {
+        mainImg.src = src;
+        mainImg.style.opacity = 1;
+        mainImg.style.transform = 'scale(1)';
+      }, 150);
+
+      const thumbs = document.querySelectorAll('.thumb-item');
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumbs[index].classList.add('active');
+      activeThumbIndex = index;
+    }
+
+    // Lightbox modal toggle
+    function openLightbox() {
+      const mainImg = document.getElementById('main-product-img');
+      const lightbox = document.getElementById('gallery-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      
+      if (!mainImg || !lightbox || !lightboxImg) return;
+      
+      lightboxImg.src = mainImg.src;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('gallery-lightbox');
+      if (lightbox) lightbox.classList.remove('active');
+    }
+
+    // Share alert
+    function shareProduct() {
+      alert('ลิงก์ผลิตภัณฑ์ ULTRACOL® Vital HA Booster ถูกคัดลอกลง Clipboard เรียบร้อยแล้ว');
+    }
+
+    // Save toggle
+    let isSaved = false;
+    function toggleSave() {
+      isSaved = !isSaved;
+      const heartIcon = document.getElementById('heart-icon');
+      const saveText = document.getElementById('save-text');
+      
+      if (isSaved) {
+        heartIcon.setAttribute('fill', 'var(--color-forest)');
+        saveText.textContent = 'Saved';
+      } else {
+        heartIcon.setAttribute('fill', 'none');
+        saveText.textContent = 'Save';
+      }
+    }
+
+    // Accordions Logic
+    function toggleAccordion(event) {
+      const header = event.currentTarget;
+      const body = header.nextElementSibling;
+      const svg = header.querySelector('svg');
+      
+      body.classList.toggle('open');
+      if (body.classList.contains('open')) {
+        body.style.maxHeight = body.scrollHeight + "px";
+        svg.style.transform = "rotate(180deg)";
+      } else {
+        body.style.maxHeight = "0px";
+        svg.style.transform = "rotate(0deg)";
+      }
+    }
+  </script>
+</body>
+</html>

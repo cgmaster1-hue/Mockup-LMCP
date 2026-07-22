@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMCP | Luxury Medical Aesthetics & Skincare</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Central Styles -->
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+</head>
+<body>
+  
+<!-- START SECTION: 01_navigation.html -->
+<header class="main-header">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="#">LMCP</a>
+    </div>
+    <nav class="nav-menu">
+      <a href="clinical_collections.html">คอลเลกชัน</a>
+      <a href="#concerns">ปัญหาผิว</a>
+      <a href="ingredient_encyclopedia.html">วิทยาศาสตร์ของส่วนผสม</a>
+      <a href="#evidence">ผลลัพธ์ทางคลินิก</a>
+      <a href="clinic_finder.html">คลินิก</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="search.html" class="nav-icon" aria-label="ค้นหา">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </a>
+      <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </a>
+      <a href="#" class="btn-studio">Studio Portal</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .main-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 72px;
+    z-index: 1000;
+    background: rgba(248, 247, 244, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(47, 52, 55, 0.05);
+    transition: background 0.3s ease;
+  }
+  .nav-container {
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo a {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h4);
+    color: var(--color-graphite);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  .nav-menu {
+    display: flex;
+    gap: var(--space-8);
+  }
+  .nav-menu a {
+    color: var(--color-graphite);
+    text-decoration: none;
+    font-size: var(--font-size-caption);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    transition: color 0.3s var(--ease-out-expo);
+  }
+  .nav-menu a:hover {
+    color: var(--color-forest);
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .nav-icon {
+    color: var(--color-graphite);
+    display: inline-flex;
+    transition: color 0.3s;
+  }
+  .nav-icon:hover {
+    color: var(--color-forest);
+  }
+  .btn-studio {
+    font-family: var(--font-body);
+    font-size: var(--font-size-micro);
+    color: var(--color-clinical-white);
+    background-color: var(--color-graphite);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s;
+  }
+  .btn-studio:hover {
+    opacity: 0.9;
+  }
+</style>
+
+<script>
+  // Sticky Nav & Color Transition
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.main-header');
+    if (window.scrollY > 50) {
+      header.style.background = 'rgba(248, 247, 244, 0.95)';
+      header.style.boxShadow = 'var(--shadow-soft)';
+    } else {
+      header.style.background = 'rgba(248, 247, 244, 0.7)';
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+<!-- END SECTION: 01_navigation.html -->
+
+<!-- START SECTION: 02_hero.html -->
+<section class="hero-section travertine-bg" id="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <span class="hero-badge hero-text-load stagger-1">INFENIX CLINICAL REGENERATION</span>
+      <h1 class="hero-title hero-text-load stagger-2">นวัตกรรมฟื้นฟูคอลลาเจน<br>ULTRACOL® Vital</h1>
+      <p class="hero-subtitle hero-text-load stagger-3">บูสเตอร์อณูไมโครสเฟียร์ PDO ผสาน Hyaluronic Acid จาก Infenix กระตุ้นคอลลาเจนชั้น Dermis คืนความกระชับและยืดหยุ่นเปล่งปลั่งระดับลักชัวรี</p>
+      <p class="hero-statement hero-text-load stagger-4">Clinical tissue regeneration crafted for modern skin longevity.</p>
+      <div class="hero-actions hero-text-load stagger-5">
+        <a href="ultracol_booster.html" class="btn-primary">สำรวจหัตถการนี้ &rarr;</a>
+        <a href="#concerns" class="btn-secondary">วิเคราะห์สุขภาพผิว</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-wrapper">
+        <img src="assets/product/ultracol_booster_render.png" alt="Infenix ULTRACOL® Vital HA Booster" class="hero-img hero-image-zoom" style="object-fit: cover;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    min-height: 100vh;
+    height: 1200px;
+    display: flex;
+    align-items: center;
+    padding-top: 72px;
+    overflow: hidden;
+  }
+  .hero-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: var(--space-10);
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+  .hero-badge {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.15em;
+  }
+  .hero-title {
+    font-size: var(--font-size-hero);
+    color: var(--color-graphite);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .hero-subtitle {
+    font-size: var(--font-size-body-l);
+    color: var(--color-stone-600);
+    font-weight: 300;
+    max-width: 580px;
+  }
+  .hero-statement {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h4);
+    color: var(--color-forest);
+    font-style: italic;
+    font-weight: 300;
+    max-width: 580px;
+    border-left: 2px solid var(--color-bronze);
+    padding-left: var(--space-4);
+  }
+  .hero-actions {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .hero-image-wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: 650px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-floating);
+  }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 1024px) {
+    .hero-section {
+      height: auto;
+      padding: 120px 0;
+    }
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: var(--space-8);
+    }
+    .hero-content {
+      align-items: center;
+    }
+    .hero-subtitle {
+      margin: 0 auto;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+  }
+</style>
+
+<!-- END SECTION: 02_hero.html -->
+
+<!-- START SECTION: 03_trust_metrics.html -->
+<section class="trust-metrics-section reveal-section">
+  <div class="metrics-container">
+    <div class="metric-card">
+      <div class="metric-num count-up-number" data-target="120" data-suffix="+">0</div>
+      <div class="metric-label">Clinical Publications</div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric-card">
+      <div class="metric-num count-up-number" data-target="15" data-suffix="+">0</div>
+      <div class="metric-label">Years of Research</div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric-card">
+      <div class="metric-num count-up-number" data-target="98" data-suffix="%">0</div>
+      <div class="metric-label">Patient Satisfaction</div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric-card">
+      <div class="metric-num count-up-number" data-target="250" data-suffix="+">0</div>
+      <div class="metric-label">Partner Clinics</div>
+    </div>
+  </div>
+  
+  <div class="certification-strip">
+    <span class="cert-title">OFFICIALLY CERTIFIED & CURATED</span>
+    <div class="cert-items">
+      <span class="cert-item">FDA APPROVED</span>
+      <span class="cert-bullet">•</span>
+      <span class="cert-item">CE MEDICAL CERTIFIED</span>
+      <span class="cert-bullet">•</span>
+      <span class="cert-item">ISO 13485 (MEDICAL DEVICES)</span>
+      <span class="cert-bullet">•</span>
+      <span class="cert-item">CLINICALLY TESTED FORMULAS</span>
+      <span class="cert-bullet">•</span>
+      <span class="cert-item">GLOBAL ACADEMIA RESEARCH PARTNERS</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-metrics-section {
+    background: var(--color-pure-white);
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .metrics-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .metric-card {
+    text-align: center;
+    flex: 1;
+  }
+  .metric-num {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-display);
+    color: var(--color-forest);
+    font-weight: 300;
+    margin-bottom: var(--space-1);
+  }
+  .metric-label {
+    font-size: var(--font-size-micro);
+    color: var(--color-stone-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .metric-divider {
+    width: 1px;
+    height: 60px;
+    background-color: var(--border-primary);
+  }
+  @media (max-width: 768px) {
+    .metrics-container {
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    .metric-divider {
+      display: none;
+    }
+  }
+  .certification-strip {
+    margin-top: var(--space-8);
+    border-top: 1px dashed var(--border-primary);
+    padding-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .cert-title {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.15em;
+  }
+  .cert-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .cert-item {
+    font-family: var(--font-body);
+    font-size: var(--font-size-micro);
+    color: var(--color-stone-400);
+    letter-spacing: 0.1em;
+    font-weight: 300;
+  }
+  .cert-bullet {
+    color: var(--color-bronze);
+    font-size: 8px;
+  }
+  @media (max-width: 768px) {
+    .certification-strip {
+      margin-top: var(--space-6);
+      padding-top: var(--space-4);
+    }
+    .cert-items {
+      gap: var(--space-2);
+    }
+  }
+</style>
+
+<!-- END SECTION: 03_trust_metrics.html -->
+
+<!-- START SECTION: 04_skin_concern_finder.html -->
+<section class="concern-section reveal-section" id="concerns">
+  <div class="concern-container">
+    <div class="section-header">
+      <span class="header-mono">SKIN DIAGNOSTIC</span>
+      <h2 class="section-title">วิเคราะห์ตามปัญหาผิวพรรณของคุณ</h2>
+      <p class="section-desc">เริ่มต้นค้นพบสูตรผลิตภัณฑ์ที่พัฒนาขึ้นโดยมีเป้าหมายเฉพาะเจาะจงตามความกังวลของคุณ</p>
+    </div>
+    <div class="concern-grid">
+      <div class="concern-card hover-lift reveal-card stagger-1">
+        <div class="concern-bg" style="background-image: url('assets/people/concern_acne.png')"></div>
+        <div class="concern-overlay"></div>
+        <div class="concern-content">
+          <h3>Acne</h3>
+          <p>ดูแลปัญหาสิว อุดตัน และความมันส่วนเกินอย่างอ่อนโยน</p>
+        </div>
+      </div>
+      <div class="concern-card hover-lift reveal-card stagger-2">
+        <div class="concern-bg" style="background-image: url('assets/people/concern_pigmentation.png')"></div>
+        <div class="concern-overlay"></div>
+        <div class="concern-content">
+          <h3>Pigmentation</h3>
+          <p>ลดเลือนฝ้า กระ จุดด่างดำ และปรับสีผิวให้สม่ำเสมอ</p>
+        </div>
+      </div>
+      <div class="concern-card hover-lift reveal-card stagger-3">
+        <div class="concern-bg" style="background-image: url('assets/people/concern_aging.png')"></div>
+        <div class="concern-overlay"></div>
+        <div class="concern-content">
+          <h3>Aging</h3>
+          <p>ฟื้นฟูริ้วรอยแห่งวัย คืนความยืดหยุ่นและยกกระชับโครงหน้า</p>
+        </div>
+      </div>
+      <div class="concern-card hover-lift reveal-card stagger-4">
+        <div class="concern-bg" style="background-image: url('assets/people/concern_sensitive.png')"></div>
+        <div class="concern-overlay"></div>
+        <div class="concern-content">
+          <h3>Sensitive</h3>
+          <p>เสริมสร้างชั้นปราการปกป้องผิว ปลอบประโลมผิวบอบบางแพ้ง่าย</p>
+        </div>
+      </div>
+      <div class="concern-card hover-lift reveal-card stagger-5">
+        <div class="concern-bg" style="background-image: url('assets/people/concern_hydration.png')"></div>
+        <div class="concern-overlay"></div>
+        <div class="concern-content">
+          <h3>Hydration</h3>
+          <p>เติมเต็มความชุ่มชื้น คืนความอิ่มฟูและเปล่งประกายสู่เซลล์ผิว</p>
+        </div>
+      </div>
+      <div class="concern-card hover-lift reveal-card stagger-6">
+        <div class="concern-bg" style="background-image: url('assets/people/concern_procedure.png')"></div>
+        <div class="concern-overlay"></div>
+        <div class="concern-content">
+          <h3>Post Procedure</h3>
+          <p>ดูแลบำรุงเร่งด่วนสำหรับผิวหลังทำหัตถการเลเซอร์และทรีตเมนต์</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .concern-section {
+    padding: var(--space-12) 0;
+    background: var(--color-pure-white);
+  }
+  .concern-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-9);
+  }
+  .header-mono {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-size: var(--font-size-h2);
+    color: var(--color-graphite);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  .section-desc {
+    font-size: var(--font-size-body);
+    color: var(--color-stone-500);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+  .concern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  .concern-card {
+    position: relative;
+    height: 320px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .concern-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--duration-luxury) var(--ease-out-expo);
+  }
+  .concern-card:hover .concern-bg {
+    transform: scale(1.08);
+  }
+  .concern-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(47, 52, 55, 0.95) 0%, rgba(47, 52, 55, 0.2) 100%);
+  }
+  .concern-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: var(--space-6);
+    color: var(--color-clinical-white);
+    z-index: 2;
+  }
+  .concern-content h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    font-weight: 400;
+    margin-bottom: var(--space-2);
+  }
+  .concern-content p {
+    font-size: var(--font-size-caption);
+    font-weight: 200;
+    opacity: 0.8;
+    max-width: 280px;
+  }
+  @media (max-width: 1024px) {
+    .concern-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .concern-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<!-- END SECTION: 04_skin_concern_finder.html -->
+
+<!-- START SECTION: 05_brand_story.html -->
+<section class="brand-story-section reveal-section">
+  <div class="story-container">
+    <div class="story-image-block reveal-section stagger-1">
+      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1200" alt="LMCP Brand Story" class="story-img">
+    </div>
+    <div class="story-content-block reveal-section stagger-2">
+      <span class="story-tag">ปรัชญาแบรนด์</span>
+      <h2 class="story-title">ความสมดุลระหว่าง<br>ความงามทางศิลปะ<br>และหลักวิทยาศาสตร์การแพทย์</h2>
+      <p class="story-text">เราเชื่อว่าการดูแลผิวพรรณไม่ควรถูกมองเป็นเพียงแค่ขั้นตอนความงามส่วนบุคคลธรรมดา หากแต่ต้องเป็นกระบวนการที่มีการพิสูจน์ ตรวจสอบ และอ้างอิงหลักทางคลินิกอย่างจริงจัง ควบคู่ไปกับการมอบประสบการณ์สัมผัสที่เป็นเลิศเสมือนงานศิลปะที่ถูกคัดสรร</p>
+      <blockquote class="story-quote">"วิทยาศาสตร์คือผู้นำทางความเข้าใจ แต่ศิลปะคือหัวใจสำคัญในการส่งมอบความรู้สึก"</blockquote>
+    </div>
+  </div>
+</section>
+
+<style>
+  .brand-story-section {
+    padding: var(--space-12) 0;
+    background-color: var(--color-clinical-white);
+  }
+  .story-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: var(--space-12);
+  }
+  .story-image-block {
+    width: 100%;
+    height: 600px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+  }
+  .story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .story-content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+  .story-tag {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.1em;
+  }
+  .story-title {
+    font-size: var(--font-size-h1);
+    color: var(--color-graphite);
+    line-height: 1.2;
+  }
+  .story-text {
+    font-size: var(--font-size-body);
+    color: var(--color-stone-600);
+    font-weight: 300;
+  }
+  .story-quote {
+    border-left: 2px solid var(--color-bronze);
+    padding-left: var(--space-4);
+    margin-top: var(--space-2);
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: var(--font-size-body-l);
+    color: var(--color-forest);
+  }
+  @media (max-width: 960px) {
+    .story-container {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+    .story-image-block {
+      height: 400px;
+    }
+  }
+</style>
+
+<!-- END SECTION: 05_brand_story.html -->
+
+<!-- START SECTION: 06_medical_advisory_board.html -->
+<section class="advisory-section reveal-section" id="advisory-board">
+  <div class="advisory-container">
+    <div class="section-header">
+      <span class="header-mono">THE MEDICAL BOARD</span>
+      <h2 class="section-title">คณะกรรมการแพทย์ผู้ที่ปรึกษาและคัดสรร</h2>
+      <p class="section-desc">ความเชื่อถือของเวชสำอางที่แท้จริงต้องได้รับการพิสูจน์โดยผู้เชี่ยวชาญ คณะแพทย์ที่ปรึกษาของเราคัดเลือกเฉพาะโมเลกุลที่มีการรับรองทางคลินิกอย่างเข้มงวดที่สุด</p>
+    </div>
+    
+    <div class="editorial-board-layout">
+      <!-- Chief Advisor Profile -->
+      <div class="chief-profile-block reveal-section stagger-1">
+        <div class="advisor-portrait">
+          <img src="assets/people/doc_kanya.png" alt="พญ. กัญญา พิมพ์ลภัส" class="portrait-img grayscale">
+        </div>
+        <div class="advisor-meta">
+          <span class="platform-role">CHIEF MEDICAL ADVISOR / DERMATOLOGY</span>
+          <h3>พญ. กัญญา พิมพ์ลภัส, MD</h3>
+          <blockquote class="advisor-quote">"วิทยาศาสตร์การแพทย์ที่สมบูรณ์แบบ คือการคืนความสามารถในการปกป้องและเยียวยาตัวเองตามธรรมชาติให้แก่เซลล์ผิวพรรณ"</blockquote>
+          <p class="advisor-bio">แพทย์ศาสตราจารย์เกียรติคุณสาขาตระกูลโรคผิวหนังและเวชศาสตร์การชะลอวัย ผู้เขียนบทความวิจัยที่ได้รับการตีพิมพ์ในสถาบันนานาชาติระดับนานาชาติกว่า 40 ฉบับ</p>
+        </div>
+      </div>
+      
+      <!-- Scientific Committee Stack -->
+      <div class="committee-stack">
+        <!-- Advisor 2 -->
+        <div class="committee-member-item reveal-section stagger-2">
+          <div class="member-portrait">
+            <img src="assets/people/doc_chaiwat.png" alt="ศ.ดร. นพ. ชัยวัฒน์ เมธาสิทธิ์" class="portrait-img grayscale">
+          </div>
+          <div class="member-meta">
+            <span class="platform-role">SCIENTIFIC COMMITTEE / PLASTIC SURGERY</span>
+            <h4>ศ.ดร. นพ. ชัยวัฒน์ เมธาสิทธิ์, PhD</h4>
+            <blockquote class="advisor-quote-small">"ความมั่นคงของโครงสร้างคอลลาเจนใต้ผิวหลังกระบวนการหัตถการ คือหัวใจหลักของผลลัพธ์ที่ยั่งยืน"</blockquote>
+          </div>
+        </div>
+        
+        <!-- Advisor 3 -->
+        <div class="committee-member-item reveal-section stagger-3">
+          <div class="member-portrait">
+            <img src="assets/people/doc_pimnara.png" alt="พญ. พิมณารา อัศววงศ์" class="portrait-img grayscale">
+          </div>
+          <div class="member-meta">
+            <span class="platform-role">SCIENTIFIC COMMITTEE / AESTHETIC MEDICINE</span>
+            <h4>พญ. พิมณารา อัศววงศ์, MD</h4>
+            <blockquote class="advisor-quote-small">"การออกแบบระบบผลิตภัณฑ์ที่ทำงานร่วมกันคือสิ่งที่รับประกันความพึงพอใจและประสิทธิภาพสูงสุดทางผิวหนัง"</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="board-actions">
+      <a href="#" class="btn-secondary">View Medical Board</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .advisory-section {
+    padding: var(--space-12) 0;
+    background: var(--color-clinical-white);
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .advisory-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .editorial-board-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-12);
+    margin-top: var(--space-10);
+  }
+  
+  /* Chief Block */
+  .chief-profile-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .advisor-portrait {
+    width: 100%;
+    height: 540px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background-color: var(--color-stone-100);
+    box-shadow: var(--shadow-medium);
+  }
+  .portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-luxury) var(--ease-out-expo), filter var(--duration-luxury) var(--ease-out-expo);
+  }
+  .portrait-img.grayscale {
+    filter: grayscale(100%);
+  }
+  .portrait-img.grayscale:hover {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+  }
+  .advisor-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    max-width: 580px;
+  }
+  .platform-role {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.15em;
+    font-weight: 400;
+  }
+  .advisor-meta h3 {
+    font-size: var(--font-size-h2);
+    color: var(--color-graphite);
+    line-height: 1.2;
+  }
+  .advisor-quote {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    color: var(--color-forest);
+    font-style: italic;
+    line-height: 1.4;
+    border-left: 2px solid var(--color-bronze);
+    padding-left: var(--space-4);
+    margin: var(--space-2) 0;
+  }
+  .advisor-quote-small {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-body-l);
+    color: var(--color-forest);
+    font-style: italic;
+    line-height: 1.4;
+    border-left: 1px solid var(--color-bronze);
+    padding-left: var(--space-3);
+    margin-top: var(--space-1);
+  }
+  .advisor-bio {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-500);
+    font-weight: 300;
+  }
+  
+  /* Committee Stack */
+  .committee-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+  }
+  .committee-member-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: var(--space-8);
+  }
+  .committee-member-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .member-portrait {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--color-stone-100);
+    box-shadow: var(--shadow-soft);
+  }
+  .member-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .member-meta h4 {
+    font-size: var(--font-size-h4);
+    color: var(--color-graphite);
+  }
+  
+  .board-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-10);
+  }
+  
+  @media (max-width: 960px) {
+    .editorial-board-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+    .advisor-portrait {
+      height: 400px;
+    }
+    .committee-member-item {
+      grid-template-columns: 120px 1fr;
+      gap: var(--space-4);
+    }
+    .member-portrait {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>
+
+<!-- END SECTION: 06_medical_advisory_board.html -->
+
+<!-- START SECTION: 07_featured_collection.html -->
+<section class="featured-section reveal-section" id="collections">
+  <div class="featured-container">
+    <div class="section-header">
+      <span class="header-mono">THE HERO ARCHIVE</span>
+      <h2 class="section-title">ผลิตภัณฑ์ชิ้นเอกประจำเป็นซีซัน</h2>
+    </div>
+    <div class="asymmetric-layout">
+      <!-- Tissue Regeneration (ULTRACOL) -->
+      <div class="hero-product-item restoration-item reveal-section stagger-1">
+        <div class="prod-visual hover-scale">
+          <img src="assets/product/ultracol_booster_render.png" alt="ULTRACOL Vital HA Booster" class="prod-img">
+        </div>
+        <div class="prod-meta">
+          <span class="prod-no">01 / TISSUE REGENERATION</span>
+          <h3>ULTRACOL® Vital HA Booster</h3>
+          <p class="prod-description">บูสเตอร์อณูไมโครสเฟียร์ PDO ผสาน Hyaluronic Acid กระตุ้นการสร้างเนื้อเยื่อคอลลาเจนใหม่ คืนความแน่นตึงกระชับพยุงเกราะผิวพรรณ</p>
+          <a href="ultracol_booster.html" class="btn-secondary">ดูรายละเอียดผลิตภัณฑ์ &rarr;</a>
+        </div>
+      </div>
+      
+      <!-- Restoration -->
+      <div class="hero-product-item brightening-item reveal-section stagger-2">
+        <div class="prod-visual hover-scale">
+          <img src="assets/product/infenix_restoration_serum.png" alt="Restoration formulation" class="prod-img">
+        </div>
+        <div class="prod-meta">
+          <span class="prod-no">02 / RESTORATION</span>
+          <h3>The Restoration Serum</h3>
+          <p class="prod-description">เซรั่มกู้ชีพฟื้นฟูเซลล์ผิวอ่อนแอเร่งด่วน ผสานเทคโนโลยี Lipid-Lock ล็อกเกราะปกป้องผิวแข็งแรงขึ้นใน 3 วัน</p>
+          <a href="product_detail.html" class="btn-secondary">ดูรายละเอียดผลิตภัณฑ์ &rarr;</a>
+        </div>
+      </div>
+      
+      <!-- Brightening -->
+      <div class="hero-product-item recovery-item reveal-section stagger-3">
+        <div class="prod-visual hover-scale">
+          <img src="assets/product/infenix_brightening_elixir.png" alt="Brightening formulation" class="prod-img">
+        </div>
+        <div class="prod-meta">
+          <span class="prod-no">03 / BRIGHTENING</span>
+          <h3>The Brightening Elixir</h3>
+          <p class="prod-description">เอสเซนส์เข้มข้นเพื่อผิวกระจ่างใสสุขภาพดี ลดปัญหาระดับเมลานินเม็ดสีโดยไม่ก่อให้เกิดการระคายเคือง</p>
+          <a href="product_detail.html" class="btn-secondary">ดูรายละเอียดผลิตภัณฑ์ &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-section {
+    padding: var(--space-12) 0;
+    background: var(--color-clinical-white);
+  }
+  .featured-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .asymmetric-layout {
+    margin-top: var(--space-10);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-8);
+    row-gap: var(--space-12);
+  }
+  .hero-product-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .restoration-item {
+    grid-column: 1 / span 5;
+  }
+  .brightening-item {
+    grid-column: 7 / span 5;
+    margin-top: var(--space-11);
+  }
+  .recovery-item {
+    grid-column: 3 / span 6;
+    margin-top: var(--space-6);
+  }
+  .prod-visual {
+    width: 100%;
+    height: 520px;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-stone-100);
+  }
+  .prod-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .prod-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    max-width: 440px;
+  }
+  .prod-no {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+  }
+  .prod-meta h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-graphite);
+  }
+  .prod-description {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-500);
+    font-weight: 300;
+    margin-bottom: var(--space-2);
+  }
+  @media (max-width: 960px) {
+    .asymmetric-layout {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-10);
+    }
+    .brightening-item, .recovery-item {
+      margin-top: 0;
+    }
+    .prod-visual {
+      height: 400px;
+    }
+  }
+</style>
+
+<!-- END SECTION: 07_featured_collection.html -->
+
+<!-- START SECTION: 08_ingredient_story.html -->
+<section class="ingredient-section" id="ingredients">
+  <div class="ingredient-container">
+    <div class="section-header">
+      <span class="header-mono">SCIENTIFIC INGREDIENTS</span>
+      <h2 class="section-title">ส่วนผสมหลักและกลไกโมเลกุล</h2>
+      <p class="section-desc">ทำความเข้าใจการทำงานเชิงวิทยาศาสตร์ของส่วนผสมหลักที่ผ่านการพิสูจน์แล้ว</p>
+    </div>
+    <div class="ingredient-showcase">
+      <div class="ing-selector">
+        <button type="button" class="ing-btn active" onclick="selectIngredient('vit-c', event)">VITAMIN C (L-ASCORBIC ACID)</button>
+        <button type="button" class="ing-btn" onclick="selectIngredient('niac', event)">NIACINAMIDE</button>
+        <button type="button" class="ing-btn" onclick="selectIngredient('retinol', event)">RETINOL</button>
+        <button type="button" class="ing-btn" onclick="selectIngredient('ha', event)">HYALURONIC ACID</button>
+        <button type="button" class="ing-btn" onclick="selectIngredient('peptide', event)">PEPTIDES</button>
+      </div>
+      <div class="ing-card" id="ing-vit-c">
+        <div class="ing-visual">
+          <img src="assets/product/prod_brightening.png" alt="Molecule representation" class="ing-img">
+        </div>
+        <div class="ing-detail">
+          <span class="ing-clinical-label">Clinical Active Molecule</span>
+          <h3>L-Ascorbic Acid 15%</h3>
+          <p class="ing-text">สารต้านอนุมูลอิสระประสิทธิภาพสูงสุดในตระกูลวิตามินซี ช่วยปกป้องผิวจากปัจจัยภายนอก กระตุ้นการผลิตคอลลาเจนใต้ชั้นผิวชั้น Dermis และทำงานเสริมประสิทธิภาพกับครีมกันแดดในการบล็อกกระบวนการสร้างเม็ดสีที่ผิวชั้นนอก Epidermis</p>
+          <div class="ing-scientific-facts">
+            <div class="fact-item">
+              <span class="fact-label">PH level stability</span>
+              <span class="fact-val">3.0 - 3.5</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Recommended concentration</span>
+              <span class="fact-val">10% - 20%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ingredient-section {
+    padding: var(--space-12) 0;
+    background: var(--color-pure-white);
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .ingredient-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .ingredient-showcase {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: var(--space-10);
+    margin-top: var(--space-9);
+  }
+  .ing-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    border-right: 1px solid var(--border-primary);
+    padding-right: var(--space-8);
+  }
+  .ing-btn {
+    font-family: var(--font-body);
+    font-size: var(--font-size-caption);
+    color: var(--color-stone-400);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: var(--space-2) 0;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+  .ing-btn.active, .ing-btn:hover {
+    color: var(--color-forest);
+    font-weight: 500;
+  }
+  .ing-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .ing-visual {
+    height: 450px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--color-stone-50);
+  }
+  .ing-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ing-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .ing-clinical-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.1em;
+  }
+  .ing-detail h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-graphite);
+  }
+  .ing-text {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-600);
+    font-weight: 300;
+  }
+  .ing-scientific-facts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    border-top: 1px solid var(--border-primary);
+    padding-top: var(--space-4);
+    margin-top: var(--space-2);
+  }
+  .fact-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-caption);
+  }
+  .fact-label {
+    color: var(--color-stone-400);
+  }
+  .fact-val {
+    font-family: var(--font-mono);
+    color: var(--color-graphite);
+  }
+  @media (max-width: 960px) {
+    .ingredient-showcase {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    .ing-selector {
+      flex-direction: row;
+      border-right: none;
+      border-bottom: 1px solid var(--border-primary);
+      padding-right: 0;
+      padding-bottom: var(--space-4);
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .ing-card {
+      grid-template-columns: 1fr;
+    }
+    .ing-visual {
+      height: 300px;
+    }
+  }
+</style>
+
+<script>
+  function selectIngredient(id, event) {
+    const buttons = document.querySelectorAll('.ing-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (event && event.currentTarget) {
+      event.currentTarget.classList.add('active');
+    }
+
+    const activeData = {
+      'vit-c': {
+        label: 'Clinical Active Molecule',
+        title: 'L-Ascorbic Acid 15%',
+        text: 'สารต้านอนุมูลอิสระประสิทธิภาพสูงสุดในตระกูลวิตามินซี ช่วยปกป้องผิวจากปัจจัยภายนอก กระตุ้นการผลิตคอลลาเจนใต้ชั้นผิวชั้น Dermis และทำงานเสริมประสิทธิภาพกับครีมกันแดดในการบล็อกกระบวนการสร้างเม็ดสีที่ผิวชั้นนอก Epidermis',
+        ph: '3.0 - 3.5',
+        conc: '10% - 20%',
+        img: 'assets/product/prod_brightening.png'
+      },
+      'niac': {
+        label: 'Skin Refinement Molecule',
+        title: 'Niacinamide 10%',
+        text: 'วิตามินบี 3 เข้มข้นประสิทธิภาพสูง ช่วยกระชับรูขุมขน ลดการอักเสบแดง ปกป้องสมดุลความชื้น และลดการเคลื่อนตัวของเม็ดสีเมลานินขึ้นสู่ชั้นนอกสุดของผิว',
+        ph: '6.0 - 6.5',
+        conc: '5% - 10%',
+        img: 'assets/editorial/exhibit_galderma.png'
+      },
+      'retinol': {
+        label: 'Structural Renewal Molecule',
+        title: 'Pure Retinol 0.5%',
+        text: 'อนุพันธ์เรตินอลบริสุทธิ์เข้มข้น เร่งปฏิกิริยาการผลัดเซลล์ผิวชั้นบน กระตุ้นการสังเคราะห์คอลลาเจนและอีลาสติน ลดเลือนริ้วรอยร่องลึกให้ดูอิ่มฟูและมีน้ำมีนวลขึ้น',
+        ph: '5.0 - 6.0',
+        conc: '0.1% - 1.0%',
+        img: 'assets/editorial/exhibit_skinceuticals.png'
+      },
+      'ha': {
+        label: 'Volumizing & Hydration Agent',
+        title: 'Multi-Weight Hyaluronic Acid',
+        text: 'สารเติมเต็มกรดไฮยาลูรอนิกหลายระดับโมเลกุล ตั้งแต่โมเลกุลต่ำ (Low-weight) ซึมผ่านลึกเพื่อพยุงโครงสร้างผิว ไปจนถึงโมเลกุลสูงเพื่อสร้างฟิล์มโอบอุ้มกักเก็บน้ำที่ผิวชั้นบน',
+        ph: '5.5 - 6.5',
+        conc: '1% - 2%',
+        img: 'assets/science/skin_after.png'
+      },
+      'peptide': {
+        label: 'Cell Signaling Peptide Complex',
+        title: 'Copper Tripeptide-1',
+        text: 'เปปไทด์ประจุทองแดงส่งสัญญาณกระตุ้นการซ่อมแซมแผลและการฟื้นฟูเซลล์ผิวหนังตามธรรมชาติ ยับยั้งกระบวนการชราตัว และผสานการคืนความเรียบตึงนุ่มกระชับให้ชั้นผิว',
+        ph: '5.5 - 6.0',
+        conc: '0.5% - 2%',
+        img: 'assets/editorial/exhibit_merz.png'
+      }
+    };
+
+    const data = activeData[id];
+    const card = document.querySelector('.ing-card');
+    card.querySelector('.ing-clinical-label').innerText = data.label;
+    card.querySelector('h3').innerText = data.title;
+    card.querySelector('.ing-text').innerText = data.text;
+    card.querySelector('.ing-img').src = data.img;
+    card.querySelectorAll('.fact-val')[0].innerText = data.ph;
+    card.querySelectorAll('.fact-val')[1].innerText = data.conc;
+  }
+</script>
+
+<!-- END SECTION: 08_ingredient_story.html -->
+
+<!-- START SECTION: 09_clinical_evidence.html -->
+<section class="clinical-evidence-section reveal-section" id="evidence">
+  <div class="evidence-container">
+    <div class="section-header">
+      <span class="header-mono">CLINICAL TRIALS</span>
+      <h2 class="section-title">การศึกษาทางวิทยาศาสตร์ระดับสูง</h2>
+    </div>
+    <div class="clinical-split">
+      <div class="trial-timeline">
+        <div class="timeline-step reveal-section stagger-1">
+          <span class="step-num">PHASE I: IN VITRO</span>
+          <h4>การคัดสรรโมเลกุลและความปลอดภัย</h4>
+          <p>ทดสอบเสถียรภาพการละลายและระดับการแพ้ระคายเคืองในระดับห้องทดลองชั้นนำ</p>
+        </div>
+        <div class="timeline-step reveal-section stagger-2">
+          <span class="step-num">PHASE II: EX VIVO</span>
+          <h4>การทดสอบการดูดซึมชั้นผิว</h4>
+          <p>วัดระดับความสามารถในการทะลุผ่านของเซลล์ส่วนผสมหลักเข้าสู่เป้าหมาย</p>
+        </div>
+        <div class="timeline-step reveal-section stagger-3">
+          <span class="step-num">PHASE III: IN VIVO</span>
+          <h4>การประเมินประสิทธิภาพผู้ใช้จริง</h4>
+          <p>ทดสอบภายใต้การควบคุมของแพทย์ผิวหนังนาน 8 สัปดาห์ ในกลุ่มตัวอย่าง 200 ราย</p>
+        </div>
+      </div>
+      
+      <div class="slider-block">
+        <span class="slider-label">ก่อนและหลังใช้จริง (8 สัปดาห์)</span>
+        <div class="comparison-slider">
+          <img src="assets/science/skin_before.png" alt="Before skincare treatment" class="slider-image before">
+          <div class="slider-curtain" style="width: 50%;">
+            <img src="assets/science/skin_after.png" alt="After skincare treatment" class="slider-image after">
+          </div>
+          <div class="slider-bar" style="left: 50%;">
+            <div class="slider-handle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-endorsement">
+          <p>"ผลทดสอบทางคลินิกพิสูจน์แล้วว่าการใช้งาน The Restoration Serum ช่วยปรับเกราะปกป้องผิวให้มั่นคงขึ้นได้สูงกว่าแบรนด์มาตรฐานอย่างมีนัยสำคัญ"</p>
+          <span class="doc-name">— พญ. กัญญา พิมพ์ลภัส, Chief Medical Advisor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clinical-evidence-section {
+    padding: var(--space-12) 0;
+    background: var(--color-clinical-white);
+  }
+  .evidence-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .clinical-split {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-12);
+    margin-top: var(--space-9);
+  }
+  .trial-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .timeline-step {
+    position: relative;
+    padding-left: var(--space-8);
+    border-left: 2px solid var(--border-primary);
+  }
+  .timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -6px; top: 0;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-bronze);
+  }
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.1em;
+  }
+  .timeline-step h4 {
+    font-size: var(--font-size-h4);
+    color: var(--color-graphite);
+    margin: var(--space-1) 0;
+  }
+  .timeline-step p {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-500);
+    font-weight: 300;
+  }
+  .slider-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .slider-label {
+    font-size: var(--font-size-caption);
+    color: var(--color-stone-500);
+  }
+  .comparison-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    user-select: none;
+  }
+  .slider-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  .slider-curtain {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    overflow: hidden;
+  }
+  .slider-bar {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 2px;
+    background-color: var(--color-pure-white);
+    cursor: ew-resize;
+  }
+  .slider-handle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-pure-white);
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: var(--color-graphite);
+  }
+  .doctor-endorsement {
+    border-top: 1px solid var(--border-primary);
+    padding-top: var(--space-6);
+    margin-top: var(--space-4);
+  }
+  .doctor-endorsement p {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-body);
+    color: var(--color-forest);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .doc-name {
+    display: block;
+    margin-top: var(--space-2);
+    font-size: var(--font-size-caption);
+    color: var(--color-stone-500);
+  }
+  @media (max-width: 960px) {
+    .clinical-split {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+    .comparison-slider {
+      height: 300px;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const slider = document.querySelector('.comparison-slider');
+    const curtain = document.querySelector('.slider-curtain');
+    const bar = document.querySelector('.slider-bar');
+    const afterImg = curtain ? curtain.querySelector('.slider-image.after') : null;
+
+    if (!slider || !curtain || !bar) return;
+
+    let isDragging = false;
+
+    function updateSliderWidth() {
+      const rect = slider.getBoundingClientRect();
+      if (afterImg) {
+        afterImg.style.width = rect.width + 'px';
+      }
+    }
+
+    function moveSlider(clientX) {
+      const rect = slider.getBoundingClientRect();
+      let position = ((clientX - rect.left) / rect.width) * 100;
+      
+      if (position < 0) position = 0;
+      if (position > 100) position = 100;
+      
+      curtain.style.width = position + '%';
+      bar.style.left = position + '%';
+    }
+
+    updateSliderWidth();
+    window.addEventListener('resize', updateSliderWidth);
+
+    slider.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      updateSliderWidth();
+      moveSlider(e.clientX);
+    });
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      moveSlider(e.clientX);
+    });
+
+    slider.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      updateSliderWidth();
+      moveSlider(e.touches[0].clientX);
+    });
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+    window.addEventListener('touchcancel', () => {
+      isDragging = false;
+    });
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      moveSlider(e.touches[0].clientX);
+    }, { passive: false });
+  })();
+</script>
+
+<!-- END SECTION: 09_clinical_evidence.html -->
+
+<!-- START SECTION: 10_curated_brands.html -->
+<section class="curated-brands-section" id="curated-brands">
+  <div class="brands-container">
+    <div class="section-header">
+      <span class="header-mono">CURATED CLINICAL BRANDS</span>
+      <h2 class="section-title">คลังนวัตกรรมที่ผ่านการคัดสรรเชิงคลินิก</h2>
+      <p class="section-desc">เราคัดเลือกวิทยาศาสตร์ ไม่คัดเลือกกระแส ทุกแบรนด์บนแพลตฟอร์มผ่านการประเมินโดยคณะกรรมการการแพทย์เพื่อยืนยันเสถียรภาพและผลลัพธ์เชิงตัวเลข</p>
+    </div>
+    
+    <!-- Exhibit Category 1: Global Clinical Brands -->
+    <div class="exhibit-category">
+      <div class="category-header">
+        <span class="category-num">01 /</span>
+        <h3>Global Clinical Brands</h3>
+      </div>
+      <div class="exhibit-grid">
+        <!-- SkinCeuticals -->
+        <div class="exhibit-card">
+          <div class="exhibit-visual">
+            <img src="assets/editorial/exhibit_skinceuticals.png" alt="SkinCeuticals Exhibit" class="exhibit-img">
+          </div>
+          <div class="exhibit-meta">
+            <h4>SkinCeuticals</h4>
+            <p class="exhibit-story">"ผู้นำด้านสารต้านอนุมูลอิสระที่มีผลการศึกษาทางคลินิกรองรับอย่างหนาแน่น"</p>
+            <div class="exhibit-specialty">
+              <span class="specialty-label">Clinical Specialty:</span>
+              <span class="specialty-val">Antioxidants & Pure Vitamin C</span>
+            </div>
+            <a href="#" class="exhibit-link">View Collection</a>
+          </div>
+        </div>
+        <!-- Galderma -->
+        <div class="exhibit-card">
+          <div class="exhibit-visual">
+            <img src="assets/editorial/exhibit_galderma.png" alt="Galderma Exhibit" class="exhibit-img">
+          </div>
+          <div class="exhibit-meta">
+            <h4>Galderma</h4>
+            <p class="exhibit-story">"นวัตกรรมเวชศาสตร์ผิวหนังเพื่อตอบโจทย์สุขภาพผิวในทุกมิติระดับโลก"</p>
+            <div class="exhibit-specialty">
+              <span class="specialty-label">Clinical Specialty:</span>
+              <span class="specialty-val">Hyaluronic Acid & Skin Boosters</span>
+            </div>
+            <a href="#" class="exhibit-link">View Collection</a>
+          </div>
+        </div>
+        <!-- Merz Aesthetics -->
+        <div class="exhibit-card">
+          <div class="exhibit-visual">
+            <img src="assets/editorial/exhibit_merz.png" alt="Merz Aesthetics Exhibit" class="exhibit-img">
+          </div>
+          <div class="exhibit-meta">
+            <h4>Merz Aesthetics</h4>
+            <p class="exhibit-story">"ยกระดับโครงสร้างผิวและชั้นแอนติเจนด้วยวิทยาการแห่งการยกกระชับขั้นสูง"</p>
+            <div class="exhibit-specialty">
+              <span class="specialty-label">Clinical Specialty:</span>
+              <span class="specialty-val">Regenerative Biostimulators</span>
+            </div>
+            <a href="#" class="exhibit-link">View Collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exhibit Category 2: Emerging Innovation & Professional Devices -->
+    <div class="exhibit-category">
+      <div class="category-header">
+        <span class="category-num">02 /</span>
+        <h3>Emerging Innovation & Professional Devices</h3>
+      </div>
+      <div class="exhibit-grid-wide">
+        <!-- Augustinus Bader -->
+        <div class="exhibit-card-wide">
+          <div class="exhibit-visual-wide">
+            <img src="assets/editorial/hero_skincare_travertine.png" alt="Augustinus Bader Exhibit" class="exhibit-img">
+          </div>
+          <div class="exhibit-meta">
+            <span class="category-tag">EMERGING INNOVATION</span>
+            <h4>Augustinus Bader</h4>
+            <p class="exhibit-story">"วิทยาการคืนความอ่อนเยาว์ระดับเซลล์ด้วยเทคโนโลยีสิทธิบัตร TFC8® กระตุ้นการผลัดตัวของเซลล์ผิวพรรณตามธรรมชาติ"</p>
+            <div class="exhibit-specialty">
+              <span class="specialty-label">Scientific Focus:</span>
+              <span class="specialty-val">Cellular Renewal & Wound Healing Triggers</span>
+            </div>
+            <a href="#" class="exhibit-link">View Collection</a>
+          </div>
+        </div>
+        <!-- Ultherapy -->
+        <div class="exhibit-card-wide">
+          <div class="exhibit-visual-wide">
+            <img src="assets/editorial/exhibit_merz.png" alt="Ultherapy Exhibit" class="exhibit-img">
+          </div>
+          <div class="exhibit-meta">
+            <span class="category-tag">DEVICES & PROFESSIONAL CARE</span>
+            <h4>Ultherapy</h4>
+            <p class="exhibit-story">"การใช้คลื่นความถี่สูงอัลตราซาวด์โฟกัสเฉพาะจุด (MFU-V) เพื่อยกกระชับผิวระดับลึกถึงชั้น SMAS ในสเปซคลินิกพันธมิตร"</p>
+            <div class="exhibit-specialty">
+              <span class="specialty-label">Scientific Focus:</span>
+              <span class="specialty-val">Micro-Focused Ultrasound with Visualization</span>
+            </div>
+            <a href="#" class="exhibit-link">View Collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .curated-brands-section {
+    padding: var(--space-12) 0;
+    background: var(--color-pure-white);
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .brands-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .exhibit-category {
+    margin-top: var(--space-10);
+  }
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  .category-num {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-small);
+    color: var(--color-bronze);
+  }
+  .category-header h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-graphite);
+  }
+  
+  /* 3-Column Grid */
+  .exhibit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+  .exhibit-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .exhibit-visual {
+    width: 100%;
+    height: 380px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background-color: var(--color-stone-50);
+    box-shadow: var(--shadow-soft);
+  }
+  .exhibit-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-luxury) var(--ease-out-expo);
+  }
+  .exhibit-card:hover .exhibit-img, .exhibit-card-wide:hover .exhibit-img {
+    transform: scale(1.04);
+  }
+  .exhibit-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .exhibit-meta h4 {
+    font-size: var(--font-size-h4);
+    color: var(--color-graphite);
+  }
+  .exhibit-story {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-500);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .exhibit-specialty {
+    font-size: var(--font-size-micro);
+    margin: var(--space-2) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .specialty-label {
+    font-family: var(--font-mono);
+    color: var(--color-stone-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .specialty-val {
+    color: var(--color-forest);
+    font-weight: 400;
+  }
+  .exhibit-link {
+    font-size: var(--font-size-caption);
+    color: var(--color-bronze);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--duration-interaction), color var(--duration-interaction);
+  }
+  .exhibit-link:hover {
+    color: var(--color-forest);
+    border-color: var(--color-forest);
+  }
+  
+  /* 2-Column Wide Grid */
+  .exhibit-grid-wide {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+  .exhibit-card-wide {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .exhibit-visual-wide {
+    width: 100%;
+    height: 400px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background-color: var(--color-stone-50);
+    box-shadow: var(--shadow-medium);
+  }
+  .category-tag {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 960px) {
+    .exhibit-grid, .exhibit-grid-wide {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+    .exhibit-visual, .exhibit-visual-wide {
+      height: 300px;
+    }
+  }
+</style>
+
+<!-- END SECTION: 10_curated_brands.html -->
+
+<!-- START SECTION: 11_journal.html -->
+<section class="journal-section">
+  <div class="journal-container">
+    <div class="section-header">
+      <span class="header-mono">CLINICAL JOURNAL</span>
+      <h2 class="section-title">นิตยสารการศึกษาเวชสำอางและไลฟ์สไตล์</h2>
+    </div>
+    <div class="journal-grid">
+      <div class="journal-cover-story">
+        <div class="journal-visual hover-scale">
+          <img src="assets/people/patient_nicharee.png" alt="Journal cover story" class="cover-img">
+        </div>
+        <div class="journal-meta">
+          <span class="article-date">JULY 2026</span>
+          <h3>โมเลกุลเกราะผิวหนังบอบบางแพ้ง่ายและการสลายตัวระดับไมโคร</h3>
+          <p>วิเคราะห์กลไกเซราไมด์อิ่มตัวสามประสานที่มีบทบาทสำคัญในการซ่อมแซมแบริเออร์ทางผิวหนังของชาวเอเชีย</p>
+          <a href="journal_article.html" class="btn-secondary">อ่านบทความฉบับเต็ม</a>
+        </div>
+      </div>
+      
+      <div class="journal-sub-stories">
+        <div class="sub-article">
+          <span class="article-date">JUNE 2026</span>
+          <h4>ความแตกต่างระหว่างวิตามินซีสด L-Ascorbic Acid และอนุพันธุ์เสถียร</h4>
+          <p>บทความวิชาการฉบับวิเคราะห์เปรียบเทียบการดูดซึมชั้นผิว</p>
+        </div>
+        <div class="sub-article">
+          <span class="article-date">MAY 2026</span>
+          <h4>แนวทางรักษาสภาพผิวก่อนและหลังผ่านเลเซอร์ Picosecond</h4>
+          <p>คำแนะนำทางการแพทย์เพื่อยืดอายุโครงข่ายคอลลาเจนใหม่ที่ถูกกระตุ้น</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .journal-section {
+    padding: var(--space-12) 0;
+    background: var(--color-clinical-white);
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .journal-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .journal-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-10);
+    margin-top: var(--space-9);
+  }
+  .journal-cover-story {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .journal-visual {
+    width: 100%;
+    height: 480px;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-stone-100);
+    overflow: hidden;
+  }
+  .cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out-expo);
+  }
+  .journal-meta h3 {
+    font-size: var(--font-size-h2);
+    color: var(--color-graphite);
+    margin: var(--space-1) 0;
+  }
+  .journal-meta p {
+    font-size: var(--font-size-body);
+    color: var(--color-stone-500);
+    font-weight: 300;
+    margin-bottom: var(--space-4);
+  }
+  .journal-sub-stories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    border-left: 1px solid var(--border-primary);
+    padding-left: var(--space-10);
+  }
+  .sub-article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .sub-article:last-child {
+    border-bottom: none;
+  }
+  .article-date {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+  }
+  .sub-article h4 {
+    font-size: var(--font-size-h4);
+    color: var(--color-graphite);
+  }
+  .sub-article p {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-500);
+    font-weight: 300;
+  }
+  @media (max-width: 960px) {
+    .journal-grid {
+      grid-template-columns: 1fr;
+    }
+    .journal-sub-stories {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--border-primary);
+      padding-top: var(--space-6);
+    }
+  }
+</style>
+
+<!-- END SECTION: 11_journal.html -->
+
+<!-- START SECTION: 12_clinic_experience.html -->
+<section class="clinic-section reveal-section" id="clinics">
+  <div class="clinic-container">
+    <div class="clinic-info">
+      <span class="header-mono">ESTHETIC CENTER</span>
+      <h2 class="section-title">พบกับคลินิกพรีเมียมสาขาใกล้บ้านคุณ</h2>
+      <p class="section-desc">สัมผัสประสบการณ์ทรีตเมนต์ทางการแพทย์ขั้นสูงสุดในสเปซที่ออกแบบมาอย่างประณีตเพื่อความสงบผ่อนคลายระดับสูง</p>
+      <div class="clinic-selection">
+        <div class="clinic-branch active" onclick="window.location.href='clinic_detail.html'">
+          <h5>LMCP STUDIO - RAJADAMRI</h5>
+          <p>154 ถนนราชดำริ แขวงลุมพินี เขตปทุมวัน กรุงเทพฯ</p>
+        </div>
+        <div class="clinic-branch" onclick="window.location.href='clinic_detail.html'">
+          <h5>LMCP STUDIO - EMQUARTIER</h5>
+          <p>ชั้น 3 ดิ เอ็มควอเทียร์ ถนนสุขุมวิท เขตวัฒนา กรุงเทพฯ</p>
+        </div>
+      </div>
+    </div>
+    <div class="clinic-visuals reveal-section stagger-1">
+      <img src="assets/editorial/exhibit_galderma.png" alt="LMCP Premium Clinic Interior" class="clinic-img">
+    </div>
+  </div>
+</section>
+
+<style>
+  .clinic-section {
+    padding: var(--space-12) 0;
+    background: var(--color-pure-white);
+  }
+  .clinic-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+  .clinic-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  .clinic-selection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    width: 100%;
+    margin-top: var(--space-6);
+  }
+  .clinic-branch {
+    border: 1px solid var(--border-primary);
+    padding: var(--space-5);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .clinic-branch.active {
+    border-color: var(--color-forest);
+    background-color: var(--color-clinical-white);
+  }
+  .clinic-branch h5 {
+    font-size: var(--font-size-small);
+    color: var(--color-graphite);
+    margin-bottom: var(--space-1);
+  }
+  .clinic-branch p {
+    font-size: var(--font-size-caption);
+    color: var(--color-stone-500);
+    font-weight: 300;
+  }
+  .clinic-visuals {
+    height: 520px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+  }
+  .clinic-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 960px) {
+    .clinic-container {
+      grid-template-columns: 1fr;
+    }
+    .clinic-visuals {
+      height: 350px;
+    }
+  }
+</style>
+
+<!-- END SECTION: 12_clinic_experience.html -->
+
+<!-- START SECTION: 13_clinical_stories.html -->
+<section class="clinical-stories-section" id="stories">
+  <div class="stories-container">
+    <div class="section-header">
+      <span class="header-mono">CLINICAL STORIES</span>
+      <h2 class="section-title">เรื่องราวผลลัพธ์การรักษาและฟื้นฟูจริง</h2>
+      <p class="section-desc">บันทึกเคสการรักษาจริงและการฟื้นฟูสภาพเกราะผิวภายใต้การดูแลของทีมแพทย์ผู้เชี่ยวชาญ</p>
+    </div>
+    
+    <div class="stories-grid">
+      <!-- Story 1 -->
+      <div class="story-card">
+        <div class="story-portrait">
+          <img src="assets/people/patient_nicharee.png" alt="Patient Journey" class="story-img grayscale">
+        </div>
+        <div class="story-meta">
+          <span class="story-label">PATIENT JOURNEY</span>
+          <blockquote class="story-quote">"ผิวอักเสบแดงสะสมจากเคมีลดลง เกราะผิวแน่นชุ่มชื้นขึ้นใน 14 วัน"</blockquote>
+          <div class="story-author">
+            <span class="author-name">คุณ ณิชารีย์ เกียรติวรวงศ์</span>
+            <span class="author-info">สถาปนิก, อายุผิวลดลงหลังใช้ Restoration System</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Story 2 -->
+      <div class="story-card">
+        <div class="story-portrait">
+          <img src="assets/people/patient_thanon.png" alt="Treatment Story" class="story-img grayscale">
+        </div>
+        <div class="story-meta">
+          <span class="story-label">TREATMENT STORY</span>
+          <blockquote class="story-quote">"การผสานสารบำรุงล้ำลึกช่วยลดเลือนร่องลึกให้ดูตื้นฟูแน่นกระชับขึ้นอย่างเห็นได้ชัด"</blockquote>
+          <div class="story-author">
+            <span class="author-name">คุณ ธนนท์ เมธาพิสิษฐ์</span>
+            <span class="author-info">ดีไซเนอร์, ฟื้นฟูสภาพริ้วรอยร่องแก้ม</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Story 3 -->
+      <div class="story-card">
+        <div class="story-portrait">
+          <img src="assets/people/doc_pimnara.png" alt="Doctor Perspective" class="story-img grayscale">
+        </div>
+        <div class="story-meta">
+          <span class="story-label">DOCTOR PERSPECTIVE</span>
+          <blockquote class="story-quote">"The Recovery Balm เร่งการฟื้นฟูเซลล์หลังผ่าน Picosecond Laser ได้สูงขึ้นอย่างปลอดภัย"</blockquote>
+          <div class="story-author">
+            <span class="author-name">พญ. พิมณารา อัศววงศ์</span>
+            <span class="author-info">Dermatologist & Clinical Committee</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clinical-stories-section {
+    padding: var(--space-12) 0;
+    background: var(--color-clinical-white);
+    border-bottom: 1px solid var(--border-primary);
+  }
+  .stories-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    margin-top: var(--space-10);
+  }
+  .story-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .story-portrait {
+    width: 100%;
+    height: 340px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background-color: var(--color-stone-100);
+    box-shadow: var(--shadow-soft);
+  }
+  .story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-luxury) var(--ease-out-expo), filter var(--duration-luxury) var(--ease-out-expo);
+  }
+  .story-img.grayscale {
+    filter: grayscale(100%);
+  }
+  .story-card:hover .story-img {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+  }
+  .story-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .story-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-bronze);
+    letter-spacing: 0.15em;
+  }
+  .story-quote {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h4);
+    color: var(--color-forest);
+    font-style: italic;
+    line-height: 1.4;
+    border-left: 1px solid var(--color-bronze);
+    padding-left: var(--space-3);
+  }
+  .story-author {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--space-2);
+  }
+  .author-name {
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    color: var(--color-graphite);
+  }
+  .author-info {
+    font-size: var(--font-size-caption);
+    color: var(--color-stone-500);
+    font-weight: 300;
+  }
+  @media (max-width: 960px) {
+    .stories-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+    .story-portrait {
+      height: 300px;
+    }
+  }
+</style>
+
+<!-- END SECTION: 13_clinical_stories.html -->
+
+<!-- START SECTION: 14_newsletter.html -->
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-box">
+      <h2 class="news-title">Stay Connected</h2>
+      <p class="news-desc">รับข้อมูลสรุปความรู้การวิจัยและการค้นพบใหม่ๆ ทางคลินิกเวชสำอางก่อนใคร</p>
+      <form class="news-form" onsubmit="event.preventDefault()">
+        <input type="email" placeholder="ที่อยู่อีเมลของคุณ" required class="news-input">
+        <button type="submit" class="btn-primary">สมัครรับข้อมูล</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter-section {
+    padding: var(--space-12) 0;
+    background: var(--color-pure-white);
+  }
+  .newsletter-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: flex;
+    justify-content: center;
+  }
+  .newsletter-box {
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .news-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-display);
+    color: var(--color-graphite);
+  }
+  .news-desc {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-500);
+    font-weight: 300;
+    margin-bottom: var(--space-4);
+  }
+  .news-form {
+    display: flex;
+    gap: var(--space-4);
+  }
+  .news-input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid var(--border-primary);
+    padding: var(--space-3) var(--space-1);
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    color: var(--color-graphite);
+    outline: none;
+    background: transparent;
+    transition: border-color 0.3s;
+  }
+  .news-input:focus {
+    border-color: var(--color-forest);
+  }
+  @media (max-width: 640px) {
+    .news-form {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+  }
+</style>
+
+<!-- END SECTION: 14_newsletter.html -->
+
+<!-- START SECTION: 15_footer.html -->
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>LMCP</h3>
+      <div class="brand-manifesto">
+        <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+        <p class="manifesto-line-2">We curate science, not trends.</p>
+      </div>
+      <p class="brand-statement">เวชสำอางและคลินิกความงามระดับลักชัวรี ที่ผสานวิทยาศาสตร์การวิจัยเข้ากับรสนิยมและการดูแลขั้นสูงสุด</p>
+    </div>
+    <div class="footer-links">
+      <div class="links-column">
+        <h6>PRODUCT</h6>
+        <a href="#">The Restoration Serum</a>
+        <a href="#">The Brightening Elixir</a>
+        <a href="#">The Recovery Balm</a>
+      </div>
+      <div class="links-column">
+        <h6>SCIENCE</h6>
+        <a href="#">Clinical Trials</a>
+        <a href="#">Research Papers</a>
+        <a href="#">Ingredients Profile</a>
+      </div>
+      <div class="links-column">
+        <h6>LEGAL & CONTACT</h6>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-corporate">
+    <div class="corporate-column">
+      <h6>CORPORATE INFORMATION</h6>
+      <p class="corp-name">บริษัท อินเฟนิกซ์ เอสเธทิค จำกัด (สำนักงานใหญ่)</p>
+      <p class="corp-addr">เลขที่ 134/126 พระรามที่ 2 ซอย 50 แขวงแสมดำ เขตบางขุนเทียน กรุงเทพมหานคร 10150 &bull; เลขประจำตัวผู้เสียภาษี: 0-1055-66031-32-2</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <span>© 2026 LMCP. All Rights Reserved.</span>
+      <span>Premium Aesthetics of Beauty & Science</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .main-footer {
+    background-color: var(--color-stone-900);
+    color: var(--color-stone-300);
+    padding-top: var(--space-12);
+  }
+  .footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8) var(--space-10) var(--space-8);
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: var(--space-10);
+  }
+  .footer-brand h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    color: var(--color-clinical-white);
+    margin-bottom: var(--space-3);
+    letter-spacing: 0.1em;
+  }
+  .brand-manifesto {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    color: var(--color-clinical-white);
+    line-height: 1.3;
+    font-style: italic;
+    margin-bottom: var(--space-5);
+  }
+  .manifesto-line-2 {
+    color: var(--color-bronze);
+  }
+  .brand-statement {
+    font-size: var(--font-size-small);
+    color: var(--color-stone-400);
+    font-weight: 300;
+    max-width: 400px;
+  }
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  .links-column h6 {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-clinical-white);
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-4);
+  }
+  .links-column a {
+    display: block;
+    font-size: var(--font-size-caption);
+    color: var(--color-stone-400);
+    text-decoration: none;
+    margin-bottom: var(--space-3);
+    transition: color 0.3s;
+  }
+  .links-column a:hover {
+    color: var(--color-clinical-white);
+  }
+  .footer-corporate {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8) var(--space-8) var(--space-8);
+    display: block;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .corporate-column h6 {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-micro);
+    color: var(--color-clinical-white);
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-3);
+  }
+  .corp-name {
+    font-size: var(--font-size-caption);
+    color: var(--color-bronze);
+    margin-bottom: var(--space-1);
+    font-weight: 400;
+  }
+  .corp-addr, .corp-tax {
+    font-size: var(--font-size-caption);
+    color: var(--color-stone-400);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: var(--space-6) 0;
+  }
+  .footer-bottom-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-micro);
+    color: var(--color-stone-500);
+  }
+  @media (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    .footer-corporate {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding: var(--space-6) var(--space-8);
+    }
+    .footer-bottom-container {
+      flex-direction: column;
+      gap: var(--space-2);
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Sticky Header & Logo scale
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.main-header');
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+      header.style.background = 'rgba(248, 247, 244, 0.95)';
+      header.style.boxShadow = 'var(--shadow-soft)';
+    } else {
+      header.classList.remove('scrolled');
+      header.style.background = 'rgba(248, 247, 244, 0.7)';
+      header.style.boxShadow = 'none';
+    }
+    
+    // Parallax scrolling
+    const parallaxImages = document.querySelectorAll('.parallax-img');
+    parallaxImages.forEach(img => {
+      const rect = img.parentElement.getBoundingClientRect();
+      const speed = 0.08; // Quiet subtle parallax speed
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const yOffset = (window.innerHeight - rect.top) * speed - 20;
+        img.style.transform = `translateY(${yOffset}px) scale(1.05)`;
+      }
+    });
+  });
+
+  // Load triggers for Hero
+  window.addEventListener('DOMContentLoaded', () => {
+    // Check if in screenshot mode
+    if (window.location.search.includes('screenshot=true')) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        * {
+          transition: none !important;
+          transition-delay: 0s !important;
+          transition-duration: 0s !important;
+          animation: none !important;
+        }
+      `;
+      document.head.appendChild(style);
+
+      document.querySelectorAll('.reveal-section, .reveal-card').forEach(sec => {
+        sec.classList.add('revealed');
+      });
+      // Also trigger count up instantly without transition
+      document.querySelectorAll('.count-up-number').forEach(counter => {
+        counter.textContent = counter.getAttribute('data-target') + (counter.getAttribute('data-suffix') || '');
+      });
+      // Also load hero instantly
+      const heroImg = document.querySelector('.hero-image-zoom');
+      if (heroImg) heroImg.classList.add('loaded');
+      const heroTexts = document.querySelectorAll('.hero-text-load');
+      heroTexts.forEach(text => text.classList.add('loaded'));
+      return;
+    }
+
+    setTimeout(() => {
+      const heroImg = document.querySelector('.hero-image-zoom');
+      if (heroImg) heroImg.classList.add('loaded');
+      
+      const heroTexts = document.querySelectorAll('.hero-text-load');
+      heroTexts.forEach(text => text.classList.add('loaded'));
+    }, 100);
+    
+    // Section reveal & counter observer
+    const revealSections = document.querySelectorAll('.reveal-section');
+    const observerOptions = {
+      root: null,
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          
+          // Animate progress bar if inside
+          const progressBars = entry.target.querySelectorAll('.chart-bar-fill');
+          progressBars.forEach(bar => {
+            const targetWidth = bar.getAttribute('data-width');
+            bar.style.width = targetWidth + '%';
+          });
+          
+          // Animate count-up if inside
+          const counters = entry.target.querySelectorAll('.count-up-number');
+          counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'), 10);
+            animateCountUp(counter, target);
+          });
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealSections.forEach(sec => sectionObserver.observe(sec));
+    
+    // Scroll active link highlight observer
+    const navAnchors = [
+      { id: 'hero', linkText: '' },
+      { id: 'collections', linkText: 'คอลเลกชัน' },
+      { id: 'concerns', linkText: 'ปัญหาผิว' },
+      { id: 'evidence', linkText: 'ผลลัพธ์ทางคลินิก' },
+      { id: 'clinics', linkText: 'คลินิก' }
+    ];
+
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      
+      navAnchors.forEach(anchor => {
+        const el = document.getElementById(anchor.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200) {
+            currentSectionId = anchor.id;
+          }
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const matchAnchor = navAnchors.find(a => a.id === currentSectionId);
+        if (matchAnchor && link.textContent.trim() === matchAnchor.linkText) {
+          link.classList.add('active');
+        }
+      });
+    });
+  });
+
+  // Count up helper
+  function animateCountUp(element, target) {
+    let start = 0;
+    const duration = 1200; // 1200ms
+    const stepTime = Math.abs(Math.floor(duration / target));
+    const suffix = element.getAttribute('data-suffix') || '';
+    
+    const timer = setInterval(() => {
+      start += Math.ceil(target / 100);
+      if (start >= target) {
+        element.textContent = target + suffix;
+        clearInterval(timer);
+      } else {
+        element.textContent = start + suffix;
+      }
+    }, Math.max(stepTime, 12));
+  }
+</script>
+
+<!-- END SECTION: 15_footer.html -->
+
+</body>
+</html>

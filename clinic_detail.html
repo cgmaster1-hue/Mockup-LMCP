@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Serene Space | Clinic Detail | LMCP</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+  <!-- Sticky Transparent Navigation Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="homepage.html">LMCP</a>
+      </div>
+      <nav class="nav-menu">
+        <a href="clinical_collections.html">คอลเลกชัน</a>
+        <a href="homepage.html#concerns">ปัญหาผิว</a>
+        <a href="ingredient_encyclopedia.html">วิทยาศาสตร์ของส่วนผสม</a>
+        <a href="homepage.html#stories">ผลลัพธ์ทางคลินิก</a>
+        <a href="clinic_finder.html" class="active">คลินิก</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-icon" aria-label="ค้นหา">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="#" class="btn-studio">Studio Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero (Strictly Editorial, Architect Space) -->
+  <header class="page-hero">
+    <div class="hero-large-visual">
+      <img src="assets/editorial/exhibit_galderma.png" alt="LMCP Clinic Interior Lobby Space">
+    </div>
+    <div class="hero-editorial-meta animate-fade-in">
+      <span class="hero-mono-label">PHYSICAL SANCTUARY</span>
+      <h1 class="hero-huge-title">The Serene Space</h1>
+      <div class="hero-editorial-story">
+        <p class="hero-story-lead">"พื้นที่แห่งความสงบและการปรึกษาทางการแพทย์ความงามระดับพรีเมียม เพื่อการปรับสภาพโครงสร้างผิวพรรณในสิ่งแวดล้อมที่ผ่อนคลายที่สุด"</p>
+        <p class="hero-story-body">คลินิกพันธมิตร The Serene Space ณ สาขา EmQuartier กรุงเทพฯ ได้รับการออกแบบตามแนวคิดมินิมัลลิสต์แบบสปาการแพทย์หรู (Medical Spa) ทุกกระบวนการหัตถการจะถูกควบคุมและดำเนินการภายใต้ผู้เชี่ยวชาญด้านผิวหนัง ร่วมกับระบบวิเคราะห์พารามิเตอร์ล้ำสมัยเพื่อประสิทธิภาพสูงสุดของสูตรบำรุงเฉพาะคุณ</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Doctors Section -->
+  <section class="advisory-section" style="background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary); padding: var(--space-12) 0;">
+    <div class="collection-container">
+      <div class="section-header" style="margin-bottom: var(--space-8);">
+        <span class="header-mono">PRACTITIONERS</span>
+        <h2 class="section-title">ทีมแพทย์ประจำสาขา Serene Space</h2>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10);">
+        <!-- Dr. Kanya -->
+        <div style="background-color: var(--color-pure-white); border: 1px solid var(--border-primary); padding: var(--space-8); border-radius: var(--radius-2xl); display: grid; grid-template-columns: 100px 1fr; gap: var(--space-6); align-items: center;">
+          <img src="assets/people/doc_kanya.png" alt="พญ. กัญญา พิมพ์ลภัส" style="width: 100px; height: 100px; border-radius: var(--radius-full); object-fit: cover; filter: grayscale(1);">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">CHIEF MEDICAL ADVISOR</span>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); margin: var(--space-1) 0;">พญ. กัญญา พิมพ์ลภัส, MD</h4>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300; line-height: 1.5;">ศาสตราจารย์คลินิกและผู้เชี่ยวชาญโรคผิวหนังอักเสบเรื้อรัง ประสบการณ์เวชศาสตร์ชะลอวัย 15 ปี</p>
+          </div>
+        </div>
+        <!-- Dr. Pimnara -->
+        <div style="background-color: var(--color-pure-white); border: 1px solid var(--border-primary); padding: var(--space-8); border-radius: var(--radius-2xl); display: grid; grid-template-columns: 100px 1fr; gap: var(--space-6); align-items: center;">
+          <img src="assets/people/doc_pimnara.png" alt="พญ. พิมณารา อัศววงศ์" style="width: 100px; height: 100px; border-radius: var(--radius-full); object-fit: cover; filter: grayscale(1);">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-bronze);">SCIENTIFIC COMMITTEE</span>
+            <h4 style="font-family: var(--font-heading); font-size: var(--font-size-h4); color: var(--color-graphite); margin: var(--space-1) 0;">พญ. พิมณารา อัศววงศ์, MD</h4>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300; line-height: 1.5;">วิทยาศาสตรมหาบัณฑิตตระกูลหัตถการเลเซอร์และฟื้นฟูปราการผิวหลังทำทรีตเมนต์เลเซอร์ระดับลึก</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology & Innovation Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container">
+      <div class="section-header">
+        <span class="header-mono">MEDICAL TECHNOLOGY</span>
+        <h2 class="section-title">นวัตกรรมและอุปกรณ์ทางการแพทย์ที่เลือกใช้</h2>
+      </div>
+      
+      <div class="clinic-tech-grid">
+        <!-- Tech 1 -->
+        <div class="tech-card">
+          <span class="tech-label">LASER TECHNOLOGY</span>
+          <h4 class="tech-title">Picosecond Laser (Discovery Pico)</h4>
+          <p class="tech-desc">เทคโนโลยีส่งความเร็วคลื่นแสงระดับหนึ่งในล้านล้านวินาที เพื่อสลายจุดด่างดำ ฝ้ากระ เม็ดสีเมลานินสะสมใต้ชั้นผิวให้กลายเป็นโมเลกุลขนาดเล็กโดยไม่สร้างความร้อนสะสมเกินไปบนผิวหน้า</p>
+        </div>
+        <!-- Tech 2 -->
+        <div class="tech-card">
+          <span class="tech-label">ULTRASOUND TECHNOLOGY</span>
+          <h4 class="tech-title">Ultherapy (MFU-V)</h4>
+          <p class="tech-desc">ใช้คลื่นอัลตราซาวด์ความถี่สูงที่ระบุตำแหน่งหน้าลึกระดับมิลลิเมตร (Micro-Focused Ultrasound with Visualization) เพื่อยกกระชับโครงสร้างแอนติเจนใต้ผิวระดับชั้น SMAS</p>
+        </div>
+        <!-- Tech 3 -->
+        <div class="tech-card">
+          <span class="tech-label">SKIN ANALYSIS</span>
+          <h4 class="tech-title">Visia Skin Analysis System</h4>
+          <p class="tech-desc">กล้องวิเคราะห์สภาพเกราะผิวพรรณเชิงลึก 8 มิติ ค้นหารอยแดงใต้ชั้นผิว ระดับจุดด่างดำที่ซ่อนอยู่ ความกว้างของรูขุมขน และระดับความแห้งกร้านแบบเรียลไทม์</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Menu Section -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-clinical-white); border-bottom: 1px solid var(--border-primary);">
+    <div class="collection-container" style="max-width: 900px; margin: 0 auto;">
+      <div class="section-header" style="text-align: center; margin-bottom: var(--space-8);">
+        <span class="header-mono">TREATMENT MENU</span>
+        <h2 class="section-title">เมนูหัตถการทางการรักษาเฉพาะทาง</h2>
+      </div>
+      
+      <div style="background-color: var(--color-pure-white); border: 1px solid var(--border-primary); padding: var(--space-8); border-radius: var(--radius-2xl);">
+        <div class="service-row">
+          <div>
+            <h4 class="service-title">The Restoration & Skin Barrier Therapy</h4>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">ทรีตเมนต์ฟื้นกู้เกราะผิวระดับโมเลกุลโดยการส่งผ่าน ceramides และคอปเปอร์เปปไทด์ด้วยเครื่องผลักสารความเย็นประจุไฟฟ้า</p>
+          </div>
+          <span class="service-meta">75 MINS • 3,500 THB</span>
+        </div>
+        <div class="service-row">
+          <div>
+            <h4 class="service-title">Pico Clear & Post-Recovery Suite</h4>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">เลเซอร์กำจัดรอยดำและฝ้ากระด้วยระบบ Pico ร่วมกับทาเคลือบฟื้นผิวเร่งด่วนด้วย The Recovery Balm เพื่อปิดล็อกลดการอักเสบแดง</p>
+          </div>
+          <span class="service-meta">90 MINS • 9,500 THB</span>
+        </div>
+        <div class="service-row">
+          <div>
+            <h4 class="service-title">Serene Deep Hydration Concept</h4>
+            <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); font-weight: 300;">เติมเต็มน้ำระดับเซลล์ด้วยกรดไฮยาลูรอนิกบริสุทธิ์เพื่อความสว่างเปล่งปลั่งและผิวหน้าฉ่ำวาวอิ่มฟู</p>
+          </div>
+          <span class="service-meta">60 MINS • 2,800 THB</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map and Consultation Lead Booking -->
+  <section style="padding: var(--space-12) 0; background-color: var(--color-pure-white);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.2fr 1.8fr; gap: var(--space-10); align-items: center;">
+      <div>
+        <span class="header-mono">SANCTUARY LOCATION</span>
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h2); color: var(--color-graphite); margin-top: var(--space-2);">ที่ตั้งและการติดต่อสาขา</h2>
+        <p style="font-weight: 300; line-height: 1.6; color: var(--color-stone-500); margin-top: var(--space-4); margin-bottom: var(--space-6);">ชั้น G อาคาร The Helix Quartier ศูนย์การค้าดิ เอ็มควอเทียร์ กรุงเทพมหานคร เปิดบริการทุกวันเวลา 10:00 - 20:00 น.</p>
+        
+        <div style="font-family: var(--font-mono); font-size: var(--font-size-caption); display: grid; gap: var(--space-2); color: var(--color-stone-600);">
+          <span>TEL: +66 2 123 4567</span>
+          <span>EMAIL: emquartier@lmcp.clinic</span>
+          <span>LAT/LONG: 13.7317° N, 100.5698° E</span>
+        </div>
+      </div>
+      
+      <!-- Lead Booking Invitation Card -->
+      <div style="background-color: var(--color-clinical-white); border: 1px solid var(--border-primary); padding: var(--space-8); border-radius: var(--radius-2xl); display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div>
+          <span class="header-mono" style="color: var(--color-bronze); font-size: var(--font-size-micro); display: block; margin-bottom: var(--space-3);">BESPOKE DISPATCH</span>
+          <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-graphite); margin-bottom: var(--space-4); line-height: 1.2;">เข้าสู่ระบบนัดหมายปรึกษาแพทย์เฉพาะทาง</h3>
+          <p style="font-weight: 300; font-size: var(--font-size-caption); color: var(--color-stone-500); line-height: 1.6; margin-bottom: var(--space-6);">
+            ร่วมประเมินประเภทปัญหาผิว ค้นหาแพทย์เฉพาะทาง เลือกโปรแกรมการรักษาที่เหมาะสม และจัดรอบการจองส่งเข้าพนักงานที่ LINE OA ผ่านระบบตรวจเช็กสุขภาพผิวออนไลน์
+          </p>
+        </div>
+        <a href="consultation.html" class="btn-primary" style="width: 100%; text-align: center; justify-content: center; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          เริ่มต้นประเมินและจองคิว &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.5fr 2fr; gap: var(--space-10); padding-bottom: var(--space-10);">
+      <div class="footer-brand">
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); margin-bottom: var(--space-3); letter-spacing: 0.1em;">LMCP</h3>
+        <div class="brand-manifesto" style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.3; font-style: italic; margin-bottom: var(--space-5);">
+          <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+          <p class="manifesto-line-2" style="color: var(--color-bronze);">We curate science, not trends.</p>
+        </div>
+      </div>
+      <div class="footer-links" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">PRODUCT</h6>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Restoration Serum</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Recovery Balm</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">SCIENCE</h6>
+          <a href="ingredient_encyclopedia.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Clinical Trials</a>
+          <a href="journal_article.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Research Papers</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">LEGAL & CONTACT</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Privacy Policy</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.05); padding: var(--space-6) 0;">
+      <div class="collection-container" style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); color: var(--color-stone-500);">
+        <span>© 2026 LMCP. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky Nav Scroll Logic
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.main-header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(248, 247, 244, 0.95)';
+        header.style.boxShadow = 'var(--shadow-soft)';
+      } else {
+        header.style.background = 'rgba(248, 247, 244, 0.7)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

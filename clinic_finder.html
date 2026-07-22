@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinic Discovery Experience - LMCP</title>
+  
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="shop.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Prompt:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    .finder-container {
+      max-width: 900px;
+      margin: 120px auto var(--space-12);
+      padding: 0 var(--space-6);
+      box-sizing: border-box;
+    }
+
+    .finder-title-row {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+
+    .finder-title-row h1 {
+      font-family: var(--font-heading);
+      font-size: var(--font-size-h2);
+      color: var(--color-graphite);
+      margin-top: var(--space-2);
+      margin-bottom: var(--space-1);
+    }
+
+    .finder-title-row p {
+      font-weight: 300;
+      color: var(--color-stone-500);
+      font-size: var(--font-size-caption);
+      margin-bottom: var(--space-6);
+    }
+
+    /* Search input */
+    .finder-search-box {
+      position: relative;
+      margin-bottom: var(--space-5);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .finder-search-input {
+      width: 100%;
+      padding: var(--space-4) var(--space-4) var(--space-4) 48px;
+      border: 1px solid var(--color-stone-300);
+      border-radius: var(--radius-xl);
+      font-family: var(--font-body);
+      font-size: var(--font-size-caption);
+      outline: none;
+      color: var(--color-graphite);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s;
+    }
+
+    .finder-search-input:focus {
+      border-color: var(--color-forest);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .finder-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-stone-400);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Luxury Filter Pills */
+    .finder-pills-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      overflow-x: auto;
+      padding-bottom: var(--space-4);
+      margin-bottom: var(--space-8);
+      border-bottom: 1px solid var(--border-primary);
+      scrollbar-width: none; /* Hide standard Firefox scroll */
+    }
+
+    .finder-pills-row::-webkit-scrollbar {
+      display: none; /* Hide standard Webkit scroll */
+    }
+
+    .finder-pill {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-500);
+      background: transparent;
+      border: 1px solid var(--color-stone-300);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+    }
+
+    .finder-pill:hover, .finder-pill.active {
+      color: var(--color-clinical-white);
+      background-color: var(--color-graphite);
+      border-color: var(--color-graphite);
+    }
+
+    /* Clinic card list */
+    .clinics-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+
+    /* Editorial card */
+    .clinic-editorial-card {
+      background: var(--color-pure-white);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: row;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+
+    .clinic-editorial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+      border-color: var(--color-stone-300);
+    }
+
+    .card-photo-frame {
+      width: 40%;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--color-stone-200);
+    }
+
+    .card-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+
+    .clinic-editorial-card:hover .card-photo-frame img {
+      transform: scale(1.05);
+    }
+
+    .card-details-block {
+      width: 60%;
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .clinic-stars {
+      color: var(--color-bronze);
+      font-size: var(--font-size-caption);
+      margin-bottom: var(--space-1);
+    }
+
+    .clinic-tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-1);
+      margin-top: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .tech-tag {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-600);
+      background-color: var(--color-stone-100);
+      border: 1px solid var(--border-primary);
+      padding: 2px var(--space-2);
+      border-radius: var(--radius-sm);
+    }
+
+    .doctor-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      border-top: 1px solid var(--border-primary);
+      padding-top: var(--space-4);
+      margin-top: var(--space-2);
+    }
+
+    .doc-mini-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--color-stone-300);
+      overflow: hidden;
+      filter: grayscale(100%);
+    }
+
+    .doc-mini-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .doc-meta-name {
+      font-size: var(--font-size-micro);
+      color: var(--color-stone-500);
+      font-weight: 300;
+    }
+
+    .doc-meta-name strong {
+      color: var(--color-graphite);
+      font-weight: 400;
+    }
+
+    .card-actions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+    }
+
+    @media (max-width: 768px) {
+      .clinic-editorial-card {
+        flex-direction: column;
+      }
+      .card-photo-frame {
+        width: 100%;
+        height: 200px;
+      }
+      .card-details-block {
+        width: 100%;
+      }
+      .card-actions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="travertine-bg">
+
+  <!-- Sticky Transparent Navigation Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="homepage.html">LMCP</a>
+      </div>
+      <nav class="nav-menu">
+        <a href="clinical_collections.html">คอลเลกชัน</a>
+        <a href="homepage.html#concerns">ปัญหาผิว</a>
+        <a href="ingredient_encyclopedia.html">วิทยาศาสตร์ของส่วนผสม</a>
+        <a href="homepage.html#stories">ผลลัพธ์ทางคลินิก</a>
+        <a href="clinic_finder.html" class="active">คลินิก</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="search.html" class="nav-icon" aria-label="ค้นหา">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="#" class="nav-icon" aria-label="บัญชีผู้ใช้">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="#" class="btn-studio">Studio Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Split Discovery Workspace -->
+  <main class="finder-container">
+    <div class="finder-title-row">
+      <span class="header-mono" style="color: var(--color-bronze); letter-spacing: 0.15em;">CLINICAL LUXURY SPACES</span>
+      <h1>Find Your Clinical Experience</h1>
+      <p>ค้นหาและสัมผัสความงามระดับการแพทย์เฉพาะทาง ณ คลินิกสเปซพาร์ทเนอร์ของ LMCP</p>
+    </div>
+
+    <!-- Search bar -->
+    <div class="finder-search-box">
+      <div class="finder-search-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <input type="text" id="finder-search" class="finder-search-input" placeholder="ค้นหาตามแพทย์ โปรแกรม นวัตกรรมเลเซอร์ หรือสาขา..." autocomplete="off">
+    </div>
+
+    <!-- Filter pills row -->
+    <div class="finder-pills-row">
+      <button class="finder-pill active" onclick="setFilter('all', event)">ทั้งหมด</button>
+      <button class="finder-pill" onclick="setFilter('laser', event)">Laser Technology</button>
+      <button class="finder-pill" onclick="setFilter('injectables', event)">Injectables</button>
+      <button class="finder-pill" onclick="setFilter('barrier', event)">Barrier Recovery</button>
+      <button class="finder-pill" onclick="setFilter('acne', event)">Acne Program</button>
+      <button class="finder-pill" onclick="setFilter('antiaging', event)">Skin Longevity</button>
+    </div>
+
+    <!-- Dynamic Cards list -->
+    <div class="clinics-list-container" id="clinics-list">
+      <!-- Rendered dynamically -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="background-color: var(--color-stone-900); color: var(--color-stone-300); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="collection-container" style="display: grid; grid-template-columns: 1.5fr 2fr; gap: var(--space-10); padding-bottom: var(--space-10); max-width: 1440px; margin: 0 auto; padding: 0 var(--space-8);">
+      <div class="footer-brand">
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); margin-bottom: var(--space-3); letter-spacing: 0.1em;">LMCP</h3>
+        <div class="brand-manifesto" style="font-family: var(--font-heading); font-size: var(--font-size-h3); color: var(--color-clinical-white); line-height: 1.3; font-style: italic; margin-bottom: var(--space-5);">
+          <p class="manifesto-line-1">Where Clinical Excellence Meets Timeless Beauty.</p>
+          <p class="manifesto-line-2" style="color: var(--color-bronze);">We curate science, not trends.</p>
+        </div>
+      </div>
+      <div class="footer-links" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">PRODUCT</h6>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Restoration Serum</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Brightening Elixir</a>
+          <a href="product_detail.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">The Recovery Balm</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">KNOWLEDGE</h6>
+          <a href="ingredient_encyclopedia.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Active Encyclopedia</a>
+          <a href="journal_article.html" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Research Papers</a>
+        </div>
+        <div class="links-column">
+          <h6 style="font-family: var(--font-mono); font-size: var(--font-size-micro); color: var(--color-clinical-white); letter-spacing: 0.15em; margin-bottom: var(--space-4);">LEGAL & CONTACT</h6>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Privacy Policy</a>
+          <a href="#" style="display: block; font-size: var(--font-size-caption); color: var(--color-stone-400); text-decoration: none; margin-bottom: var(--space-3);">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.05); padding: var(--space-6) 0; max-width: 1440px; margin: 0 auto; padding: var(--space-6) var(--space-8);">
+      <div class="collection-container" style="display: flex; justify-content: space-between; font-size: var(--font-size-caption); color: var(--color-stone-500);">
+        <span>© 2026 LMCP. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search database & logic -->
+  <script>
+    // 1. Clinics Data Array
+    const clinicsDatabase = [
+      {
+        id: "clinic-emq",
+        name: "LMCP Studio - EmQuartier",
+        stars: "★★★★★ verified Sanctuary",
+        region: "Bangkok &bull; Phrom Phong",
+        image: "assets/editorial/exhibit_galderma.png",
+        techTags: ["Discovery Pico", "Ultherapy", "Mesotherapy"],
+        programs: ["laser", "injectables", "acne"],
+        directorName: "พญ. กัญญา พิมพ์ลภัส",
+        directorRole: "Dermatologist & Laser Specialist",
+        directorPortrait: "assets/people/doc_kanya.png",
+        mapUrl: "https://maps.google.com/?q=EmQuartier+Helix+Quartier",
+        description: "ศูนย์นวัตกรรมผิวพรรณพรีเมียมครบวงจร ตั้งอยู่ชั้น 3 ส่วนหรูหราของตึก The Helix Quartier เน้นเทคโนโลยีเลเซอร์ยกกระชับและการปรับเม็ดสีผิว"
+      },
+      {
+        id: "clinic-rjd",
+        name: "LMCP Studio - Rajadamri",
+        stars: "★★★★★ Verified Sanctuary",
+        region: "Bangkok &bull; Lumphini Plaza",
+        image: "assets/editorial/hero_skincare_travertine.png",
+        techTags: ["Barrier Recovery Program", "Ozone Therapy", "Peptide Infusion"],
+        programs: ["barrier", "acne", "antiaging"],
+        directorName: "นพ. ชัยวัฒน์ มณีรัตน์",
+        directorRole: "Anti-Aging Committee",
+        directorPortrait: "assets/people/doc_chaiwat.png",
+        mapUrl: "https://maps.google.com/?q=Ratchadamri+Road",
+        description: "สเปซส่วนตัวเพื่อการวิจัยและการฟื้นฟูแบริเออร์ทางผิวหนัง ตั้งอยู่ย่านใจกลางเมืองราชดำริ เน้นความเงียบสงบส่วนตัวและการปลอบประโลมผิวแพ้ง่ายอย่างประณีต"
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    // DOM Elements
+    const searchInput = document.getElementById('finder-search');
+    const clinicsList = document.getElementById('clinics-list');
+
+    // Init Page
+    searchInput.addEventListener('input', executeFinderFilter);
+    renderClinicsList(clinicsDatabase);
+
+    function setFilter(filter, event) {
+      currentFilter = filter;
+      
+      const pills = document.querySelectorAll('.finder-pill');
+      pills.forEach(pill => pill.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      
+      executeFinderFilter();
+    }
+
+    function executeFinderFilter() {
+      const query = searchInput.value.trim().toLowerCase();
+
+      const filtered = clinicsDatabase.filter(clinic => {
+        // Pill filter
+        if (currentFilter !== 'all' && !clinic.programs.includes(currentFilter)) {
+          return false;
+        }
+
+        // Search text query
+        if (query) {
+          const matchName = clinic.name.toLowerCase().includes(query);
+          const matchTech = clinic.techTags.some(tech => tech.toLowerCase().includes(query));
+          const matchDoc = clinic.directorName.toLowerCase().includes(query);
+          const matchDesc = clinic.description.toLowerCase().includes(query);
+          return matchName || matchTech || matchDoc || matchDesc;
+        }
+
+        return true;
+      });
+
+      renderClinicsList(filtered);
+    }
+
+    function renderClinicsList(data) {
+      clinicsList.innerHTML = '';
+
+      if (data.length === 0) {
+        clinicsList.innerHTML = `
+          <div style="text-align: center; padding: var(--space-8); color: var(--color-stone-500); font-weight: 300;">
+            <p>ไม่พบคลินิกที่สอดรับกับความต้องการหรือเงื่อนไขการค้นหาของคุณ</p>
+          </div>
+        `;
+        return;
+      }
+
+      data.forEach(clinic => {
+        const card = document.createElement('div');
+        card.className = 'clinic-editorial-card animate-fade-in';
+        card.id = clinic.id;
+
+        const techTagsHtml = clinic.techTags.map(tech => `<span class="tech-tag">${tech}</span>`).join('');
+
+        card.innerHTML = `
+          <div class="card-photo-frame">
+            <img src="${clinic.image}" alt="${clinic.name} Space interior">
+          </div>
+          <div class="card-details-block">
+            <div>
+              <div class="clinic-stars">★ ★ ★ ★ ★ <span style="font-family: var(--font-mono); font-size: var(--font-size-micro); text-transform: uppercase; color: var(--color-stone-500); margin-left: 4px;">Verified Space</span></div>
+              <span class="header-mono" style="font-size: var(--font-size-micro); color: var(--color-stone-400); letter-spacing: 0.05em; display: block; margin-bottom: 2px;">${clinic.region}</span>
+              <h3 style="font-family: var(--font-heading); font-size: var(--font-size-body); color: var(--color-graphite); font-weight: 500; line-height: 1.2; margin-bottom: var(--space-2);">${clinic.name}</h3>
+              <p style="font-size: var(--font-size-caption); color: var(--color-stone-500); line-height: 1.5; font-weight: 300;">${clinic.description}</p>
+              
+              <div class="clinic-tech-row">
+                ${techTagsHtml}
+              </div>
+            </div>
+            
+            <div>
+              <div class="doctor-badge">
+                <div class="doc-mini-avatar">
+                  <img src="${clinic.directorPortrait}" alt="${clinic.directorName}">
+                </div>
+                <div class="doc-meta-name">
+                  Medical Director<br>
+                  <strong>${clinic.directorName}</strong>
+                </div>
+              </div>
+              
+              <div class="card-actions-grid">
+                <a href="clinic_detail.html" class="btn-secondary" style="text-align: center; justify-content: center; font-size: var(--font-size-micro); text-decoration: none; padding: var(--space-2) 0; border-color: var(--color-stone-300);">ดูรายละเอียด &rarr;</a>
+                <a href="${clinic.mapUrl}" target="_blank" class="btn-secondary" style="text-align: center; justify-content: center; font-size: var(--font-size-micro); text-decoration: none; padding: var(--space-2) 0; border-color: var(--color-stone-300);">ดูแผนที่สาขา &rarr;</a>
+                <a href="consultation.html" class="btn-primary" style="text-align: center; justify-content: center; font-size: var(--font-size-micro); text-decoration: none; padding: var(--space-2) 0;">นัดหมายปรึกษา &rarr;</a>
+              </div>
+            </div>
+          </div>
+        `;
+        clinicsList.appendChild(card);
+      });
+    }
+
+    // Sticky Nav Scroll Logic
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.main-header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(248, 247, 244, 0.95)';
+        header.style.boxShadow = 'var(--shadow-soft)';
+      } else {
+        header.style.background = 'rgba(248, 247, 244, 0.7)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
