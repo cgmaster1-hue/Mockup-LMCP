@@ -861,3 +861,77 @@
   color: var(--color-graphite);
   font-weight: 500;
 }
+
+/* Comprehensive Mobile Responsiveness for Shop & Editorial Pages */
+@media (max-width: 960px) {
+  .hero-large-visual {
+    height: 360px;
+  }
+  .hero-huge-title {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+  }
+  .detail-hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .gallery-main {
+    height: 380px;
+  }
+  .collection-container, .featured-container, .concern-container, .footer-container {
+    padding: 0 var(--space-4);
+  }
+  .asymmetric-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .restoration-item, .brightening-item, .recovery-item {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+  .prod-visual {
+    height: 340px;
+  }
+  .ency-grid {
+    grid-template-columns: 1fr;
+  }
+  .ency-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-large-visual {
+    height: 260px;
+  }
+  .gallery-main {
+    height: 300px;
+  }
+  .detail-specs-card {
+    padding: var(--space-4);
+  }
+  .specs-title {
+    font-size: var(--font-size-h3);
+  }
+  .specs-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  .footer-corporate {
+    padding: var(--space-4);
+  }
+  .bottom-booking-bar {
+    padding: var(--space-3) var(--space-4);
+  }
+  .bar-prod-desc {
+    display: none;
+  }
+}
