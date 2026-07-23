@@ -370,10 +370,13 @@
   <!-- Smart Image Fallback -->
   <script>
     document.addEventListener('error', function(e) {
-      if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.fallback) {
-        e.target.dataset.fallback = 'true';
-        var filename = e.target.src.split('/').pop();
-        e.target.src = filename;
+      if (e.target && e.target.tagName === 'IMG') {
+        var currentSrc = e.target.getAttribute('src') || '';
+        var filename = currentSrc.split('/').pop();
+        if (filename && e.target.dataset.lastFailed !== filename) {
+          e.target.dataset.lastFailed = filename;
+          e.target.src = filename;
+        }
       }
     }, true);
   </script>
