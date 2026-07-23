@@ -18,10 +18,13 @@
   <!-- Smart Image Fallback -->
   <script>
     document.addEventListener('error', function(e) {
-      if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.fallback) {
-        e.target.dataset.fallback = 'true';
-        var filename = e.target.src.split('/').pop();
-        e.target.src = filename;
+      if (e.target && e.target.tagName === 'IMG') {
+        var currentSrc = e.target.getAttribute('src') || '';
+        var filename = currentSrc.split('/').pop();
+        if (filename && e.target.dataset.lastFailed !== filename) {
+          e.target.dataset.lastFailed = filename;
+          e.target.src = filename;
+        }
       }
     }, true);
   </script>
@@ -614,14 +617,16 @@
     // 5. Product Gallery Switcher
     function switchGalleryImage(src, index) {
       const mainImg = document.getElementById('main-product-img');
+      if (!mainImg) return;
       mainImg.style.opacity = '0';
       
       // Update active thumbnail
       const thumbs = document.querySelectorAll('.thumb-item');
       thumbs.forEach(thumb => thumb.classList.remove('active'));
-      thumbs[index].classList.add('active');
+      if (thumbs[index]) thumbs[index].classList.add('active');
 
       setTimeout(() => {
+        delete mainImg.dataset.lastFailed;
         mainImg.src = src;
         mainImg.style.opacity = '1';
       }, 250);
