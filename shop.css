@@ -1066,3 +1066,60 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+/* Universal Platform-Wide Mobile Overrides (<768px) */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-8) !important;
+    padding: 0 var(--space-4) var(--space-8) var(--space-4) !important;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-6) !important;
+  }
+
+  .footer-corporate {
+    padding: var(--space-4) !important;
+  }
+
+  .clinic-tech-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ency-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ency-card {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-4) !important;
+  }
+
+  .compare-matrix-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .search-results-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consultation-booking-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .journal-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .studio-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .studio-sidebar {
+    position: relative !important;
+    width: 100% !important;
+  }
+}
